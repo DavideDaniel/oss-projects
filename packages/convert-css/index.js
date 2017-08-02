@@ -12,13 +12,6 @@ function sequence() {
   };
 }
 
-// const replaceSpaces = str => str.replace(' ','__');
-
-// const key1 = '.ncss-select-container.error .ncss-select-menu';
-// const key2 = '.ncss-select-container';
-// const keys = replaceSpaces(key1).split(/(?=\.)|(?=#)|(?=\[)/);
-// const arrKeys = [keys , key2];
-
 const isString = str => typeof str === 'string';
 
 // const SYMBOL = /!-!/ig
@@ -30,8 +23,6 @@ const replaceSpace = str => str.replace(/\s/gi, '_');
 const replace___ = str => str.replace('___','__');
 
 const normalizeToStr = key => isString(key) ? key : key[0];
-
-const complexKey = '.ncss-toggle-btn-item .ncss-radio:checked+.ncss-label';
 
 
 /**
@@ -47,18 +38,15 @@ const replaceCssSyntax = sequence(
   // replaceSymbol // return dashes to original
 );
 
-const translateFromCss = key => isString(key)
+const convertKey = key => isString(key)
   ? replaceCssSyntax(key)
   : key.map(replaceCssSyntax)[0];
 
-// const mapped = arrKeys.map(translateFromCss)
-// const newKey = translateFromCss(complexKey);
-
-function transformCssObj(obj) {
+function convertKeyNames(obj) {
   const newObj = {}
   const objKeys = Object.keys(obj);
   for (var i = 0; i < objKeys.length; i++) {
-    newObj[translateFromCss(objKeys[i])]= obj[objKeys[i]];
+    newObj[convertKey(objKeys[i])]= obj[objKeys[i]];
   }
   return newObj;
 }
@@ -76,7 +64,7 @@ function mungeRules(rules) {
         let ruleObj = {};
         if (propExists(declarations) && propExists(selectors)) {
           declarations.forEach(({ property, value }) => { ruleObj[property] = value });
-          selectors.map(s => ({[s]:camelize(ruleObj)})).forEach(r => rulesArr.push(r));
+          selectors.map(s => ({[s]:ruleObj})).forEach(r => rulesArr.push(r));
         }
       } else if(type === 'media') {
         rulesArr.concat(mungeRules(rule.rules));
@@ -87,9 +75,9 @@ function mungeRules(rules) {
   return rulesArr;
 }
 
-function transformCssString(string) {
-  if (typeof string !== 'string') {
-    throw new Error('transformCssString needs a string to convert')
+function cssToJson(string) {
+  if (!isString(string)) {
+    throw new Error('cssToJson needs a valid css string to convert')
   }
 
   const ast = parse(string);
@@ -97,12 +85,26 @@ function transformCssString(string) {
   if(ast.stylesheet && ast.stylesheet.rules) {
     return mungeRules(ast.stylesheet.rules)
   } else {
-    throw new Error('transformCssString needs a valid ast object')
+    throw new Error('cssToJson needs a valid ast object')
   }
 }
 
+function cssToCamelizedJson(string) {
+  if (!isString(string)) {
+    throw new Error('cssToCamelizedJson needs a valid css string to convert')
+  }
+  const json = cssToJson(string);
+  return json.map(obj => {
+    const key = Object.keys(obj)[0];
+    return {
+      [key]: camelize(obj[key])
+    }
+  });
+}
+
 module.exports = {
-  translateFromCss,
-  transformCssObj,
-  transformCssString
+  convertKey,
+  convertKeyNames,
+  cssToJson,
+  cssToCamelizedJson
 };
