@@ -43,7 +43,7 @@ const convertKey = key => isString(key)
   : key.map(replaceCssSyntax)[0];
 
 function convertKeyNames(obj) {
-  const newObj = {}
+  const newObj = {};
   const objKeys = Object.keys(obj);
   for (var i = 0; i < objKeys.length; i++) {
     newObj[convertKey(objKeys[i])]= obj[objKeys[i]];
@@ -77,7 +77,7 @@ function mungeRules(rules) {
 
 function cssToJson(string) {
   if (!isString(string)) {
-    throw new Error('cssToJson needs a valid css string to convert')
+    throw new Error('cssToJson needs a valid css string to convert');
   }
 
   const ast = parse(string);
@@ -85,13 +85,13 @@ function cssToJson(string) {
   if(ast.stylesheet && ast.stylesheet.rules) {
     return mungeRules(ast.stylesheet.rules)
   } else {
-    throw new Error('cssToJson needs a valid ast object')
+    throw new Error('cssToJson needs a valid ast object');
   }
 }
 
 function cssToCamelizedJson(string) {
   if (!isString(string)) {
-    throw new Error('cssToCamelizedJson needs a valid css string to convert')
+    throw new Error('cssToCamelizedJson needs a valid css string to convert');
   }
   const json = cssToJson(string);
   return json.map(obj => {
