@@ -1,6 +1,11 @@
 const parse = require('css-parse');
 const camelize = require('camelize');
 
+/**
+ * [sequence takes in functions and calls them in sequence, same as pipe]
+ * @param  {[Functions]} arguments [n number of functions]
+ * @return [result of last function in sequence]
+ */
 function sequence() {
   const fns = arguments;
   return function () {
@@ -38,6 +43,11 @@ const replaceCssSyntax = sequence(
   // replaceSymbol // return dashes to original
 );
 
+/**
+ * [convertKey replaces css selector syntax with underscores ]
+ * @param  {[String]} key [css selector]
+ * @return {[String]}     [reformatted selector key]
+ */
 const convertKey = key => isString(key)
   ? replaceCssSyntax(key)
   : key.map(replaceCssSyntax)[0];
@@ -53,6 +63,11 @@ function convertKeyNames(obj) {
 
 const propExists = prop => prop.length;
 
+/**
+ * [mungeRules reformats rules array from css ast]
+ * @param  {[Array]} rules [an array of css rules]
+ * @return {[Array]}       [array of css rules with keys for JSON]
+ */
 function mungeRules(rules) {
   const rulesArr = [];
   for (let i = 0; i < rules.length; i++) {
@@ -75,6 +90,11 @@ function mungeRules(rules) {
   return rulesArr;
 }
 
+/**
+ * [cssToJson takes a string as a parameter and returns JSON]
+ * @param  {[String]} string [css string]
+ * @return {[Object]}        [JSON derived from css ast]
+ */
 function cssToJson(string) {
   if (!isString(string)) {
     throw new Error('cssToJson needs a valid css string to convert');
@@ -89,6 +109,11 @@ function cssToJson(string) {
   }
 }
 
+/**
+ * [cssToCamelizedJson takes a string as a parameter and returns JSON]
+ * @param  {[String]} string [css string]
+ * @return {[Object]}        [camelized values in JSON object derviced from ast]
+ */
 function cssToCamelizedJson(string) {
   if (!isString(string)) {
     throw new Error('cssToCamelizedJson needs a valid css string to convert');
