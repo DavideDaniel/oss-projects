@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "David Daniel, <david.daniel@nike.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "node __tests__/index.js"
+  },
   "dependencies": {
     "camelize": "^1.0.0",
     "css-parse": "^2.0.0"
