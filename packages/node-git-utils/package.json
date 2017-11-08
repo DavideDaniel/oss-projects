@@ -1,0 +1,42 @@
+{
+  "name": "node-git-utils",
+  "version": "1.0.0",
+  "description": "Handy git methods as js functions for usage in node tools/apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "bump": "bump --prompt --commit --push",
+    "postbump": "editme -w",
+    "lint": "eslint --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavideDaniel/node-git-utils.git"
+  },
+  "keywords": [
+    "node",
+    "git",
+    "utility",
+    "functions",
+    "log",
+    "tag",
+    "commits"
+  ],
+  "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavideDaniel/node-git-utils/issues"
+  },
+  "homepage": "https://github.com/DavideDaniel/node-git-utils#readme",
+  "devDependencies": {
+    "editme": "^1.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-json": "^2.0.0",
+    "eslint-plugin-import": "^2.6.0",
+    "version-bump-prompt": "^3.1.0"
+  },
+  "dependencies": {
+    "execa": "^0.8.0"
+  }
+}
