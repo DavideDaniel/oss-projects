@@ -1,6 +1,6 @@
 {
   "name": "node-git-utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Handy git methods as js functions for usage in node tools/apps.",
   "main": "index.js",
   "scripts": {
