@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/DavideDaniel/node-git-utils#readme",
   "devDependencies": {
+    "babel-eslint": "^8.2.1",
     "editme": "^1.1.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",

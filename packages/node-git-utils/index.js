@@ -36,6 +36,17 @@ function hasTags(opts) {
   return !!execSync('git', ['tag'], opts);
 }
 
+function getFromLastTag(opts) {
+  const format = (opts && opts.format) || '%s | %an';
+  return execSync('git', ['log', '-1', `--format=${format}`, getLastTaggedCommitInBranch()], opts);
+}
+
+function getStringifiedFromLastTag(opts = {}) {
+  const format = opts.format || '{ author:"%an", subject: "%s" }';
+  const str = getFromLastTag({ format, ...opts });
+  return JSON.stringify(str);
+}
+
 function getCommitsSinceLastTag(opts) {
   const options = opts || {};
   const { folderPath, withMerges } = options;
@@ -57,10 +68,12 @@ function getInbetweenCommits(opts) {
 }
 
 module.exports = {
+  getLastTag,
   getInbetweenCommits,
   getCommitsSinceLastTag,
   getLastTaggedCommitInBranch,
   getLastTaggedCommit,
+  getStringifiedFromLastTag,
   getCurrentBranch,
   getCurrentSHA,
   getTagsFromCommit,
