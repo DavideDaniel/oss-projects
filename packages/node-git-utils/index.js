@@ -67,7 +67,17 @@ function getInbetweenCommits(opts) {
   return execSync('git', args, opts);
 }
 
+function addTag(tag, opts) {
+  return execSync('git', ['tag', tag, '-m', tag], opts);
+}
+
+function commit(message, opts) {
+  return execSync('git', ['commit', '--no-verify'], opts);
+}
+
 module.exports = {
+  addTag,
+  commit,
   getLastTag,
   getInbetweenCommits,
   getCommitsSinceLastTag,
