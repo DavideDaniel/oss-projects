@@ -75,8 +75,25 @@ function commit(message, opts) {
   return execSync('git', ['commit', '--no-verify'], opts);
 }
 
+function checkout(opts) {
+  if (opts.commit) {
+    return execSync('git', ['checkout', opts.commit]);
+  }
+
+  const {
+    branch, start, noTrack, remote,
+  } = opts;
+  const b = start ? '-b' : '';
+  const rb = remote ? `--track ${remote}/${branch}` : '';
+  const nt = noTrack ? '--no-track' : '';
+
+  const args = concatAndFilter(['checkout'], [b, branch, nt, rb]);
+  return execSync('git', args, opts);
+}
+
 module.exports = {
   addTag,
+  checkout,
   commit,
   getLastTag,
   getInbetweenCommits,
