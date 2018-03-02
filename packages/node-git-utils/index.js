@@ -91,9 +91,14 @@ function checkout(opts) {
   return execSync('git', args, opts);
 }
 
+function cherryPick(hash, opts) {
+  return execSync('git', ['cherry-pick', hash], opts);
+}
+
 module.exports = {
   addTag,
   checkout,
+  cherryPick,
   commit,
   getLastTag,
   getInbetweenCommits,
