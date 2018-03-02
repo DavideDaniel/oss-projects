@@ -95,6 +95,13 @@ function cherryPick(hash, opts) {
   return execSync('git', ['cherry-pick', hash], opts);
 }
 
+function revert(opts) {
+  const { noEdit } = opts;
+  const ne = noEdit ? '--no-edit' : '';
+  const args = concatAndFilter(['revert'], [ne]);
+  return execSync('git', args, opts);
+}
+
 module.exports = {
   addTag,
   checkout,
@@ -110,4 +117,5 @@ module.exports = {
   getCurrentSHA,
   getTagsFromCommit,
   hasTags,
+  revert,
 };
