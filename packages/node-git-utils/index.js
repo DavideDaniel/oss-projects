@@ -49,11 +49,24 @@ function getStringifiedFromLastTag(opts = {}) {
 
 function getCommitsSinceLastTag(opts) {
   const options = opts || {};
-  const { folderPath, withMerges } = options;
+  const { folderPath, withMerges, format } = options;
   const includeMerges = withMerges ? '' : '--no-merges';
   const fp = folderPath || '';
-  const args = concatAndFilter(['log', `${getLastTag()}..HEAD`, '--pretty=%s | [%an]'], [includeMerges, fp]);
+  const f = format || '--pretty=%s | [%an]';
+  const args = concatAndFilter(['log', `${getLastTag()}..HEAD`, f], [includeMerges, fp]);
   return execSync('git', args, options);
+}
+
+function getLastCommitWithSubject(sub, opts = {}) {
+  const f = opts.format || '--pretty=%H|%s';
+  const cmts = getCommitsSinceLastTag({ format: f }, opts);
+
+  const arr = cmts.split('\n');
+
+  return arr.map((line) => {
+    const [hash, subject] = line.split('|');
+    return { hash, subject };
+  }).filter(({ subject }) => subject === sub)[0];
 }
 
 function getInbetweenCommits(opts) {
@@ -95,10 +108,10 @@ function cherryPick(hash, opts) {
   return execSync('git', ['cherry-pick', hash], opts);
 }
 
-function revert(opts) {
+function revert(hash, opts) {
   const { noEdit } = opts;
   const ne = noEdit ? '--no-edit' : '';
-  const args = concatAndFilter(['revert'], [ne]);
+  const args = concatAndFilter(['revert', hash], [ne]);
   return execSync('git', args, opts);
 }
 
@@ -110,6 +123,7 @@ module.exports = {
   getLastTag,
   getInbetweenCommits,
   getCommitsSinceLastTag,
+  getLastCommitWithSubject,
   getLastTaggedCommitInBranch,
   getLastTaggedCommit,
   getStringifiedFromLastTag,
