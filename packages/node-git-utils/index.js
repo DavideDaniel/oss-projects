@@ -57,18 +57,6 @@ function getCommitsSinceLastTag(opts) {
   return execSync('git', args, options);
 }
 
-function getLastCommitWithSubject(sub, opts = {}) {
-  const f = opts.format || '--pretty=%H|%s';
-  const cmts = getCommitsSinceLastTag({ format: f }, opts);
-
-  const arr = cmts.split('\n');
-
-  return arr.map((line) => {
-    const [hash, subject] = line.split('|');
-    return { hash, subject };
-  }).filter(({ subject }) => subject === sub)[0];
-}
-
 function getInbetweenCommits(opts) {
   const {
     a, b, withMerges, folderPath,
@@ -85,7 +73,10 @@ function addTag(tag, opts) {
 }
 
 function commit(message, opts) {
-  return execSync('git', ['commit', '--no-verify'], opts);
+  const { noVerify } = opts;
+  const nv = noVerify ? '--no-verify' : '';
+  const args = concatAndFilter(['commit', '-m', nv], [message]);
+  return execSync('git', args, opts);
 }
 
 function checkout(opts) {
@@ -123,7 +114,6 @@ module.exports = {
   getLastTag,
   getInbetweenCommits,
   getCommitsSinceLastTag,
-  getLastCommitWithSubject,
   getLastTaggedCommitInBranch,
   getLastTaggedCommit,
   getStringifiedFromLastTag,
