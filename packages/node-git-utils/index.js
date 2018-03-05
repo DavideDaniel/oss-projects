@@ -72,7 +72,7 @@ function addTag(tag, opts) {
   return execSync('git', ['tag', tag, '-m', tag], opts);
 }
 
-function commit(message, opts) {
+function commit(message, opts = {}) {
   const { noVerify } = opts;
   const nv = noVerify ? '--no-verify' : '';
   const args = concatAndFilter(['commit', '-m', nv], [message]);
