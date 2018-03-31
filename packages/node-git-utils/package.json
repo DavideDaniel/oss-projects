@@ -4,10 +4,10 @@
   "description": "Handy git methods as js functions for usage in node tools/apps.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "i": "yarn install --frozen-lockfile",
+    "test": "yarn lint && jest",
     "test:watch": "jest --watchAll",
     "bump": "bump --prompt --commit --push",
-    "postbump": "editme -w",
     "lint": "eslint --ignore-path .gitignore ."
   },
   "repository": {
@@ -31,7 +31,6 @@
   "homepage": "https://github.com/DavideDaniel/node-git-utils#readme",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "editme": "^1.1.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-json": "^2.0.0",
