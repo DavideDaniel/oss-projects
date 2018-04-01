@@ -1,11 +1,15 @@
 version: 2
 
+# set shared defaults across jobs
+defaults: &defaults
+  working_directory: ~/ngu
+  docker:
+    - image: circleci/node:8.10-stretch
+
 jobs:
   # checkout repo
   checkout_code:
-    docker:
-      - image: circleci/node:8.10-stretch
-    working_directory: ~/ngu
+    <<: *defaults
     steps:
       - checkout
       - run:
@@ -17,9 +21,7 @@ jobs:
             - ngu
   # install dependencies
   install_npm_deps:
-    docker:
-      - image: circleci/node:8.10-stretch
-    working_directory: ~/ngu
+    <<: *defaults
     steps:
       - run:
           name: Record SHA
@@ -51,9 +53,7 @@ jobs:
 
   # circle needs a build step no matter what
   build:
-    docker:
-      - image: circleci/node:8.10-stretch
-    working_directory: ~/ngu
+    <<: *defaults
     steps:
       - run:
           name: Record SHA
@@ -63,9 +63,7 @@ jobs:
 
   # our verify step
   test:
-    docker:
-      - image: circleci/node:8.10-stretch
-    working_directory: ~/ngu
+    <<: *defaults
     steps:
       - run:
           name: Record SHA
@@ -76,10 +74,23 @@ jobs:
           name: Test
           command: cd ngu && yarn test
 
+  # publish
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/ngu
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/ngu/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
 # our workflow per v2
 workflows:
   version: 2
-  build_and_test:
+  build_test_and_deploy:
     jobs:
       - checkout_code
       - install_npm_deps:
@@ -91,3 +102,15 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          context: node
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
