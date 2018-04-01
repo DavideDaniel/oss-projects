@@ -81,7 +81,7 @@ jobs:
       - attach_workspace:
           at: ~/ngu
       - run:
-          name: Authenticate with registry
+          name: Authenticate with NPM
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/ngu/.npmrc
       - run:
           name: Publish package
