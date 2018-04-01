@@ -1,0 +1,12 @@
+{
+  "name": "oss-projects",
+  "version": "1.0.0",
+  "description": "Various OSS projects",
+  "main": "index.js",
+  "author": "David Daniel, <david.daniel@nike.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "lerna": "^2.9.1"
+  }
+}
