@@ -51,7 +51,10 @@ jobs:
 
   # circle needs a build step no matter what
   build:
-     steps:
+    docker:
+      - image: circleci/node:8.10-stretch
+    working_directory: ~/ngu
+    steps:
       - run:
           name: Record SHA
           command: echo $CIRCLE_SHA1 > .circle-sha
@@ -64,9 +67,14 @@ jobs:
       - image: circleci/node:8.10-stretch
     working_directory: ~/ngu
     steps:
+      - run:
+          name: Record SHA
+          command: echo $CIRCLE_SHA1 > .circle-sha
       - attach_workspace:
           at: ./
-      - run: cd ngu && yarn test
+      - run:
+          name: Test
+          command: cd ngu && yarn test
 
 # our workflow per v2
 workflows:
