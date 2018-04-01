@@ -1,50 +1,85 @@
 version: 2
 
 jobs:
-  build:
+  # checkout repo
+  checkout_code:
     docker:
       - image: circleci/node:8.10-stretch
-    working_directory: ~/node-git-utils
+    working_directory: ~/ngu
     steps:
       - checkout
-      # Download and cache dependencies
+      - run:
+          name: Record SHA
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - ngu
+  # install dependencies
+  install_npm_deps:
+    docker:
+      - image: circleci/node:8.10-stretch
+    working_directory: ~/ngu
+    steps:
+      - run:
+          name: Record SHA
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - attach_workspace:
+          at: ./
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "./ngu/yarn.lock" }}
             - yarn-packages
       - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          name: Install dependencies
+          command: cd ngu && yarn install --frozen-lockfile
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          key: yarn-packages-{{ checksum "./ngu/yarn.lock" }}
           paths:
-            - node_modules
+            - ./ngu/node_modules
       - save_cache:
-          name: Save Yarn Package Cache
+          name: Save Backup Package Cache
           key: yarn-packages
           paths:
-            - node_modules
+            - ./ngu/node_modules
       - persist_to_workspace:
           root: .
           paths:
-            - node_modules
+            - ngu/node_modules
 
+  # circle needs a build step no matter what
+  build:
+     steps:
+      - run:
+          name: Record SHA
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - attach_workspace:
+          at: ./
+
+  # our verify step
   test:
     docker:
       - image: circleci/node:8.10-stretch
-    working_directory: ~/node-git-utils
+    working_directory: ~/ngu
     steps:
       - attach_workspace:
           at: ./
-      - run: yarn test
+      - run: cd ngu && yarn test
 
+# our workflow per v2
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - checkout_code
+      - install_npm_deps:
+          requires:
+            - checkout_code
+      - build:
+          requires:
+            - install_npm_deps
       - test:
           requires:
             - build
