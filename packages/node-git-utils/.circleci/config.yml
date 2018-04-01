@@ -4,29 +4,40 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10-stretch
+    working_directory: ~/node-git-utils
     steps:
       - checkout
       # Download and cache dependencies
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-{{ .Branch }}
-            - yarn-packages-master
-            - yarn-packages-
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules/
+            - node_modules
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+
   test:
     docker:
       - image: circleci/node:8.10-stretch
+    working_directory: ~/node-git-utils
     steps:
-      - checkout
+      - attach_workspace:
+          at: ./
       - run: yarn test
 
 workflows:
