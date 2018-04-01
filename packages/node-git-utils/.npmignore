@@ -1,0 +1,7 @@
+.dev
+.circleci
+
+*.log
+*.test.js
+.eslintrc.yaml
+.nvmrc
