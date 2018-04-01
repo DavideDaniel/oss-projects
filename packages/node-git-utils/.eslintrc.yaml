@@ -18,9 +18,4 @@ rules:
     exports: always-multiline
     functions: ignore
 globals:
-  it: true
-  expect: true
-  describe: true
-  beforeEach: true
-  afterEach: true
   sinon: true
