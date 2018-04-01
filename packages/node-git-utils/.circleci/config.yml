@@ -79,13 +79,13 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/ngu
+          at: ./
       - run:
           name: Authenticate with NPM
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/ngu/.npmrc
+          command: cd ngu && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish package
-          command: npm publish
+          command: cd ngu && npm publish
 
 # our workflow per v2
 workflows:
