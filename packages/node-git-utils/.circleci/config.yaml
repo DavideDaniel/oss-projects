@@ -1,9 +1,10 @@
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
 version: 2
+
 jobs:
   build:
     docker:
       - image: circleci/node:8.10-stretch
+
     steps:
       - checkout
       # Download and cache dependencies
