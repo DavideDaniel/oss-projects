@@ -3,19 +3,22 @@ const ngu = require('./index');
 
 const git = 'git';
 
+jest.mock('execa', () => ({
+  sync: jest.fn((command, args, opts) => ({
+    command, args, opts, stdout: true,
+  })),
+}));
 
 describe('node-git-utils', () => {
-  const spy = jest.spyOn(execa, 'sync');
+  const mockOpts = {};
   beforeEach(() => {
-    spy.mockClear();
+    jest.clearAllMocks();
   });
-  it('should call git when calling getCurrentSHA', () => {
-    const mockOpts = {};
+  it('should call git rev-parse when calling getCurrentSHA', () => {
     ngu.getCurrentSHA(mockOpts);
 
-    expect(spy).toHaveBeenCalledWith(git, ['rev-parse', 'HEAD'], mockOpts);
+    expect(execa.sync).toHaveBeenCalledWith(git, ['rev-parse', 'HEAD'], mockOpts);
   });
-  // addTag,
   // checkout,
   // cherryPick,
   // commit,
@@ -30,10 +33,9 @@ describe('node-git-utils', () => {
   // getTagsFromCommit,
   // hasTags,
   // revert
-  it('should call git when calling addTag', () => {
-    const mockOpts = {};
-    ngu.addTag(mockOpts);
+  it('should call git tag when calling addTag', () => {
+    ngu.addTag('test', mockOpts);
 
-    expect(spy).toHaveBeenCalledWith(git, ['rev-parse', 'HEAD'], mockOpts);
+    expect(execa.sync).toHaveBeenCalledWith(git, ['tag', 'test', '-m', 'test'], mockOpts);
   });
 });
