@@ -107,7 +107,9 @@ function revert(hash, opts) {
   return execSync('git', args, opts);
 }
 
+const add = (files, opts) => execSync('git', ['add', files], opts);
 module.exports = {
+  add,
   addTag,
   checkout,
   cherryPick,
