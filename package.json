@@ -15,7 +15,6 @@
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
     "test:watch": "lerna exec --since -- jest --watch --no-watchman",
     "lint": "lerna run lint --since --no-sort --stream",
-    "gen": "GITHUB_AUTH=$LERNA_CHANGELOG lerna-changelog"
     "ci:publish": "lerna publish --conventional-commits --yes"
   },
   "jest-junit": {

@@ -2,12 +2,5 @@
   "lerna": "2.9.1",
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true,
-  "changelog": {
-    "labels": {
-      "enhancement": ":rocket: Enhancement",
-      "bug": ":bug: Bug Fix"
-    },
-    "cacheDir": ".changelog"
-  }
+  "useWorkspaces": true
 }
