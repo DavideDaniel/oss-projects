@@ -2,11 +2,38 @@
   "name": "oss-projects",
   "version": "1.0.0",
   "description": "Various OSS projects",
-  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
   "author": "David Daniel, <david.daniel@nike.com>",
   "license": "MIT",
-  "private": false,
+  "scripts": {
+    "i": "yarn install --frozen-lockfile",
+    "build": "lerna run build --no-sort --stream",
+    "clean": "lerna clean --yes && rimraf dist es node_modules",
+    "test": "jest --colors --maxWorkers=2",
+    "test:watch": "jest --watch --no-watchman",
+    "lint": "lerna run lint --no-sort --stream",
+    "ci:publish": "lerna publish --skip-npm --skip-git --conventional-commits"
+  },
+  "jest-junit": {
+    "suiteName": "oss-projects",
+    "output": "reports/junit.xml",
+    "usePathForSuiteName": "true",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › "
+  },
   "devDependencies": {
-    "lerna": "^2.9.1"
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-json": "^2.0.0",
+    "eslint-plugin-import": "^2.6.0",
+    "jest": "^22.4.2",
+    "jest-junit": "^3.6.0",
+    "lerna": "^2.9.1",
+    "rimraf": "^2.6.2"
   }
 }

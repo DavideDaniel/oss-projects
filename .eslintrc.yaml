@@ -1,0 +1,20 @@
+parser: babel-eslint
+extends: airbnb-base
+env:
+  mocha: true
+  node: true
+  jest: true
+rules:
+  func-names: error
+  import/no-extraneous-dependencies:
+  - "error"
+  - packageDir: "./package.json"
+  comma-dangle:
+  - error
+  - arrays: always-multiline
+    objects: always-multiline
+    imports: always-multiline
+    exports: always-multiline
+    functions: ignore
+globals:
+  sinon: true

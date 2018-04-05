@@ -15,4 +15,25 @@ describe('node-git-utils', () => {
 
     expect(spy).toHaveBeenCalledWith(git, ['rev-parse', 'HEAD'], mockOpts);
   });
+  // addTag,
+  // checkout,
+  // cherryPick,
+  // commit,
+  // getLastTag,
+  // getInbetweenCommits,
+  // getCommitsSinceLastTag,
+  // getLastTaggedCommitInBranch,
+  // getLastTaggedCommit,
+  // getStringifiedFromLastTag,
+  // getCurrentBranch,
+  // getCurrentSHA,
+  // getTagsFromCommit,
+  // hasTags,
+  // revert
+  it('should call git when calling addTag', () => {
+    const mockOpts = {};
+    ngu.addTag(mockOpts);
+
+    expect(spy).toHaveBeenCalledWith(git, ['rev-parse', 'HEAD'], mockOpts);
+  });
 });

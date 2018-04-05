@@ -41,9 +41,10 @@ function getFromLastTag(opts) {
   return execSync('git', ['log', '-1', `--format=${format}`, getLastTaggedCommitInBranch()], opts);
 }
 
-function getStringifiedFromLastTag(opts = {}) {
+function getStringifiedFromLastTag(options) {
+  const opts = options || {};
   const format = opts.format || '{ author:"%an", subject: "%s" }';
-  const str = getFromLastTag({ format, ...opts });
+  const str = getFromLastTag(Object.assign({}, format, opts));
   return JSON.stringify(str);
 }
 
