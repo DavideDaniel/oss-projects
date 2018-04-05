@@ -15,7 +15,7 @@
     "test": "jest --colors --maxWorkers=2",
     "test:watch": "jest --watch --no-watchman",
     "lint": "lerna run lint --no-sort --stream",
-    "ci:publish": "lerna publish --skip-npm --skip-git --conventional-commits"
+    "ci:publish": "lerna publish --conventional-commits"
   },
   "jest-junit": {
     "suiteName": "oss-projects",
@@ -34,6 +34,7 @@
     "jest": "^22.4.2",
     "jest-junit": "^3.6.0",
     "lerna": "^2.9.1",
+    "lerna-changelog": "^0.7.0",
     "rimraf": "^2.6.2"
   }
 }
