@@ -12,10 +12,11 @@
     "i": "yarn install --frozen-lockfile",
     "build": "lerna run build --no-sort --stream",
     "clean": "lerna clean --yes && rimraf dist es node_modules",
-    "test": "jest --colors --maxWorkers=2",
-    "test:watch": "jest --watch --no-watchman",
+    "test": "lerna exec --since -- jest --colors --maxWorkers=2",
+    "test:watch": "lerna exec --since -- jest --watch --no-watchman",
     "lint": "lerna run lint --no-sort --stream",
-    "ci:publish": "lerna publish --conventional-commits"
+    "ci:publish": "lerna publish --conventional-commits",
+    "gen": "GITHUB_AUTH=$LERNA_CHANGELOG lerna-changelog"
   },
   "jest-junit": {
     "suiteName": "oss-projects",
