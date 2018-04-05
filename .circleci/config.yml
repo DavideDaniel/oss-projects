@@ -35,7 +35,7 @@ jobs:
             - yarn-packages
       - run:
           name: Install dependencies
-          command: cd ngu && yarn i
+          command: cd ngu && git remote & yarn i
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "./ngu/yarn.lock" }}
