@@ -107,7 +107,14 @@ function revert(hash, opts) {
   return execSync('git', args, opts);
 }
 
+const npmVersion = (location, releaseType, opts) => {
+  const skipTag = opts.skipTag ? '--no-git-tag-version' : '';
+  const args = concatAndFilter([skipTag, 'version'], [releaseType]);
+  return execSync('npm', args, { cwd: location, ...opts });
+};
+
 const add = (files, opts) => execSync('git', ['add', files], opts);
+
 module.exports = {
   add,
   addTag,
@@ -124,5 +131,6 @@ module.exports = {
   getCurrentSHA,
   getTagsFromCommit,
   hasTags,
+  npmVersion,
   revert,
 };

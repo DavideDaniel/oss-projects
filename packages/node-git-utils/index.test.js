@@ -38,4 +38,14 @@ describe('node-git-utils', () => {
 
     expect(execa.sync).toHaveBeenCalledWith(git, ['tag', 'test', '-m', 'test'], mockOpts);
   });
+  it('should call npm version when calling npmVersion', () => {
+    ngu.npmVersion('/location', 'patch', mockOpts);
+
+    expect(execa.sync).toHaveBeenCalledWith('npm', ['version', 'patch'], { cwd: '/location' });
+  });
+  it('should call npm version --not-tags when calling npmVersion with skipTag', () => {
+    ngu.npmVersion('/location', 'patch', { skipTag: true });
+
+    expect(execa.sync).toHaveBeenCalledWith('npm', ['--no-git-tag-version', 'version', 'patch'], { cwd: '/location', skipTag: true });
+  });
 });
