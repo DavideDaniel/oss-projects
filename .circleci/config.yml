@@ -85,7 +85,10 @@ jobs:
           command: cd ngu && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish package
-          command: cd ngu && yarn ci:publish
+          command: |
+            git config --global user.email "$GIT_AUTHOR_EMAIL"
+            git config --global user.name "$GIT_AUTHOR_NAME"
+            cd ngu && yarn ci:publish
 
 # our workflow per v2
 workflows:
