@@ -35,7 +35,7 @@ jobs:
             - yarn-packages
       - run:
           name: Install dependencies
-          command: cd ngu && yarn install --frozen-lockfile
+          command: cd ngu && yarn i
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "./ngu/yarn.lock" }}
@@ -85,7 +85,7 @@ jobs:
           command: cd ngu && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish package
-          command: cd ngu && npm publish
+          command: cd ngu && yarn ci:publish
 
 # our workflow per v2
 workflows:
