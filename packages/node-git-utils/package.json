@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
     "test:watch": "npx jest --watch --no-watchman",
-    "lint": "eslint --ignore-path node_modules ."
+    "lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",

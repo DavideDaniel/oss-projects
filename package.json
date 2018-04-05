@@ -14,7 +14,7 @@
     "clean": "lerna clean --yes && rimraf dist es node_modules",
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
     "test:watch": "lerna exec --since -- jest --watch --no-watchman",
-    "lint": "lerna run lint --no-sort --stream",
+    "lint": "lerna run lint --since --no-sort --stream",
     "ci:publish": "lerna publish --conventional-commits",
     "gen": "GITHUB_AUTH=$LERNA_CHANGELOG lerna-changelog"
   },
