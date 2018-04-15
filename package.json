@@ -34,7 +34,7 @@
     "gen-changelog": "file:./packages/gen-changelog",
     "jest": "^22.4.2",
     "jest-junit": "^3.6.0",
-    "lerna": "^2.10.1",
+    "lerna": "^3.0.0-beta.17",
     "lerna-changelog": "^0.7.0",
     "rimraf": "^2.6.2"
   }
