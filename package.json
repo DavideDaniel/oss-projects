@@ -31,9 +31,10 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-json": "^2.0.0",
     "eslint-plugin-import": "^2.6.0",
+    "gen-changelog": "file:./packages/gen-changelog",
     "jest": "^22.4.2",
     "jest-junit": "^3.6.0",
-    "lerna": "^2.9.1",
+    "lerna": "^2.10.1",
     "lerna-changelog": "^0.7.0",
     "rimraf": "^2.6.2"
   }
