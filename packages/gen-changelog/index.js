@@ -22,7 +22,7 @@ const getContentOnly = (content) => {
 
 async function readChangelog(location) {
   console.log(location);
-  const changelog = resolve(__dirname, location, 'CHANGELOG.md');
+  const changelog = resolve(process.cwd(), location, 'CHANGELOG.md');
   // console.log(changelog);
   try {
     const fullLog = await fs.readFile(changelog, 'utf8');
@@ -46,8 +46,6 @@ async function readChangelog(location) {
 
 function updateChangelog(location, opts) {
   const { preset, version } = opts;
-  // .then(d => console.log('importLazy', d));
-  // console.log('importLazy', );
   return importLazy(`conventional-changelog-${preset}`)
     .then(({ conventionalChangelog }) => Promise.all([
       getStream(ccCore(
@@ -56,7 +54,6 @@ function updateChangelog(location, opts) {
       )),
       readChangelog(location),
     ]).then(([updates, [changelogLocation, changelogContents]]) =>
-      console.log(updates, changelogLocation) ||
       fs.writeFile(
         changelogLocation,
         `${[changelogHeader, updates, changelogContents].join('\n\n').trim()}\n`,

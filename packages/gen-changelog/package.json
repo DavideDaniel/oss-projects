@@ -3,6 +3,9 @@
   "version": "1.0.0-beta.0",
   "description": "Generate and update changelog from conventional commits",
   "main": "index.js",
+  "bin": {
+    "genlog": "cli.js"
+  },
   "author": "David Daniel",
   "license": "MIT",
   "private": false,
