@@ -18,9 +18,15 @@
     "url": "git+https://github.com/DavideDaniel/oss-projects.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "gen:log": "node gen-log"
   },
   "bugs": {
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  },
+  "devDependencies": {
+    "gen-changelog": "^1.0.0-beta.0"
+  },
+  "dependencies": {
+    "standard-version": "^4.3.0"
   }
 }
