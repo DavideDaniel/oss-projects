@@ -1,5 +1,6 @@
 const execa = require('execa');
 const path = require('path');
+const invariant = require('invariant');
 const { getWorkspaces } = require('./workspaces-paths');
 
 function copyFile(src, dest, {
@@ -14,6 +15,7 @@ function copyFile(src, dest, {
 }
 
 function copyFiles(fromPath, files, projectRoot, logger = console) {
+  invariant(projectRoot, `copyFiles from ${__filename} needs to know the root of your project`);
   const srcs = files.map(f => path.join(fromPath, f));
   return srcs.forEach((src) => {
     const wsp = getWorkspaces(projectRoot).map(w => w.split('/')[0]);

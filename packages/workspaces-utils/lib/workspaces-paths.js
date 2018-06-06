@@ -10,7 +10,7 @@ const invariant = require('invariant');
  * @return {Array}                array of patterns (eg: packages/*)
  */
 function getWorkspaces(pathToRoot) {
-  invariant(pathToRoot, `getWorkspaces in ${__filename}needs to know the root of your project`);
+  invariant(pathToRoot, `getWorkspaces from ${__filename} needs to know the root of your project`);
   const pathToPkgJson = path.resolve(pathToRoot, 'package.json');
   // eslint-disable-next-line import/no-dynamic-require
   const pkgJSON = require(pathToPkgJson); // eslint-disable-line global-require
