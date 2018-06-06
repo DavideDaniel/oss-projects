@@ -1,6 +1,7 @@
 node_modules/
 .dev
 reports/
+.vscode
 
 DS_Store
 *.log

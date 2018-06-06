@@ -3,10 +3,9 @@
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "commands": {
+  "command": {
     "publish": {
       "ignoreChanges": [
-        "packages/gen-changelog/*",
         "*.test.js",
         "*.md"
       ]

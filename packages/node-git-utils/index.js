@@ -1,5 +1,11 @@
 const execa = require('execa');
 
+/**
+ * execSync simply wraps execa.sync
+ * @param {String} command a shell command
+ * @param {Array} args an array of flags/arguments
+ * @param {Object} opts an object of options passed to execa
+ */
 function execSync(command, args, opts) {
   return execa.sync(command, args, opts).stdout;
 }

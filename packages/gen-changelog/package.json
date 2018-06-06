@@ -1,14 +1,17 @@
 {
   "name": "gen-changelog",
-  "version": "1.0.0-beta.0",
+  "version": "0.0.1",
   "description": "Generate and update changelog from conventional commits",
   "main": "index.js",
+  "bin": {
+    "genlog": "cli.js"
+  },
   "author": "David Daniel",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "npx jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
-    "test:watch": "npx jest --watch --no-watchman",
+    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
+    "test:watch": "yarn jest --watchAll --no-watchman",
     "lint": "eslint . --fix"
   },
   "dependencies": {
