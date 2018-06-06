@@ -36,6 +36,9 @@
     "ancestorSeparator": " › "
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "6.1.3",
+    "conventional-changelog-angular-bitbucket": "^1.1.2",
+    "conventional-changelog-atom": "^0.2.4",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",

@@ -92,6 +92,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@commitlint/config-conventional@6.1.3":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-6.1.3.tgz#6c06eeae04c5ac789c3618df4d52aeda89ffb810"
+
 "@lerna/add@^3.0.0-beta.21":
   version "3.0.0-beta.21"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.0.0-beta.21.tgz#5634492930b5f97eca3775b85f39f9e382680425"
@@ -1255,6 +1259,13 @@ combined-stream@1.0.6, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
+compare-func@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/compare-func/-/compare-func-1.3.1.tgz#8594f0ffdf23fc021fa51761790be9bc272d23af"
+  dependencies:
+    array-ify "^1.0.0"
+    dot-prop "^2.0.0"
+
 compare-func@^1.3.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/compare-func/-/compare-func-1.3.2.tgz#99dd0ba457e1f9bc722b12c08ec33eeab31fa648"
@@ -1298,6 +1309,13 @@ contains-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"
 
+conventional-changelog-angular-bitbucket@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-angular-bitbucket/-/conventional-changelog-angular-bitbucket-1.1.2.tgz#20e620c16bb42289eed5499ba414e69beb888592"
+  dependencies:
+    compare-func "1.3.1"
+    q "1.4.1"
+
 conventional-changelog-angular@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/conventional-changelog-angular/-/conventional-changelog-angular-1.6.6.tgz#b27f2b315c16d0a1f23eb181309d0e6a4698ea0f"
@@ -1310,6 +1328,12 @@ conventional-changelog-angular@^3.0.6:
   resolved "https://registry.yarnpkg.com/conventional-changelog-angular/-/conventional-changelog-angular-3.0.7.tgz#05b9220e4f6c0d8adab2ef9c7b508bcf914599c0"
   dependencies:
     compare-func "^1.3.1"
+    q "^1.5.1"
+
+conventional-changelog-atom@^0.2.4:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-atom/-/conventional-changelog-atom-0.2.8.tgz#8037693455990e3256f297320a45fa47ee553a14"
+  dependencies:
     q "^1.5.1"
 
 conventional-changelog-core@^2.0.10, conventional-changelog-core@^2.0.5:
@@ -1624,6 +1648,12 @@ domexception@^1.0.0:
   resolved "https://registry.yarnpkg.com/domexception/-/domexception-1.0.1.tgz#937442644ca6a31261ef36e3ec677fe805582c90"
   dependencies:
     webidl-conversions "^4.0.2"
+
+dot-prop@^2.0.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-2.4.0.tgz#848e28f7f1d50740c6747ab3cb07670462b6f89c"
+  dependencies:
+    is-obj "^1.0.0"
 
 dot-prop@^3.0.0:
   version "3.0.0"
@@ -4164,6 +4194,10 @@ punycode@^1.4.1:
 punycode@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
+
+q@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
 
 q@^1.5.1:
   version "1.5.1"
