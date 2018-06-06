@@ -25,6 +25,8 @@
     "bump": "run-s gen:changes add:changes commit:changes",
     "preci:publish": "node bin/copy.js",
     "ci:publish": "node bin/publish-and-tag.js",
+    "postci:publish": "node bin/delete.js && yarn push:tags",
+    "push:tags": "git push --tags --verbose",
     "manual:publish": "lerna publish --conventional-commits --yes"
   },
   "jest-junit": {
