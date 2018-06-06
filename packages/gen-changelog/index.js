@@ -1,9 +1,32 @@
 const ccCore = require('conventional-changelog-core');
 const getStream = require('get-stream');
 const dedent = require('dedent');
-const { resolve } = require('path');
+const path = require('path');
 const fs = require('fs-extra');
+const conventionalRecommendedBump = require('conventional-recommended-bump');
 const importLazy = require('import-lazy')(require);
+
+
+/**
+ * determine the recommended version bump
+ * @param {String} releaseAs a semver release type [major|minor|patch]
+ * @return {Promise}
+ */
+function bumpVersion(releaseAs, preset = 'angular') {
+  return new Promise((resolve, reject) => {
+    if (releaseAs) {
+      resolve({
+        releaseType: releaseAs,
+      });
+    }
+    conventionalRecommendedBump({
+      preset,
+    }, (err, release) => {
+      if (err) reject(err);
+      resolve(release);
+    });
+  });
+}
 
 const changelogHeader = dedent(`
   # Change Log
@@ -20,7 +43,7 @@ const getContentOnly = (content) => {
 };
 
 async function readChangelog(location) {
-  const changelog = resolve(process.cwd(), location, 'CHANGELOG.md');
+  const changelog = path.resolve(process.cwd(), location, 'CHANGELOG.md');
   // console.log(changelog);
   try {
     const fullLog = await fs.readFile(changelog, 'utf8');
@@ -54,6 +77,7 @@ function updateChangelog(location, opts) {
 }
 
 module.exports = {
+  bumpVersion,
   getContentOnly,
   readChangelog,
   updateChangelog,

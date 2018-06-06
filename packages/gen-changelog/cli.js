@@ -1,25 +1,25 @@
 #!/usr/bin/env node
 
 const semver = require('semver');
-const conventionalRecommendedBump = require('conventional-recommended-bump');
+
 const { argv } = require('yargs')
   .usage('Usage: $0 [flags]')
+  .example('$0 -p angular', 'choose a conventional-changelog-preset')
   .example('$0 -r minor', 'manually set release type as minor')
   .example('$0 -l ./', 'set the location of CHANGELOG.md to ./')
   .example('$0 -f 1.1.0', 'manually set the version to bump from')
-  .describe('version', 'Print current version')
   .help('h')
   .alias('h', 'help')
   .alias('l', 'location')
-  .nargs('p', 1)
-  .default('l', process.cwd())
-  .describe('p', 'conventional-changelog preset to use');
+  .default('l', process.cwd());
 
 const {
+  bumpVersion,
   updateChangelog,
 } = require('./index');
 
 const opts = {
+  preset: argv.p,
   releaseAs: argv.r,
   location: argv.l,
   version: argv.v,
@@ -91,28 +91,8 @@ function getReleaseType(prerelease, expectedReleaseType, currentVersion) {
   return expectedReleaseType;
 }
 
-/**
- * determine the recommended version bump
- * @param {String} releaseAs a semver release type [major|minor|patch]
- * @return {Promise}
- */
-function bumpVersion(releaseAs) {
-  return new Promise((resolve, reject) => {
-    if (releaseAs) {
-      resolve({
-        releaseType: releaseAs,
-      });
-    }
-    conventionalRecommendedBump({
-      preset: 'angular',
-    }, (err, release) => {
-      if (err) reject(err);
-      resolve(release);
-    });
-  });
-}
 
-bumpVersion(argv.r)
+bumpVersion(argv.r, argv.p)
   .then(async (release) => {
     const pkg = {
       version: opts.version || process.env.npm_package_version,
@@ -123,6 +103,10 @@ bumpVersion(argv.r)
 
     if (!opts.version) {
       opts.version = newVersion;
+    }
+
+    if (!opts.preset) {
+      opts.preset = 'angular';
     }
 
     updateChangelog(argv.l, opts);
