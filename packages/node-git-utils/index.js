@@ -14,6 +14,10 @@ function concatAndFilter(a, b) {
   return a.concat(b).filter(str => str.length);
 }
 
+/**
+ * gets the sha at HEAD
+ * @param {Object} opts an object of options passed to execa
+ */
 function getCurrentSHA(opts) {
   return execSync('git', ['rev-parse', 'HEAD'], opts);
 }
@@ -38,6 +42,10 @@ function getLastTaggedCommitInBranch(opts) {
   return execSync('git', ['rev-list', '-n', '1', getLastTag(opts)], opts);
 }
 
+/**
+ * tells whether there are any git tags at all
+ * @param {Object} opts an object of options passed to execa
+ */
 function hasTags(opts) {
   return !!execSync('git', ['tag'], opts);
 }

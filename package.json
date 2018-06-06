@@ -19,12 +19,14 @@
     "publish:since": "lerna exec --bail=false --since -- \"npm publish\"",
     "gen:changes": "lerna publish --skip-npm --skip-git --conventional-commits --changelog-preset=angular-bitbucket --yes",
     "add:changes": "lerna exec --since --concurrency=1 -- \"git add package.json CHANGELOG.md\"",
-    "commit:changes": "git commit -m --no-verify 'chore: add npm version bump + changelog'",
+    "commit:changes": "node bin/commit-bumps.js",
     "fetch:tags": "git fetch --tags --all",
     "prebump": "yarn fetch:tags",
     "bump": "run-s gen:changes add:changes commit:changes",
     "preci:publish": "node bin/copy.js",
     "ci:publish": "node bin/publish-and-tag.js",
+    "postci:publish": "node bin/delete.js && yarn push:tags",
+    "push:tags": "git push --tags --verbose",
     "manual:publish": "lerna publish --conventional-commits --yes"
   },
   "jest-junit": {
