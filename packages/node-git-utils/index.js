@@ -121,6 +121,21 @@ const npmVersion = (location, releaseType, opts) => {
 
 const add = (files, opts) => execSync('git', ['add', files], opts);
 
+function matchCommitsBySubject(subject, opts = {}) {
+  const delimiter = opts.delimiter || '|';
+  const commits = getCommitsSinceLastTag({ format: `--pretty=%H${delimiter}%s`, ...opts });
+  const arr = commits.split('\n');
+
+  return arr.map((line) => {
+    const [hash, subjectLine] = line.split(delimiter);
+    return { hash, subjectLine };
+  }).filter(({ subjectLine }) => subjectLine === subject);
+}
+
+function getLastCommitBySubject(subject, opts) {
+  return matchCommitsBySubject(subject, opts)[0];
+}
+
 module.exports = {
   add,
   addTag,
@@ -131,12 +146,14 @@ module.exports = {
   getInbetweenCommits,
   getCommitsSinceLastTag,
   getLastTaggedCommitInBranch,
+  getLastCommitBySubject,
   getLastTaggedCommit,
   getStringifiedFromLastTag,
   getCurrentBranch,
   getCurrentSHA,
   getTagsFromCommit,
   hasTags,
+  matchCommitsBySubject,
   npmVersion,
   revert,
 };
