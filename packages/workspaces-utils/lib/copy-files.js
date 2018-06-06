@@ -8,7 +8,7 @@ function copyFile(src, dest, {
 }) {
   logger.info(`Copying ${src} to all ${dest}`);
   return execa.shell(
-    `./copy.sh ${src} ${dest}`,
+    `${__dirname}/copy.sh ${src} ${dest}`,
     { stdio: 'inherit', cwd },
   );
 }
