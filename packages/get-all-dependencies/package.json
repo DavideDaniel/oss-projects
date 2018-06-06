@@ -1,6 +1,6 @@
 {
   "name": "get-all-dependencies",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0",
   "description": "Get all upstream and downstream node dependencies for a folder containing node projects (monorepo)",
   "keywords": [
     "monorepo",

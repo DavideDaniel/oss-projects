@@ -17,7 +17,7 @@
     "lint": "lerna run lint --since --no-sort --stream",
     "publish:all": "lerna exec --bail=false \"npm publish\"",
     "publish:since": "lerna exec --bail=false --since -- \"npm publish\"",
-    "gen:changes": "lerna publish --skip-npm --skip-git --conventional-commits --changelog-preset=angular-bitbucket",
+    "gen:changes": "lerna publish --skip-npm --skip-git --conventional-commits --changelog-preset=angular-bitbucket --yes",
     "add:changes": "lerna exec --since --concurrency=1 -- \"git add package.json CHANGELOG.md\"",
     "commit:changes": "git commit -m --no-verify 'chore: add npm version bump + changelog'",
     "fetch:tags": "git fetch --tags --all",
