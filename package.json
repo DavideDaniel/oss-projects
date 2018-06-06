@@ -15,7 +15,17 @@
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
     "test:watch": "lerna exec --since -- jest --watch --no-watchman",
     "lint": "lerna run lint --since --no-sort --stream",
-    "ci:publish": "lerna publish --conventional-commits --yes"
+    "publish:all": "lerna exec --bail=false \"npm publish\"",
+    "publish:since": "lerna exec --bail=false --since -- \"npm publish\"",
+    "gen:changes": "lerna publish --skip-npm --skip-git --conventional-commits --changelog-preset=angular-bitbucket --yes",
+    "add:changes": "lerna exec --since --concurrency=1 -- \"git add package.json CHANGELOG.md\"",
+    "commit:changes": "git commit -m --no-verify 'chore: add npm version bump + changelog'",
+    "fetch:tags": "git fetch --tags --all",
+    "prebump": "yarn fetch:tags",
+    "bump": "run-all gen:changes add:changes commit:changes --serial",
+    "preci:publish": "node bin/copy.js",
+    "ci:publish": "node bin/publish-and-tag.js",
+    "manual:publish": "lerna publish --conventional-commits --yes"
   },
   "jest-junit": {
     "suiteName": "oss-projects",
@@ -34,6 +44,9 @@
     "jest": "^22.4.2",
     "jest-junit": "^3.6.0",
     "lerna": "^3.0.0-beta.17",
-    "rimraf": "^2.6.2"
+    "npm-link-extra": "^3.0.0",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "workspaces-utils": "file:packages/workspaces-utils"
   }
 }
