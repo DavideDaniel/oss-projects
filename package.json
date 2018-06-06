@@ -9,7 +9,6 @@
   "author": "David Daniel, <david.daniel@nike.com>",
   "license": "MIT",
   "scripts": {
-    "i": "yarn install --frozen-lockfile",
     "build": "lerna run build --no-sort --stream",
     "clean": "lerna clean --yes && rimraf dist es node_modules",
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
@@ -31,11 +30,9 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-json": "^2.0.0",
     "eslint-plugin-import": "^2.6.0",
-    "gen-changelog": "file:./packages/gen-changelog",
     "jest": "^22.4.2",
     "jest-junit": "^3.6.0",
     "lerna": "^3.0.0-beta.17",
-    "lerna-changelog": "^0.7.0",
     "rimraf": "^2.6.2"
   }
 }
