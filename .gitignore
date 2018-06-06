@@ -5,3 +5,6 @@ reports/
 
 DS_Store
 *.log
+
+packages/**/.npmrc
+packages/**/.npmignore

@@ -1,7 +1,10 @@
 .dev
 .circleci
+.vscode
 
 *.log
 *.test.js
 .eslintrc.yaml
 .nvmrc
+
+reports
