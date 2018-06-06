@@ -9,6 +9,7 @@
   "author": "David Daniel, <david.daniel@nike.com>",
   "license": "MIT",
   "scripts": {
+    "i": "yarn install --frozen-lockfile",
     "build": "lerna run build --no-sort --stream",
     "clean": "lerna clean --yes && rimraf dist es node_modules",
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
