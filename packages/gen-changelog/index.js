@@ -4,7 +4,6 @@ const dedent = require('dedent');
 const { resolve } = require('path');
 const fs = require('fs-extra');
 const importLazy = require('import-lazy')(require);
-const pRequire = require('require-then');
 
 const changelogHeader = dedent(`
   # Change Log
@@ -21,27 +20,19 @@ const getContentOnly = (content) => {
 };
 
 async function readChangelog(location) {
-  console.log(location);
   const changelog = resolve(process.cwd(), location, 'CHANGELOG.md');
   // console.log(changelog);
   try {
     const fullLog = await fs.readFile(changelog, 'utf8');
     const content = getContentOnly(fullLog);
-    console.log(fullLog);
-    console.log();
-    console.log(content);
     await [changelog, content];
   } catch (e) {
-    console.log(e);
     return [changelog, getContentOnly('')];
   }
-  // return Promise.resolve()
-  //   .then(async () => {
-  //
-  //   })
-  //   .catch(() => '') // instead of rejecting missing file return empty str
-  //   .then(getContentOnly)
-  //   .then(content => [changelog, content]);
+  return Promise.resolve()
+    .catch(() => '') // instead of rejecting missing file return empty str
+    .then(getContentOnly)
+    .then(content => [changelog, content]);
 }
 
 function updateChangelog(location, opts) {
