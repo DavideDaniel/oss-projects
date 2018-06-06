@@ -1,6 +1,6 @@
 {
   "name": "gen-changelogs",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1",
   "description": "Generate and update changelogs from conventional commits",
   "main": "index.js",
   "bin": {
