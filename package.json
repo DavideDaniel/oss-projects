@@ -22,7 +22,7 @@
     "commit:changes": "git commit -m --no-verify 'chore: add npm version bump + changelog'",
     "fetch:tags": "git fetch --tags --all",
     "prebump": "yarn fetch:tags",
-    "bump": "run-all gen:changes add:changes commit:changes --serial",
+    "bump": "run-s gen:changes add:changes commit:changes",
     "preci:publish": "node bin/copy.js",
     "ci:publish": "node bin/publish-and-tag.js",
     "manual:publish": "lerna publish --conventional-commits --yes"
