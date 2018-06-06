@@ -81,6 +81,7 @@ jobs:
   deploy:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ./
       - run:
