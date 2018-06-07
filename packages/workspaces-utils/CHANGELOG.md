@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.0.1&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.1.0) (2018-06-07)
+
+
+### Features
+
+* export workspace dirs vs globs ([dc05e0a](https://github.com/projects/DavideDaniel/repos/oss-projects/commits/dc05e0a))
+
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.0.0&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.0.1) (2018-06-06)
 
