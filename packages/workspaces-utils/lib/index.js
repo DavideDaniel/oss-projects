@@ -2,6 +2,7 @@ const {
   getWorkSpacePathTo,
   getPathsInWorkspace,
   getWorkspaceAbsPaths,
+  getWorkspaceDirNames,
   getWorkspaces,
 } = require('./workspaces-paths');
 
@@ -20,6 +21,7 @@ module.exports = {
   getWorkspaceAbsPaths,
   getWorkspaces,
   getWorkSpaceDirPaths,
+  getWorkspaceDirNames,
   getWorkSpacePackages,
   copyFiles,
   deletePaths,
