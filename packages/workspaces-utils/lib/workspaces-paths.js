@@ -69,5 +69,6 @@ module.exports = {
   getWorkSpacePathTo,
   getPathsInWorkspace,
   getWorkspaceAbsPaths,
+  getWorkspaceDirNames,
   getWorkspaces,
 };
