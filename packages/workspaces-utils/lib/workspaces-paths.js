@@ -2,12 +2,11 @@ const path = require('path');
 const invariant = require('invariant');
 
 /**
- * getWorkspaces returns the defined workspace as patterns in a yarn
- * monorepo. It accounts for yarn 1.5.1 when workspaces became an object
- * or array.
- * @param  {String} [pathToRoot]  path to root dir with package.json
- *                                default is appRoot
- * @return {Array}                array of patterns (eg: packages/*)
+ * getWorkspaces
+ * @description returns the defined workspace as patterns in a yarn monorepo. It accounts for yarn 1.5.1
+ * when workspaces became an object or array.
+ * @param  {String} pathToRoot path to root dir with package.json
+ * @return {Array} array of patterns (eg: packages/*)
  */
 function getWorkspaces(pathToRoot) {
   invariant(pathToRoot, `getWorkspaces from ${__filename} needs to know the root of your project`);
@@ -18,7 +17,8 @@ function getWorkspaces(pathToRoot) {
 }
 
 /**
- * getWorkspaceDirNames gets you the dir names in workspace instead of globs.
+ * getWorkspaceDirNames
+ * @description gets you the dir names in workspace instead of globs
  * It can optionally take a path to root with default as appRoot inside a node project
  * @param  {String} pathToRoot   path to root dir
  * @return {Array}               names of dirs in workspace
@@ -26,13 +26,14 @@ function getWorkspaces(pathToRoot) {
 const getWorkspaceDirNames = pathToRoot => getWorkspaces(pathToRoot).map(path.dirname);
 
 /**
- * getWorkspaceAbsPaths can get you absolute paths to directories or files in workspace
+ * getWorkspaceAbsPaths
+ * @description can get you absolute paths to directories or files in workspace
  * @param  {String} pathToRoot    path to root dir with default as app root in node project
  * @param {String} pathTo         path to file or dir in workspace
  *
  * @return {Array}               array of paths
  */
-const getWorkspaceAbsPaths = pathToRoot => (pathTo) => {
+const getWorkspaceAbsPaths = pathToRoot => pathTo => {
   const wsp = getWorkspaceDirNames(pathToRoot);
   return pathTo
     ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
@@ -40,15 +41,15 @@ const getWorkspaceAbsPaths = pathToRoot => (pathTo) => {
 };
 
 /**
- * getWorkSpacePathTo is a curried fn that takes a file or dir
- * path as the first fn arg and a root path as the second fn arg to
- * return workspace relative paths
+ * getWorkSpacePathTo
+ * @description is a curried fn that takes a file or dir path as the first fn arg and a root
+ * path as the second fn arg to return workspace relative paths
  * @param {String} pathToRoot  relative path to root
  * @param {String} pathTo      path to file or dir in workspace
  *
  * @return {Array}             array of paths
  */
-const getWorkSpacePathTo = pathToRoot => (pathTo) => {
+const getWorkSpacePathTo = pathToRoot => pathTo => {
   const wsp = getWorkspaces(pathToRoot);
   return pathTo
     ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
@@ -56,9 +57,10 @@ const getWorkSpacePathTo = pathToRoot => (pathTo) => {
 };
 
 /**
- * getPathsInWorkspace takes an array of paths/filenames and returns
- * workspace relative paths to them
+ * getPathsInWorkspace
+ * @description takes an array of paths/filenames and returns workspace relative paths to them
  * @param  {Array} paths    array of file names or paths
+ * @param  {String} appRoot root path to start from, usually application root
  * @return {Array}          array of paths mapped to workspace packages
  */
 function getPathsInWorkspace(paths, appRoot) {

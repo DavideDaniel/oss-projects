@@ -6,7 +6,6 @@ const fs = require('fs-extra');
 const conventionalRecommendedBump = require('conventional-recommended-bump');
 const importLazy = require('import-lazy')(require);
 
-
 /**
  * determine the recommended version bump
  * @param {String} releaseAs a semver release type [major|minor|patch]
@@ -19,12 +18,15 @@ function bumpVersion(releaseAs, preset = 'angular') {
         releaseType: releaseAs,
       });
     }
-    conventionalRecommendedBump({
-      preset,
-    }, (err, release) => {
-      if (err) reject(err);
-      resolve(release);
-    });
+    conventionalRecommendedBump(
+      {
+        preset,
+      },
+      (err, release) => {
+        if (err) reject(err);
+        resolve(release);
+      },
+    );
   });
 }
 
@@ -34,7 +36,7 @@ const changelogHeader = dedent(`
   See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 `);
 
-const getContentOnly = (content) => {
+const getContentOnly = content => {
   const section = content.indexOf('<a name=');
   if (section !== -1) {
     return content.substring(section);
@@ -60,20 +62,24 @@ async function readChangelog(location) {
 
 function updateChangelog(location, opts) {
   const { preset, version } = opts;
-  return importLazy(`conventional-changelog-${preset}`)
-    .then(({ conventionalChangelog }) => Promise.all([
-      getStream(ccCore(
-        { config: conventionalChangelog },
-        { version },
-      )),
+  return importLazy(`conventional-changelog-${preset}`).then(({ conventionalChangelog }) =>
+    Promise.all([
+      getStream(ccCore({ config: conventionalChangelog }, { version })),
       readChangelog(location),
     ]).then(([updates, [changelogLocation, changelogContents]]) =>
-      fs.writeFile(
-        changelogLocation,
-        `${[changelogHeader, updates, changelogContents].join('\n\n').trim()}\n`,
-      ).then(() => ({
-        changelogLocation, version, location, ...opts,
-      }))));
+      fs
+        .writeFile(
+          changelogLocation,
+          `${[changelogHeader, updates, changelogContents].join('\n\n').trim()}\n`,
+        )
+        .then(() => ({
+          changelogLocation,
+          version,
+          location,
+          ...opts,
+        })),
+    ),
+  );
 }
 
 module.exports = {

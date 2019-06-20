@@ -21,7 +21,8 @@ describe('workspaces-utils', () => {
     expect(getWorkspaces(monorepoRoot)).toEqual(['packages/*']);
   });
   it('should export all the expected parts', () => {
-    [getWorkSpacePathTo,
+    [
+      getWorkSpacePathTo,
       getPathsInWorkspace,
       getWorkspaceAbsPaths,
       getWorkspaces,
@@ -29,6 +30,7 @@ describe('workspaces-utils', () => {
       getWorkSpacePackages,
       copyFiles,
       deletePaths,
-      deletePath].forEach(fn => expect(fn).toBeTruthy());
+      deletePath,
+    ].forEach(fn => expect(fn).toBeTruthy());
   });
 });

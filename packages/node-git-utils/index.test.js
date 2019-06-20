@@ -5,7 +5,10 @@ const git = 'git';
 
 jest.mock('execa', () => ({
   sync: jest.fn((command, args, opts) => ({
-    command, args, opts, stdout: true,
+    command,
+    args,
+    opts,
+    stdout: true,
   })),
 }));
 
@@ -46,6 +49,9 @@ describe('node-git-utils', () => {
   it('should call npm version --not-tags when calling npmVersion with skipTag', () => {
     ngu.npmVersion('/location', 'patch', { skipTag: true });
 
-    expect(execa.sync).toHaveBeenCalledWith('npm', ['--no-git-tag-version', 'version', 'patch'], { cwd: '/location', skipTag: true });
+    expect(execa.sync).toHaveBeenCalledWith('npm', ['--no-git-tag-version', 'version', 'patch'], {
+      cwd: '/location',
+      skipTag: true,
+    });
   });
 });

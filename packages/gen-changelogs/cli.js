@@ -13,10 +13,7 @@ const { argv } = require('yargs')
   .alias('l', 'location')
   .default('l', process.cwd());
 
-const {
-  bumpVersion,
-  updateChangelog,
-} = require('./index');
+const { bumpVersion, updateChangelog } = require('./index');
 
 const opts = {
   preset: argv.p,
@@ -25,9 +22,7 @@ const opts = {
   version: argv.v,
 };
 
-
 const typeList = ['major', 'minor', 'patch'].reverse();
-
 
 function isString(val) {
   return typeof val === 'string';
@@ -38,14 +33,14 @@ function isString(val) {
  * @param {String} version
  * @return {string}
  */
-function getCurrentActiveType(version) { // eslint-disable-line consistent-return
+// eslint-disable-next-line consistent-return
+function getCurrentActiveType(version) {
   for (let i = 0; i < typeList.length; i += 1) {
     if (semver[typeList[i]](version)) {
       return typeList[i];
     }
   }
 }
-
 
 function isInPrerelease(version) {
   return Array.isArray(semver.prerelease(version));
@@ -64,7 +59,6 @@ function shouldContinuePrerelease(version, expectType) {
   return getCurrentActiveType(version) === expectType;
 }
 
-
 /**
  * calculate the priority of release type,
  * major - 2, minor - 1, patch - 0
@@ -79,7 +73,8 @@ function getTypePriority(type) {
 function getReleaseType(prerelease, expectedReleaseType, currentVersion) {
   if (isString(prerelease)) {
     if (isInPrerelease(currentVersion)) {
-      if (shouldContinuePrerelease(currentVersion, expectedReleaseType) ||
+      if (
+        shouldContinuePrerelease(currentVersion, expectedReleaseType) ||
         getTypePriority(getCurrentActiveType(currentVersion)) > getTypePriority(expectedReleaseType)
       ) {
         return 'prerelease';
@@ -91,23 +86,21 @@ function getReleaseType(prerelease, expectedReleaseType, currentVersion) {
   return expectedReleaseType;
 }
 
+bumpVersion(argv.r, argv.p).then(async release => {
+  const pkg = {
+    version: opts.version || process.env.npm_package_version,
+  };
 
-bumpVersion(argv.r, argv.p)
-  .then(async (release) => {
-    const pkg = {
-      version: opts.version || process.env.npm_package_version,
-    };
+  const releaseType = getReleaseType(opts.prerelease, release.releaseType, pkg.version);
+  const newVersion = semver.valid(releaseType) || semver.inc(pkg.version, releaseType);
 
-    const releaseType = getReleaseType(opts.prerelease, release.releaseType, pkg.version);
-    const newVersion = semver.valid(releaseType) || semver.inc(pkg.version, releaseType);
+  if (!opts.version) {
+    opts.version = newVersion;
+  }
 
-    if (!opts.version) {
-      opts.version = newVersion;
-    }
+  if (!opts.preset) {
+    opts.preset = 'angular';
+  }
 
-    if (!opts.preset) {
-      opts.preset = 'angular';
-    }
-
-    updateChangelog(argv.l, opts);
-  });
+  updateChangelog(argv.l, opts);
+});

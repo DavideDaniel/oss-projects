@@ -6,10 +6,7 @@ const {
   getWorkspaces,
 } = require('./workspaces-paths');
 
-const {
-  getWorkSpaceDirPaths,
-  getWorkSpacePackages,
-} = require('./workspaces-packages');
+const { getWorkSpaceDirPaths, getWorkSpacePackages } = require('./workspaces-packages');
 
 const { copyFiles } = require('./copy-files');
 

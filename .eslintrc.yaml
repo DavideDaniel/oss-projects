@@ -1,11 +1,18 @@
 parser: babel-eslint
-extends: airbnb-base
+extends:
+  - airbnb-base
+  - prettier
+plugins:
+  - prettier
 env:
+  es6: true
   mocha: true
   node: true
   jest: true
 rules:
+  valid-jsdoc: warn
   func-names: error
+  prettier/prettier: error
   import/no-extraneous-dependencies:
   - "error"
   - packageDir: "./package.json"
@@ -16,5 +23,3 @@ rules:
     imports: always-multiline
     exports: always-multiline
     functions: ignore
-globals:
-  sinon: true

@@ -1,7 +1,8 @@
 const execa = require('execa');
 
 /**
- * execSync simply wraps execa.sync
+ * execSync
+ * @description simply wraps execa.sync
  * @param {String} command a shell command
  * @param {Array} args an array of flags/arguments
  * @param {Object} opts an object of options passed to execa
@@ -73,9 +74,7 @@ function getCommitsSinceLastTag(opts) {
 }
 
 function getInbetweenCommits(opts) {
-  const {
-    a, b, withMerges, folderPath,
-  } = opts;
+  const { a, b, withMerges, folderPath } = opts;
   const between = `${a}...${b}`;
   const includeMerges = withMerges ? '' : '--no-merges';
   const fp = folderPath || '';
@@ -99,9 +98,7 @@ function checkout(opts) {
     return execSync('git', ['checkout', opts.commit]);
   }
 
-  const {
-    branch, start, noTrack, remote,
-  } = opts;
+  const { branch, start, noTrack, remote } = opts;
   const b = start ? '-b' : '';
   const rb = remote ? `--track ${remote}/${branch}` : '';
   const nt = noTrack ? '--no-track' : '';
@@ -134,10 +131,12 @@ function matchCommitsBySubject(subject, opts = {}) {
   const commits = getCommitsSinceLastTag({ format: `--pretty=%H${delimiter}%s`, ...opts });
   const arr = commits.split('\n');
 
-  return arr.map((line) => {
-    const [hash, subjectLine] = line.split(delimiter);
-    return { hash, subjectLine };
-  }).filter(({ subjectLine }) => subjectLine === subject);
+  return arr
+    .map(line => {
+      const [hash, subjectLine] = line.split(delimiter);
+      return { hash, subjectLine };
+    })
+    .filter(({ subjectLine }) => subjectLine === subject);
 }
 
 function getLastCommitBySubject(subject, opts) {
