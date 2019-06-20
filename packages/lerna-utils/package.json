@@ -1,0 +1,28 @@
+{
+  "name": "lerna-utils",
+  "version": "1.0.0-beta",
+  "description": "Util functions for leveraging lerna",
+  "keywords": [
+    "lerna",
+    "utils",
+    "bin",
+    "scripts",
+    "getUpdatedPackages"
+  ],
+  "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
+  "homepage": "https://github.com/DavideDaniel/oss-projects#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavideDaniel/oss-projects.git"
+  },
+  "scripts": {
+    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
+    "test:watch": "yarn jest --watchAll --no-watchman",
+    "lint": "eslint . --fix"
+  },
+  "bugs": {
+    "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  }
+}
