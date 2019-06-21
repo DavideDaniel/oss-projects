@@ -15,9 +15,6 @@
   "bin": {
     "safeAddCommit": "cli.js"
   },
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DavideDaniel/oss-projects.git"

@@ -6,6 +6,11 @@ const testForNoFilesMatched = require('./test-for-no-match');
  * @param {string} fileTypes what to git add - can be glob or type of files {snapshots|docs|tests|js} + more if custom patterns provided
  * @param {Object} [logger=console] a logger object with error and info methods
  * @param {Object} [patterns={}] a js object with key value pairs of  pattern for additional fileType to path definitions
+ *
+ * @example <caption>Ex cli usage:
+ * $ safeAddCommit docs
+ * $ safeAddCommit snapshots
+ * $ safeAddCommit src/*,js
  * @returns {Promise} resolves a success or failure to add changes
  */
 function safeAddCommitChanges(fileTypes, logger = console, patterns = {}) {
