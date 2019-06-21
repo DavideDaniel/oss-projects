@@ -1,0 +1,35 @@
+{
+  "name": "safe-add-commit-changes",
+  "version": "1.0.0-beta",
+  "description": "Safely add and commit changes whether changes were made or not. Handy for automation.",
+  "keywords": [
+    "node",
+    "git",
+    "automation",
+    "scripts"
+  ],
+  "author": "David Daniel <david.daniel@nike.com>",
+  "homepage": "https://github.com/DavideDaniel/oss-projects#readme",
+  "license": "MIT",
+  "main": "safe-add-commit-changes.js",
+  "bin": {
+    "safeAddCommit": "cli.js"
+  },
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavideDaniel/oss-projects.git"
+  },
+  "scripts": {
+    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
+    "test:watch": "yarn jest --watchAll --no-watchman"
+  },
+  "bugs": {
+    "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  },
+  "dependencies": {
+    "execa": "^0.8.0"
+  }
+}
