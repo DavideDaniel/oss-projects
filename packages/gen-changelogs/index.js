@@ -9,7 +9,8 @@ const importLazy = require('import-lazy')(require);
 /**
  * determine the recommended version bump
  * @param {String} releaseAs a semver release type [major|minor|patch]
- * @return {Promise}
+ * @param {String} [preset='angular'] conventional-changelog preset to use
+ * @return {Promise} resolves the determined version bump
  */
 function bumpVersion(releaseAs, preset = 'angular') {
   return new Promise((resolve, reject) => {

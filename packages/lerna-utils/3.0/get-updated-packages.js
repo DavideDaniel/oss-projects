@@ -5,14 +5,11 @@ const checkStdErr = require('../check-stderr');
 const noUpdates = /No .*packages/;
 
 /**
- * getUpdatedPkgs returns a list of updated packages by parsing the output from lerna updated --json
- * @param {Object} logger - a logging object with info method to log results
- * Example stdout
- * yarn run v1.13.0
- * $ /grand/node_modules/.bin/lerna ls --ndjson --since
- * {"name":"grand","version":"1.66.10","private":false,"location":"grand/servers/grand"}
- * Done in 1.02s.
- * @returns {Promise} resolved package list
+ * 3.0/getUpdatedPackages
+ * @description this version is specific to lerna 3.0 range and is a way to use lerna's output for updated --json and resolve or reject a list of packages
+ * @memberof module:lerna-utils
+ * @param {object} [logger=console] a logging object with info method to log results
+ * @returns {Promise} promise that resolves list of updated packages only
  */
 module.exports = async function getUpdatedPkgs(logger = console) {
   try {

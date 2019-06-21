@@ -14,7 +14,13 @@ function evalExpectedOnly(str) {
   return null;
 }
 
-module.exports = async function getUpdatedPkgs(logger = console) {
+/**
+ * 2.0/getUpdatedPackages
+ * @description this version is specific to lerna 2.0 range and is a way to use lerna's output for updated --json and resolve or reject a list of packages
+ * @param {object} [logger=console] any logger to log stdout/stderr
+ * @returns {Promise} promise that resolves list of updated packages only
+ */
+module.exports = async function getUpdatedPackages(logger = console) {
   try {
     const { stdout } = await execa.shell('lerna updated --json');
 

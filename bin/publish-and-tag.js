@@ -31,26 +31,23 @@ getUpdatedPkgs()
 
     if (pkgs && pkgs.length) {
       logger.info('* PUBLISHING AND TAGGING *');
-      pkgs.forEach((pkg) => {
+      pkgs.forEach(pkg => {
         logger.info(`Publishing ${pkg.name}@${pkg.version}`);
       });
 
-      return execa
-        .shell('yarn publish:since', { stdio: 'inherit' })
-        .then(() => {
-          pkgs.forEach((pkg) => {
-            logger.info(`Tagging ${pkg.name}@${pkg.version}`);
-            return addTagForPkg(pkg);
-          });
+      return execa.shell('yarn publish:since', { stdio: 'inherit' }).then(() => {
+        pkgs.forEach(pkg => {
+          logger.info(`Tagging ${pkg.name}@${pkg.version}`);
+          return addTagForPkg(pkg);
         });
+      });
     }
 
     logger.info('* PUBLISHING ALL *');
     // it is not a patch publish and is pushed up with tags
     // so just needs the old publish:all cmd
-    return execa
-      .shell('yarn publish:all', {
-        stdio: 'inherit',
-      });
+    return execa.shell('yarn publish:all', {
+      stdio: 'inherit',
+    });
   })
   .catch(exitWithError);
