@@ -1,4 +1,5 @@
 const execa = require('execa');
+const checkStdErr = require('../check-stderr');
 
 const errString = 'No packages need updating';
 const noUpdates = new RegExp(errString);
@@ -13,22 +14,6 @@ function evalExpectedOnly(str) {
   return null;
 }
 
-function checkErr(str, logger = console) {
-  try {
-    const obj = JSON.stringify(str);
-    const { stderr } = JSON.parse(obj);
-    if (stderr && noUpdates.test(stderr)) {
-      logger.info(stderr);
-      return Promise.resolve({
-        packages: [],
-      });
-    }
-    return Promise.reject(str);
-  } catch (e) {
-    return Promise.reject(e);
-  }
-}
-
 module.exports = async function getUpdatedPkgs(logger = console) {
   try {
     const { stdout } = await execa.shell('lerna updated --json');
@@ -37,6 +22,6 @@ module.exports = async function getUpdatedPkgs(logger = console) {
       packages: evalExpectedOnly(stdout),
     });
   } catch (e) {
-    return checkErr(e, logger);
+    return checkStdErr(e, noUpdates, logger);
   }
 };

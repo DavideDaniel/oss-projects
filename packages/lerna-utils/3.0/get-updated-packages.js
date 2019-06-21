@@ -1,30 +1,8 @@
 const execa = require('execa');
+const checkStdErr = require('../check-stderr');
 
 // NOTE the following regex aligns lerna's expected "error" message for no packages needing updates
 const noUpdates = /No .*packages/;
-
-/**
- * checkErr
- * @description evaluates the stdout from an error that might happen while publishing. We want only relevant errors rejecting.
- * @param {string} str the stdout string that lets us check lerna --json safely and respond with appropriate exit code for jenkins
- * @param {Object} logger - a logging object with info method to log results
- * @returns {Promise} an evaluated str from stderr
- */
-function checkErr(str, logger = console) {
-  try {
-    const obj = JSON.stringify(str);
-    const { stderr } = JSON.parse(obj);
-    if (stderr && noUpdates.test(stderr)) {
-      logger.info(stderr);
-      return Promise.resolve({
-        packages: [],
-      });
-    }
-    return Promise.reject(str);
-  } catch (e) {
-    return Promise.reject(e);
-  }
-}
 
 /**
  * getUpdatedPkgs returns a list of updated packages by parsing the output from lerna updated --json
@@ -45,6 +23,6 @@ module.exports = async function getUpdatedPkgs(logger = console) {
 
     return Promise.resolve({ packages: parsedPkgs });
   } catch (e) {
-    return checkErr(e, logger);
+    return checkStdErr(e, noUpdates, logger);
   }
 };

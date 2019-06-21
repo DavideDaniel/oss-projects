@@ -11,18 +11,9 @@ module.exports = {
     },
   },
   collectCoverage: true,
-  coverageReporters: [
-    'json-summary',
-    'lcov',
-    'text',
-  ],
+  coverageReporters: ['json-summary', 'lcov', 'text'],
   testResultsProcessor: 'jest-junit',
-  collectCoverageFrom: [
-    'packages/**/*.{js}',
-    '!**/node_modules/**',
-  ],
-  roots: [
-    'packages/',
-  ],
+  collectCoverageFrom: ['packages/**/**/*.{js}', '!**/node_modules/**'],
+  roots: ['packages/'],
   testEnvironment: 'node',
 };
