@@ -1,6 +1,6 @@
 {
   "name": "workspaces-utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Util functions for working with yarn workspaces",
   "keywords": [
     "yarn",
