@@ -1,6 +1,6 @@
 {
   "name": "safe-add-commit-changes",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "Safely add and commit changes whether changes were made or not. Handy for automation.",
   "keywords": [
     "node",
