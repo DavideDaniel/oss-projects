@@ -17,7 +17,7 @@ function checkErr(str, logger = console) {
     if (stderr && noUpdates.test(stderr)) {
       logger.info(stderr);
       return Promise.resolve({
-        noTags: true,
+        packages: [],
       });
     }
     return Promise.reject(str);
@@ -43,7 +43,7 @@ module.exports = async function getUpdatedPkgs(logger = console) {
     const trimmed = `[${lines.slice(1)}]`;
     const parsedPkgs = JSON.parse(trimmed);
 
-    return Promise.resolve({ pkgs: parsedPkgs });
+    return Promise.resolve({ packages: parsedPkgs });
   } catch (e) {
     return checkErr(e, logger);
   }

@@ -20,7 +20,7 @@ function checkErr(str, logger = console) {
     if (stderr && noUpdates.test(stderr)) {
       logger.info(stderr);
       return Promise.resolve({
-        noTags: true,
+        packages: [],
       });
     }
     return Promise.reject(str);
@@ -34,7 +34,7 @@ module.exports = async function getUpdatedPkgs(logger = console) {
     const { stdout } = await execa.shell('lerna updated --json');
 
     return Promise.resolve({
-      pkgs: evalExpectedOnly(stdout),
+      packages: evalExpectedOnly(stdout),
     });
   } catch (e) {
     return checkErr(e, logger);
