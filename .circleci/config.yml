@@ -13,7 +13,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "80:fc:2d:39:39:fd:17:9f:32:c6:cc:c4:28:2c:1d:d7"
+            - "2f:a5:52:3f:40:bc:c1:9b:a4:1e:5b:aa:0d:9c:35:6b"
       - checkout
       - run:
           name: Record SHA
