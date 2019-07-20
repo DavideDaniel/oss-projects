@@ -2,8 +2,6 @@
 
 * * *
 
-###### v 3.1.0-beta.1
-
 Some useful things we wish npm/yarn link had. Inspired by fs-extra...
 
 One issue currently is the inconsistency between npm's link behavior between the major versions. We have found link to be most stable with version 3.10.10 so that is our recommended npm version.
