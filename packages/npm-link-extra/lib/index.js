@@ -43,13 +43,18 @@ packageKeys.forEach(function addKeyToHash(key) {
  * @param  {String} pathTo  relative path to monorepo or directory with node modules
  * @return {Array}          array of directories
  */
-const getDirectories = (pathTo) => {
+const getDirectories = (pathTo, opts) => {
+  const { ignorePackages } = opts || {};
+
   if (!pathTo) {
     throw Error('Need a RELATIVE path to the directory with packages you want to link, eg: (../../my-monorepo/packages)');
   }
   return fs
     .readdirSync(pathTo)
     .filter((item) => {
+      if (ignorePackages && ignorePackages.includes(item)) {
+        return false;
+      }
       // we want to make sure we don't pick up any . or .DS_Store etc
       return item[0] !== '.';
     })
@@ -155,7 +160,10 @@ function getLinkedDeps(pkgs) {
 }
 
 // show all linked dependencies in your node_modules
-function showLinkedDeps() {
+function showLinkedDeps({ ignorePackages }) {
+  if (ignorePackages && ignorePackages.length) {
+    logPkgsMsg('Ignored', ignorePackages);
+  }
   const linkedDeps = getLinkedDeps(packageKeys, packageHash);
   if (linkedDeps.length) {
     logPkgsMsg('Linked', linkedDeps);
@@ -276,8 +284,8 @@ function unlinkIfLinked(pkgs) {
 }
 
 // show common dependencies between project & given directory/monorepo
-function showSharedDeps(pkgs) {
-  const sharedDepNames = getSharedDeps(pkgs, packageHash);
+function showSharedDeps(packages) {
+  const sharedDepNames = getSharedDeps(packages, packageHash);
   if (sharedDepNames.length) {
     logPkgsMsg('Shared', sharedDepNames);
   } else {
