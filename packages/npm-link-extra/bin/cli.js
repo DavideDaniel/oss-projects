@@ -47,7 +47,7 @@ const helpText = `
 
 const options = { ignorePackages: [] };
 
-const normalizeMatcher = (ignoreMatcher) => {
+const normalizeMatcher = ignoreMatcher => {
   switch (typeof ignoreMatcher) {
     case 'string':
       return ignoreMatcher.split(',');

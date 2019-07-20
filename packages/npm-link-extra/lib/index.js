@@ -1,14 +1,11 @@
+/* eslint-disable no-console */
 const execa = require('execa');
 const fs = require('fs');
 const path = require('path');
-const {
-  readPkgJson,
-  logPkgsMsg,
-  checkForLink,
-  debugLogging,
-} = require('./utils');
+const { readPkgJson, logPkgsMsg, checkForLink, debugLogging } = require('./utils');
 
 const cwd = process.cwd();
+// eslint-disable-next-line import/no-dynamic-require
 const { dependencies, devDependencies } = require(path.resolve(`${cwd}/package.json`));
 
 const allDeps = Object.assign({}, devDependencies, dependencies);
@@ -16,9 +13,7 @@ const allDeps = Object.assign({}, devDependencies, dependencies);
 let installCmd = 'npm install';
 const hasYarnLock = fs.existsSync('yarn.lock');
 const installedNpmClient = hasYarnLock ? 'yarn' : 'npm';
-const npmClient = process.env.NLX_NPM_CLIENT
-  ? process.env.NLX_NPM_CLIENT
-  : installedNpmClient;
+const npmClient = process.env.NLX_NPM_CLIENT ? process.env.NLX_NPM_CLIENT : installedNpmClient;
 const isUsingYarn = npmClient === 'yarn';
 
 if (isUsingYarn) {
@@ -26,7 +21,9 @@ if (isUsingYarn) {
   installCmd = 'yarn --ignore-scripts';
 }
 
-console.log(`Using ${npmClient} for operations. You can override this by setting an env var of NLX_NPM_CLIENT as "npm" or "yarn".`);
+console.log(
+  `Using ${npmClient} for operations. You can override this by setting an env var of NLX_NPM_CLIENT as "npm" or "yarn".`,
+);
 
 const packageHash = {};
 
@@ -40,28 +37,31 @@ packageKeys.forEach(function addKeyToHash(key) {
 
 /**
  * getDirectories returns all directories in a given path
- * @param  {String} pathTo  relative path to monorepo or directory with node modules
+ * @param  {String} pathTo relative path to monorepo or directory with node modules
+ * @param  {Object} opts options to call the function with
  * @return {Array}          array of directories
  */
 const getDirectories = (pathTo, opts) => {
   const { ignorePackages } = opts || {};
 
   if (!pathTo) {
-    throw Error('Need a RELATIVE path to the directory with packages you want to link, eg: (../../my-monorepo/packages)');
+    throw Error(
+      'Need a RELATIVE path to the directory with packages you want to link, eg: (../../my-monorepo/packages)',
+    );
   }
   return fs
     .readdirSync(pathTo)
-    .filter((item) => {
+    .filter(item => {
       if (ignorePackages && ignorePackages.includes(item)) {
         return false;
       }
       // we want to make sure we don't pick up any . or .DS_Store etc
       return item[0] !== '.';
     })
-    .map((item) => {
+    .map(item => {
       return `${pathTo}/${item}`;
     })
-    .filter((item) => {
+    .filter(item => {
       // make sure to return only dirs
       return fs.statSync(item).isDirectory();
     });
@@ -74,12 +74,12 @@ const getDirectories = (pathTo, opts) => {
  */
 const getPackages = dirs =>
   dirs
-    .map((dir) => {
+    .map(dir => {
       const pkg = readPkgJson(dir) || {};
       pkg.dir = dir;
       return pkg;
     })
-    .filter((pkg) => {
+    .filter(pkg => {
       return pkg.name;
     });
 
@@ -118,7 +118,7 @@ function getSharedDepDirs(pkgs, hash) {
  */
 function getSharedLinked(pkgs, hash) {
   return pkgs
-    .map((name) => {
+    .map(name => {
       const module = hash[name];
       if (module && module.isLinked) {
         return name;
@@ -152,7 +152,7 @@ function getSharedDeps(pkgs, hash) {
  */
 function getLinkedDeps(pkgs) {
   return pkgs
-    .map((name) => {
+    .map(name => {
       const isLinked = checkForLink(name);
       return isLinked ? name : false;
     })
@@ -179,7 +179,7 @@ function createLinks(pkgs) {
   }
   const toLink = [];
   const ignore = pkgs
-    .map((pkg) => {
+    .map(pkg => {
       const { name } = pkg;
       if (checkForLink(name)) {
         debugLogging(`${name} is already linked.`);
@@ -218,9 +218,7 @@ function createLinks(pkgs) {
 // link packages
 function linkPackages(pathToPkgs) {
   const pkgs = pathToPkgs.join(' ');
-  return execa
-    .shell(`${npmClient} link ${pkgs}`)
-    .then(() => console.log('Succesfully linked'));
+  return execa.shell(`${npmClient} link ${pkgs}`).then(() => console.log('Succesfully linked'));
 }
 
 // unlink
@@ -245,12 +243,9 @@ function unlinkPackages(pkgs) {
     });
     return console.log('Done unlinking packages with yarn.');
   }
-  execa.shellSync(
-    `${npmClient} unlink ${getSharedDeps(pkgs, packageHash).join(' ')}`,
-    {
-      stdio: 'inherit',
-    }
-  );
+  execa.shellSync(`${npmClient} unlink ${getSharedDeps(pkgs, packageHash).join(' ')}`, {
+    stdio: 'inherit',
+  });
   return console.log('Done unlinking packages.');
 }
 
@@ -276,7 +271,9 @@ function unlinkIfLinked(pkgs) {
   if (numOfLinked) {
     debugLogging(`Unlinking ${numOfLinked} packages`);
     unlinkPackages(pkgs);
-    console.log('Reinstalling for your convenience. You can cancel if needed and reinstall or re-link.');
+    console.log(
+      'Reinstalling for your convenience. You can cancel if needed and reinstall or re-link.',
+    );
     reInstall();
   } else {
     console.log('No shared linked dependencies found');

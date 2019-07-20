@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const ownPkg = require('../package.json');
@@ -51,7 +52,7 @@ function findInPath(name, base, fileName, f, r) {
       findInPath(name, newbase, fileName, fs.readdirSync(newbase), result);
     } else if (file.substr(-1 * (fileName.length + 1)) === fileName) {
       // eslint-disable-next-line global-require
-      const pkgName = require(newbase).name;
+      const pkgName = require(newbase).name; // eslint-disable-line import/no-dynamic-require
       if (pkgName === name) {
         debugLogging(`Found ${name} at path ${newbase}`);
         result.push(newbase);
