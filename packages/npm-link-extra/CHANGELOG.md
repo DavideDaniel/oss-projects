@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/projects/DavideDaniel/repos/npm-link-extra/compare/diff?targetBranch=refs%2Ftags%2Fnpm-link-extra@4.0.0&sourceBranch=refs%2Ftags%2Fnpm-link-extra@4.0.1) (2019-08-05)
+
+
+
+
+**Note:** Version bump only for package npm-link-extra
+
 <a name="4.0.0"></a>
 # 4.0.0 (2019-07-20)
 
