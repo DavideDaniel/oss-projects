@@ -1,0 +1,16 @@
+{
+  "name": "convert-css",
+  "version": "0.1.2",
+  "description": "Convert css strings to JSON or JS",
+  "main": "index.js",
+  "author": "David Daniel, <david.daniel@nike.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\""
+  },
+  "dependencies": {
+    "camelize": "^1.0.0",
+    "css-parse": "^2.0.0"
+  }
+}
