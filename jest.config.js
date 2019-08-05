@@ -1,4 +1,5 @@
 module.exports = {
+  testURL: 'http://localhost/',
   cache: true,
   clearMocks: true,
   verbose: true,
