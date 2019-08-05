@@ -4,7 +4,7 @@ const camelize = require('camelize');
 /**
  * [sequence takes in functions and calls them in sequence, same as pipe]
  * @param  {[Functions]} args [n number of functions]
- * @return [result of last function in sequence]
+ * @returns {Any} [result of last function in sequence]
  */
 function sequence(...args) {
   const fns = args;
