@@ -68,25 +68,37 @@ const propExists = prop => prop.length;
  */
 function mungeRules(rules) {
   const rulesArr = [];
+
   for (let i = 0; i < rules.length; i += 1) {
     const rule = rules[i];
     const { type } = rule;
-    if (type === 'rule') {
-      const { declarations } = rule;
-      const { selectors } = rule;
-      const ruleObj = {};
-      if (propExists(declarations) && propExists(selectors)) {
-        declarations.forEach(({ property, value }) => {
-          ruleObj[property] = value;
-        });
-        selectors.map(s => ({ [s]: ruleObj })).forEach(r => rulesArr.push(r));
-      }
-    } else if (type === 'media') {
-      rulesArr.concat(mungeRules(rule.rules));
-    } else {
-      console.error(`Type of ${type} did not conform to media or rule \n`, rule);
+
+    switch (type) {
+      case 'rule':
+        const { declarations } = rule;
+        const { selectors } = rule;
+        const ruleObj = {};
+        if (propExists(declarations) && propExists(selectors)) {
+          declarations.forEach(({ property, value }) => {
+            ruleObj[property] = value;
+          });
+          selectors.map(s => ({ [s]: ruleObj })).forEach(r => rulesArr.push(r));
+        }
+        break;
+
+      case 'media':
+        rulesArr.concat(mungeRules(rule.rules));
+        break;
+
+      case 'font-face':
+        // Don't need to alert on this type.
+        break;
+      
+      default:
+        console.error(`Type of ${type} did not conform to media or rule \n`, rule);
     }
   }
+
   return rulesArr;
 }
 

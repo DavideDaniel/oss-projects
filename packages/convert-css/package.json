@@ -1,6 +1,6 @@
 {
   "name": "convert-css",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Convert css strings to JSON or JS",
   "main": "index.js",
   "author": "David Daniel, <david.daniel@nike.com>",
