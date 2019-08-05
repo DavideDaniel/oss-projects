@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint . --fix",
-    "test": "node __tests__/index.js"
+    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\""
   },
   "dependencies": {
     "camelize": "^1.0.0",

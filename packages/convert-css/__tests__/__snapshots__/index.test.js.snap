@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`convert-css module should match its snapshot 1`] = `
+Object {
+  "convertKey": [Function],
+  "convertKeyNames": [Function],
+  "cssToCamelizedJson": [Function],
+  "cssToJson": [Function],
+}
+`;
