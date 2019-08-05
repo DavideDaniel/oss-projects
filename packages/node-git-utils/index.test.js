@@ -3,14 +3,14 @@ const ngu = require('./index');
 
 const git = 'git';
 
-jest.mock('./exec-sync', () => ({
-  sync: jest.fn((command, args, opts) => ({
+jest.mock('./exec-sync', () =>
+  jest.fn((command, args, opts) => ({
     command,
     args,
     opts,
     stdout: true,
   })),
-}));
+);
 
 describe('node-git-utils', () => {
   const mockOpts = {};

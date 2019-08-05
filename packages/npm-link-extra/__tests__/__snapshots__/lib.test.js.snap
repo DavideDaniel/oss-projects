@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`npm-link-extra should match its snapshot 1`] = `
+Object {
+  "getDirectories": [Function],
+  "getLinkedDeps": [Function],
+  "getPackages": [Function],
+  "getSharedDepDirs": [Function],
+  "getSharedDeps": [Function],
+  "getSharedLinked": [Function],
+  "linkIfExists": [Function],
+  "showLinkedDeps": [Function],
+  "showSharedDeps": [Function],
+  "unlinkIfLinked": [Function],
+}
+`;
