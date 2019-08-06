@@ -1,6 +1,8 @@
 const execa = require('execa');
+
 /**
  * execSync
+ * @ignore
  * @description simply wraps execa.sync
  * @param {String} command a shell command
  * @param {Array} args an array of flags/arguments
