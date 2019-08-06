@@ -20,24 +20,10 @@ $ yarn add node-git-utils -D
 
 #### Table of Contents
 
--   [execSync](#execsync)
-    -   [Parameters](#parameters)
 -   [getCurrentSHA](#getcurrentsha)
-    -   [Parameters](#parameters-1)
+    -   [Parameters](#parameters)
 -   [hasTags](#hastags)
-    -   [Parameters](#parameters-2)
-
-### execSync
-
-simply wraps execa.sync
-
-#### Parameters
-
--   `command` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a shell command
--   `args` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** an array of flags/arguments
--   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an object of options passed to execa
-
-Returns **[Process](https://nodejs.org/api/process.html)** returns a child process via execa.sync
+    -   [Parameters](#parameters-1)
 
 ### getCurrentSHA
 
