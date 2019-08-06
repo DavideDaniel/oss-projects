@@ -50,7 +50,7 @@
     "babel-eslint": "^8.2.1",
     "conventional-changelog-angular-bitbucket": "^1.1.2",
     "conventional-changelog-atom": "^0.2.4",
-    "documentation": "^11.0.1",
+    "documentation": "^12.1.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^5.0.0",
