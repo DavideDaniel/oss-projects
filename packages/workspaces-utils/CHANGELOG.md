@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.1.3&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.1.4) (2019-08-05)
+
+
+
+
+**Note:** Version bump only for package workspaces-utils
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.1.2&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.1.3) (2019-08-05)
 

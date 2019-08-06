@@ -1,5 +1,7 @@
+const nleModule = require('../lib');
+
 describe('npm-link-extra', () => {
-  test('lib should have tests one day', () => {
-    expect(true).toBeTruthy();
+  it('should match its snapshot', () => {
+    expect(nleModule).toMatchSnapshot();
   });
 });
