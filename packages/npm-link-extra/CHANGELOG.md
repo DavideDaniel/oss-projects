@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.0.3"></a>
+## [4.0.3](https://github.com/projects/DavideDaniel/repos/npm-link-extra/compare/diff?targetBranch=refs%2Ftags%2Fnpm-link-extra@4.0.2&sourceBranch=refs%2Ftags%2Fnpm-link-extra@4.0.3) (2019-08-14)
+
+
+### Bug Fixes
+
+* correctly thread opts through all related functions ([57c74e3](https://github.com/projects/DavideDaniel/repos/npm-link-extra/commits/57c74e3))
+
+
+
+
 <a name="4.0.2"></a>
 ## [4.0.2](https://github.com/projects/DavideDaniel/repos/npm-link-extra/compare/diff?targetBranch=refs%2Ftags%2Fnpm-link-extra@4.0.1&sourceBranch=refs%2Ftags%2Fnpm-link-extra@4.0.2) (2019-08-05)
 
