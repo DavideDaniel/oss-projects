@@ -67,7 +67,7 @@ if (argv.h) {
 }
 
 if (argv.l) {
-  linkIfExists(getPackages(getDirectories(pathToPackages, options)));
+  linkIfExists(getPackages(getDirectories(pathToPackages, options)), options);
 }
 
 if (argv.s) {

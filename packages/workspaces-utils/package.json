@@ -1,6 +1,6 @@
 {
   "name": "workspaces-utils",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Util functions for working with yarn workspaces",
   "keywords": [
     "yarn",
@@ -34,9 +34,10 @@
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
   },
   "dependencies": {
-    "npm-link-extra": "^4.0.2"
+    "npm-link-extra": "^4.0.3"
   },
   "devDependencies": {
+    "execa": "^0.8.0",
     "invariant": "^2.2.4",
     "rimraf": "^2.6.2"
   }
