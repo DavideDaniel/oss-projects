@@ -172,10 +172,10 @@ function showLinkedDeps({ ignorePackages }) {
   }
 }
 
-function createLinks(pkgs) {
+function createLinks(pkgs, opts) {
   if (pkgs.length === 0) {
     console.log('Done.');
-    return showLinkedDeps();
+    return showLinkedDeps(opts);
   }
   const toLink = [];
   const ignore = pkgs
@@ -195,7 +195,7 @@ function createLinks(pkgs) {
       debugLogging(`Ignoring already linked: ${name}.`);
       pkgs.splice(0, 1);
       debugLogging('Make recursive call');
-      return createLinks(pkgs);
+      return createLinks(pkgs, opts);
     }
 
     const cmd = isUsingYarn ? `${npmClient} link` : `${npmClient} link ${dir}`;
@@ -250,14 +250,14 @@ function unlinkPackages(pkgs) {
 }
 
 // link common dependencies between project & given directory/monorepo
-function linkIfExists(pkgs) {
+function linkIfExists(pkgs, opts) {
   const sharedDepsDirs = getSharedDepDirs(pkgs, packageHash);
   const numOfLinked = sharedDepsDirs.length;
   debugLogging(`Linking ${numOfLinked} packages`);
   if (numOfLinked) {
     logPkgsMsg('Linking', sharedDepsDirs);
     if (isUsingYarn) {
-      return createLinks(pkgs);
+      return createLinks(pkgs, opts);
     }
     return linkPackages(sharedDepsDirs);
   }
