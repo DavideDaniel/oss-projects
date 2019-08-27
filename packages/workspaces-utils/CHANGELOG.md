@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.1.5&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.2.0) (2019-08-27)
+
+
+### Features
+
+* expose copy file as a singular function ([0a93b6c](https://github.com/projects/DavideDaniel/repos/oss-projects/commits/0a93b6c))
+
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.1.4&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.1.5) (2019-08-14)
 
