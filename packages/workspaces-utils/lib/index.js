@@ -8,7 +8,7 @@ const {
 
 const { getWorkSpaceDirPaths, getWorkSpacePackages } = require('./workspaces-packages');
 
-const { copyFiles } = require('./copy-files');
+const { copyFiles, copyFile } = require('./copy-files');
 
 const { deletePaths, deletePath } = require('./delete-paths');
 
@@ -20,6 +20,7 @@ module.exports = {
   getWorkSpaceDirPaths,
   getWorkspaceDirNames,
   getWorkSpacePackages,
+  copyFile,
   copyFiles,
   deletePaths,
   deletePath,

@@ -17,4 +17,4 @@ function copyFiles(fromPath, files, projectRoot, logger = console) {
   });
 }
 
-module.exports = { copyFiles };
+module.exports = { copyFiles, copyFile };
