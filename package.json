@@ -22,6 +22,7 @@
     "lint:pkgs": "BABEL_ENV=test lerna exec --since --no-sort --stream --concurrency=1 \"eslint src lib __tests__ --fix\"",
     "publish:all": "lerna exec --bail=false \"npm publish --registry https://registry.npmjs.org/\"",
     "publish:since": "lerna exec --bail=false --since -- \"npm publish --registry https://registry.npmjs.org/\"",
+    "publish:canary": "lerna publish --canary",
     "gen:changes": "lerna publish --skip-npm --skip-git --conventional-commits --yes",
     "add:changes": "lerna exec --since --concurrency=1 -- \"git add package.json CHANGELOG.md\"",
     "commit:snaps": "node bin/commit-file-type.js snapshots",
