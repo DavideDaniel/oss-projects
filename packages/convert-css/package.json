@@ -6,6 +6,8 @@
   "author": "David Daniel, <david.daniel@nike.com>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "echo TESTING_CONVERT_CSS_PREINSTALL",
+    "postinstall": "echo TESTING_CONVERT_CSS_POSTINSTALL",
     "lint": "eslint . --fix",
     "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\""
   },
