@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tag-dir-with-version should match its snapshot 1`] = `
+Object {
+  "tagDirWithVersion": [Function],
+}
+`;
