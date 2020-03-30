@@ -1,20 +1,23 @@
+#!/usr/bin/env node
 const { argv } = require('yargs')
-  .usage('$0 [dir] [replacement]', 'Update a file with name and version', yargs => {
-    yargs
-      .positional('dir', {
-        describe: 'A directory to glob over',
-        type: 'string',
-        default: process.cwd(),
-      })
-      .option('dir', { type: 'string' })
-      .positional('replacement', {
-        aliases: ['r', 'replacement'],
-        describe: 'A directory to glob over',
-        type: 'string',
-        default: `${process.env.npm_package_name}@${process.env.npm_package_version}`,
-      })
-      .option('r', { type: 'string' });
-  })
+  .usage(
+    '$0 [dir] [replacement]',
+    'Update matched files in a directory with name and version of package',
+    yargs => {
+      yargs
+        .positional('dir', {
+          describe: 'A directory to glob over',
+          default: process.cwd(),
+        })
+        .option('dir', { type: 'string' })
+        .positional('replacement', {
+          aliases: ['r', 'replacement'],
+          describe: 'Replacement for placeholder, ideally name + version of package',
+          default: `${process.env.npm_package_name}@${process.env.npm_package_version}`,
+        })
+        .option('r', { type: 'string' });
+    },
+  )
   .help('h', 'help')
   .alias('r', 'replacement')
   .alias('p', 'placeholder')

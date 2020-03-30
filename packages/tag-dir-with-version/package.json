@@ -1,9 +1,9 @@
 {
   "name": "tag-dir-with-version",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Glob over directory and update all placeholders with name & version of package",
   "bin": {
-    "tag": "cli.js"
+    "tagDir": "cli.js"
   },
   "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
   "license": "MIT",
