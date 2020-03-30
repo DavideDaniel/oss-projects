@@ -1,6 +1,6 @@
 {
   "name": "tag-dir-with-version",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Glob over directory and update all placeholders with name & version of package",
   "bin": {
     "tag": "cli.js"
