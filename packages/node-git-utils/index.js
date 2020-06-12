@@ -43,13 +43,13 @@ function hasTags(opts) {
 }
 
 function getFromLastTag(opts) {
-  const format = (opts && opts.format) || '%s | %an';
+  const format = (opts && opts.format) || '%s (%h) | %an';
   return execSync('git', ['log', '-1', `--format=${format}`, getLastTaggedCommitInBranch()], opts);
 }
 
 function getStringifiedFromLastTag(options) {
   const opts = options || {};
-  const format = opts.format || '{ author:"%an", subject: "%s" }';
+  const format = opts.format || '{ author:"%an", subject: "%s", hash: "%h" }';
   const str = getFromLastTag(Object.assign({}, format, opts));
   return JSON.stringify(str);
 }
@@ -59,17 +59,18 @@ function getCommitsSinceLastTag(opts) {
   const { folderPath, withMerges, format } = options;
   const includeMerges = withMerges ? '' : '--no-merges';
   const fp = folderPath || '';
-  const f = format || '--pretty=%s | [%an]';
+  const f = format || '--pretty=%s (%h) | [%an]';
   const args = concatAndFilter(['log', `${getLastTag()}..HEAD`, f], [includeMerges, fp]);
   return execSync('git', args, options);
 }
 
 function getInbetweenCommits(opts) {
-  const { a, b, withMerges, folderPath } = opts;
+  const { a, b, withMerges, folderPath, format } = opts;
   const between = `${a}...${b}`;
   const includeMerges = withMerges ? '' : '--no-merges';
   const fp = folderPath || '';
-  const args = concatAndFilter(['log', between, '--pretty=%s | [%an]'], [includeMerges, fp]);
+  const f = format || '--pretty=%s (%h) | [%an]';
+  const args = concatAndFilter(['log', between, f], [includeMerges, fp]);
   return execSync('git', args, opts);
 }
 
