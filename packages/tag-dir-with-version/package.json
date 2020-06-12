@@ -8,7 +8,7 @@
   "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
   "license": "MIT",
   "scripts": {
-    "test": "",
+    "test": "node get-package-name.js",
     "lint": "eslint . --fix"
   },
   "dependencies": {
