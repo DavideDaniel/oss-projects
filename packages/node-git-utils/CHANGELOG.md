@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/projects/DavideDaniel/repos/node-git-utils/compare/diff?targetBranch=refs%2Ftags%2Fnode-git-utils@1.5.3&sourceBranch=refs%2Ftags%2Fnode-git-utils@1.6.0) (2020-06-12)
+
+
+### Features
+
+* add short hash to default pretty formats ([1dddeb6](https://github.com/projects/DavideDaniel/repos/node-git-utils/commits/1dddeb6))
+
+
+
+
 <a name="1.5.3"></a>
 ## [1.5.3](https://github.com/projects/DavideDaniel/repos/node-git-utils/compare/diff?targetBranch=refs%2Ftags%2Fnode-git-utils@1.5.2&sourceBranch=refs%2Ftags%2Fnode-git-utils@1.5.3) (2019-08-06)
 
