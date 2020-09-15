@@ -15,7 +15,7 @@ module.exports = async function getUpdatedPkgs(logger = console) {
   try {
     const { stdout } = await execa.shell('lerna ls --ndjson --since');
     const lines = stdout.split('\n');
-    const trimmed = `[${lines.slice(1)}]`;
+    const trimmed = `[${lines.slice(0)}]`;
     const parsedPkgs = JSON.parse(trimmed);
 
     return Promise.resolve({ packages: parsedPkgs });
