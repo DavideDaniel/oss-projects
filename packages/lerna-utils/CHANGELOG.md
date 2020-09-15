@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Flerna-utils@1.1.2&sourceBranch=refs%2Ftags%2Flerna-utils@1.1.3) (2020-09-15)
+
+
+### Bug Fixes
+
+* slice at zero in 3.0 ([2dadf55](https://github.com/projects/DavideDaniel/repos/oss-projects/commits/2dadf55))
+
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Flerna-utils@1.1.1&sourceBranch=refs%2Ftags%2Flerna-utils@1.1.2) (2020-09-15)
 
