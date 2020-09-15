@@ -13,7 +13,7 @@ const noUpdates = /No .*packages/;
  */
 module.exports = async function getUpdatedPkgs(logger = console) {
   try {
-    const { stdout } = await execa.shell('yarn lerna ls --ndjson --since');
+    const { stdout } = await execa.shell('lerna ls --ndjson --since');
     const lines = stdout.split('\n');
     const trimmed = `[${lines.slice(1)}]`;
     const parsedPkgs = JSON.parse(trimmed);
