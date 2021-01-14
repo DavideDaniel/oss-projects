@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.2.0&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.2.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* list dependencies vs devDependencies ([521cabd](https://github.com/projects/DavideDaniel/repos/oss-projects/commits/521cabd))
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/projects/DavideDaniel/repos/oss-projects/compare/diff?targetBranch=refs%2Ftags%2Fworkspaces-utils@1.1.5&sourceBranch=refs%2Ftags%2Fworkspaces-utils@1.2.0) (2019-08-27)
 
