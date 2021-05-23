@@ -2,7 +2,7 @@ name: Dependabot PRs CI
 
 on:
   push:
-    branches: [ dependabot ]
+    branches: [ 'dependabot/**' ]
 
 jobs:
   build:
