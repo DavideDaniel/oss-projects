@@ -36,3 +36,5 @@ jobs:
     # `--prefer-offline` gives cache priority
     - name: Install dependencies
       run: yarn install --prefer-offline --frozen-lockfile
+    - name: Test all 
+      run: yarn lerna exec 'jest --colors --maxWorkers=2' --no-sort --stream --concurrency=1
