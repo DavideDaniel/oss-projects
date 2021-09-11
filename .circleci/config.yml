@@ -19,7 +19,7 @@ jobs:
           name: Record SHA
           command: echo $CIRCLE_SHA1 > .circle-sha
       - persist_to_workspace:
-          root: /home/circleci
+          root: ~/
           paths:
             - oss-proj
   # install dependencies
@@ -52,9 +52,10 @@ jobs:
           paths:
             - .yarn/cache
       - persist_to_workspace:
-          root: .
+          root: ~/
           paths:
-            - .yarn/cache
+            - oss-proj/.yarn/cache
+            - oss-proj/.yarn/unplugged
 
   # circle needs a build step no matter what
   build:
