@@ -4,7 +4,7 @@ version: 2.1
 defaults: &defaults
   working_directory: ~/oss-proj
   docker:
-    - image: circleci/node:8.10-stretch
+    - image: cimg/node:14.17.6
 
 jobs:
   # checkout repo
