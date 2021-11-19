@@ -50,7 +50,7 @@
     "@commitlint/config-conventional": "6.1.3",
     "conventional-changelog-angular-bitbucket": "^1.2.0",
     "conventional-changelog-atom": "^0.2.8",
-    "documentation": "^12.3.0",
+    "documentation": "^13.2.5",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -71,5 +71,10 @@
     "rimraf": "^2.7.1",
     "workspaces-utils": "workspace:packages/workspaces-utils"
   },
-  "packageManager": "yarn@3.2.0-rc.4"
+  "packageManager": "yarn@3.2.0-rc.4",
+  "dependenciesMeta": {
+    "eslint@8.2.0": {
+      "unplugged": true
+    }
+  }
 }
