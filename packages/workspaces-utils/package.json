@@ -37,6 +37,6 @@
     "execa": "^0.8.0",
     "invariant": "^2.2.4",
     "npm-link-extra": "^4.0.3",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.7.1"
   }
 }
