@@ -1,4 +1,7 @@
-parser: babel-eslint
+parser: "@babel/eslint-parser"
+parserOptions:
+  ecmaVersion: 2020
+  requireConfigFile: false
 extends:
   - airbnb-base
   - prettier
@@ -23,3 +26,5 @@ rules:
     imports: always-multiline
     exports: always-multiline
     functions: ignore
+settings:
+  import/resolver: node
