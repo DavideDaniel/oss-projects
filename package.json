@@ -10,12 +10,12 @@
   "license": "MIT",
   "scripts": {
     "build": "lerna run build --no-sort --stream",
-    "build:docs": "run(){ echo 'yarn build:docs {packageName}'; yarn lerna exec --scope=$1 \"../../node_modules/.bin/documentation readme **/*.js --section=Documentation\"; }; run",
+    "build:docs": "echo 'yarn build:docs {packageName}'; yarn lerna exec --scope=$@ \"yarn documentation readme **/*.js --section=Documentation\"",
     "update:docs": "node bin/update-docs.js",
     "commit:docs": "node bin/commit-file-type.js docs",
     "stage:docs": "run-s update:docs commit:docs",
     "clean": "lerna clean --yes && rimraf dist es node_modules",
-    "test": "lerna exec --since --stream -- jest --colors --maxWorkers=2",
+    "test": "NLX_NPM_CLIENT=yarn lerna exec --since --stream -- jest --colors --maxWorkers=2 -u",
     "test:watch": "lerna exec --since -- jest --watch --no-watchman",
     "lint": "lerna exec --since --no-sort --stream -- \"eslint . --fix\"",
     "lint:pkgs": "BABEL_ENV=test lerna exec --since --no-sort --stream --concurrency=1 \"eslint src lib __tests__ --fix\"",
@@ -47,7 +47,10 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.4",
     "@commitlint/config-conventional": "6.1.3",
+    "babel-jest": "^27.3.1",
+    "chalk": "^4.1.2",
     "conventional-changelog-angular-bitbucket": "^1.2.0",
     "conventional-changelog-atom": "^0.2.8",
     "documentation": "^13.2.5",
@@ -60,9 +63,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "execa": "^0.8.0",
     "fs-extra": "^5.0.0",
-    "jest": "^24.9.0",
-    "jest-cli": "^24.9.0",
-    "jest-junit": "^3.7.0",
+    "jest": "^27.3.1",
+    "jest-cli": "^27.3.1",
+    "jest-junit": "^13.0.0",
     "lerna": "^2.11.0",
     "lodash.matches": "^4.6.0",
     "npm-link-extra": "^4.0.0",
@@ -71,9 +74,14 @@
     "rimraf": "^2.7.1",
     "workspaces-utils": "workspace:packages/workspaces-utils"
   },
-  "packageManager": "yarn@3.2.0-rc.4",
+  "packageManager": "yarn@3.1.0",
+  "resolutions": {
+    "documentation": "git@github.com:documentationjs/documentation.git#head=master",
+    "jest": "^27.3.1",
+    "jest-cli": "^27.3.1"
+  },
   "dependenciesMeta": {
-    "eslint@8.2.0": {
+    "eslint": {
       "unplugged": true
     }
   }
