@@ -1,6 +1,6 @@
 ### npm-link-extra
 
-* * *
+***
 
 Some useful things we wish npm/yarn link had. Inspired by fs-extra...
 
@@ -36,18 +36,18 @@ Options
 
 ##### Table of Contents
 
--   [getDirectories](#getdirectories)
-    -   [Parameters](#parameters)
--   [getPackages](#getpackages)
-    -   [Parameters](#parameters-1)
--   [getSharedDepDirs](#getshareddepdirs)
-    -   [Parameters](#parameters-2)
--   [getSharedLinked](#getsharedlinked)
-    -   [Parameters](#parameters-3)
--   [getSharedDeps](#getshareddeps)
-    -   [Parameters](#parameters-4)
--   [getLinkedDeps](#getlinkeddeps)
-    -   [Parameters](#parameters-5)
+*   [getDirectories](#getdirectories)
+    *   [Parameters](#parameters)
+*   [getPackages](#getpackages)
+    *   [Parameters](#parameters-1)
+*   [getSharedDepDirs](#getshareddepdirs)
+    *   [Parameters](#parameters-2)
+*   [getSharedLinked](#getsharedlinked)
+    *   [Parameters](#parameters-3)
+*   [getSharedDeps](#getshareddeps)
+    *   [Parameters](#parameters-4)
+*   [getLinkedDeps](#getlinkeddeps)
+    *   [Parameters](#parameters-5)
 
 #### getDirectories
 
@@ -55,8 +55,8 @@ getDirectories returns all directories in a given path
 
 ##### Parameters
 
--   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** relative path to monorepo or directory with node modules
--   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** options to call the function with
+*   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** relative path to monorepo or directory with node modules
+*   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** options to call the function with
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of directories
 
@@ -66,7 +66,7 @@ getPackages returs all packages
 
 ##### Parameters
 
--   `dirs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of directories
+*   `dirs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of directories
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of packages & the relative path to them
 
@@ -76,8 +76,8 @@ getSharedDepDirs selects an array of shared and linked packages
 
 ##### Parameters
 
--   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
--   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
+*   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
+*   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** A filtered list of shared pkg dirs
 
@@ -87,8 +87,8 @@ getSharedLinked selects an array of shared and linked packages
 
 ##### Parameters
 
--   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
--   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
+*   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
+*   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** A filtered list of packages
 
@@ -98,8 +98,8 @@ getSharedDeps will show any shared dependencies between project & target dir
 
 ##### Parameters
 
--   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
--   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
+*   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
+*   `hash` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hash map of our deps
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Array of shared dep names
 
@@ -109,6 +109,6 @@ getLinkedDeps returns a list of linked dependencies
 
 ##### Parameters
 
--   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
+*   `pkgs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of dependencies
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Array of linked dep names

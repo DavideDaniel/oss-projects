@@ -14,24 +14,26 @@
   "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
   "homepage": "https://github.com/DavideDaniel/oss-projects#readme",
   "license": "MIT",
-  "main": "lib/get-all-dependencies.js",
+  "module": "lib/get-all-dependencies.mjs",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib/get-all-dependencies.mjs"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DavideDaniel/oss-projects.git"
   },
   "scripts": {
-    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
     "test:watch": "yarn jest --watchAll --no-watchman",
     "lint": "eslint . --fix"
   },
   "bugs": {
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  },
+  "devDependencies": {
+    "documentation": "^13.2.5"
   }
 }

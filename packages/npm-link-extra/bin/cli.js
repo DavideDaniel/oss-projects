@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
-const own = require('../package.json');
-const minimist = require('minimist');
-const {
+import minimist from 'minimist';
+import own from '../package.json';
+
+import {
   linkIfExists,
   unlinkIfLinked,
   showSharedDeps,
   showLinkedDeps,
   getDirectories,
   getPackages,
-} = require('../lib');
+} from '../lib';
 
 const opts = {
   alias: {
@@ -47,7 +48,7 @@ const helpText = `
 
 const options = { ignorePackages: [] };
 
-const normalizeMatcher = ignoreMatcher => {
+const normalizeMatcher = (ignoreMatcher) => {
   switch (typeof ignoreMatcher) {
     case 'string':
       return ignoreMatcher.split(',');

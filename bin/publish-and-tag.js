@@ -1,7 +1,9 @@
-const execa = require('execa');
+import execa from 'execa';
+import logger from './logger';
+
 const { getStringifiedFromLastTag, addTag } = require('node-git-utils');
-const logger = require('./logger');
-const { getUpdatedPkgs } = require('./get-updated-packages');
+
+const { getUpdatedPkgs } = require('./get-updated-packages.mjs');
 
 const CD_AUTHOR = 'CI';
 
@@ -31,12 +33,12 @@ getUpdatedPkgs()
 
     if (pkgs && pkgs.length) {
       logger.info('* PUBLISHING AND TAGGING *');
-      pkgs.forEach(pkg => {
+      pkgs.forEach((pkg) => {
         logger.info(`Publishing ${pkg.name}@${pkg.version}`);
       });
 
       return execa.shell('yarn publish:since', { stdio: 'inherit' }).then(() => {
-        pkgs.forEach(pkg => {
+        pkgs.forEach((pkg) => {
           logger.info(`Tagging ${pkg.name}@${pkg.version}`);
           return addTagForPkg(pkg);
         });

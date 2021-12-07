@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const safeAddCommitChanges = require('./safe-add-commit-changes');
+import safeAddCommitChanges from './safe-add-commit-changes.mjs';
 
 const globOrPath = process.argv[2];
 

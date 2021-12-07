@@ -14,10 +14,10 @@
 
 #### Table of Contents
 
--   [reduceDependencies](#reducedependencies)
-    -   [Parameters](#parameters)
--   [getAllDependencies](#getalldependencies)
-    -   [Parameters](#parameters-1)
+*   [reduceDependencies](#reducedependencies)
+    *   [Parameters](#parameters)
+*   [getAllDependencies](#getalldependencies)
+    *   [Parameters](#parameters-1)
 
 ### reduceDependencies
 
@@ -26,9 +26,9 @@ an in depth dependency chain (upstream or downstream dependent on the hash)
 
 #### Parameters
 
--   `pkgName` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A package name in th dependency map
--   `dependencyMap` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A dependency map with keys of pkgNames with
-                                     value as arrays of pkgNames
+*   `pkgName` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A package name in th dependency map
+*   `dependencyMap` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A dependency map with keys of pkgNames with
+    value as arrays of pkgNames
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** A reduced array of pkgNames
 
@@ -39,11 +39,12 @@ to give you a hashMap of packages with upstream and downstream dependencies
 
 #### Parameters
 
--   `pkgNames` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of package names from a monorepo
--   `localPackages` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** A list of all the package.jsons in the same monorepo
--   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** An option logger with the same methods as console
-    -   `logger.logger`   (optional, default `console`)
-    -   `logger.verbose`  
+*   `pkgNames` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** An array of package names from a monorepo
+*   `localPackages` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** A list of all the package.jsons in the same monorepo
+*   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** An option logger with the same methods as console
+
+    *   `logger.logger`  &#x20;(optional, default `console`)
+    *   `logger.verbose` &#x20;
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A hashMap of key value pairs with downstream and upstream arrays
-                                 {[pkgName: String]&#x3A;{ upstream: Array, downstream: Array }}
+{\[pkgName: String]:{ upstream: Array, downstream: Array }}

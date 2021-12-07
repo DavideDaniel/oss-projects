@@ -1,6 +1,6 @@
 ### lerna-utils
 
-* * *
+***
 
 [![CircleCI](https://circleci.com/gh/DavideDaniel/oss-projects/tree/master.svg?style=svg)](https://circleci.com/gh/DavideDaniel/oss-projects/tree/master)
 
@@ -18,12 +18,12 @@ $ yarn add lerna-utils -D
 
 #### Table of Contents
 
--   [get-updated-packages](#get-updated-packages)
-    -   [Parameters](#parameters)
--   [exports](#exports)
-    -   [Parameters](#parameters-1)
--   [check-stderr](#check-stderr)
-    -   [Parameters](#parameters-2)
+*   [get-updated-packages](#get-updated-packages)
+    *   [Parameters](#parameters)
+*   [check-stderr](#check-stderr)
+    *   [Parameters](#parameters-1)
+*   [exports](#exports)
+    *   [Parameters](#parameters-2)
 
 ### get-updated-packages
 
@@ -31,17 +31,7 @@ this version is specific to lerna 2.0 range and is a way to use lerna's output f
 
 #### Parameters
 
--   `logger` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** any logger to log stdout/stderr (optional, default `console`)
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise that resolves list of updated packages only
-
-### exports
-
-this version is specific to lerna 3.0 range and is a way to use lerna's output for updated --json and resolve or reject a list of packages
-
-#### Parameters
-
--   `logger` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logging object with info method to log results (optional, default `console`)
+*   `logger` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** any logger to log stdout/stderr&#x20;(optional, default `console`)
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise that resolves list of updated packages only
 
@@ -51,8 +41,18 @@ evaluates the stdout from an error that might happen while publishing. We want o
 
 #### Parameters
 
--   `str` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the stdout string that lets us check lerna --json safely and respond with appropriate exit code for jenkins
--   `regex` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a regex to test the string
--   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logging object with info method to log results (optional, default `console`)
+*   `str` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the stdout string that lets us check lerna --json safely and respond with appropriate exit code for jenkins
+*   `regex` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a regex to test the string
+*   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logging object with info method to log results&#x20;(optional, default `console`)
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** an evaluated str from stderr
+
+### exports
+
+this version is specific to lerna 3.0 range and is a way to use lerna's output for updated --json and resolve or reject a list of packages
+
+#### Parameters
+
+*   `logger` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logging object with info method to log results&#x20;(optional, default `console`)
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise that resolves list of updated packages only

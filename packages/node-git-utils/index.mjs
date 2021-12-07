@@ -1,7 +1,7 @@
-const execSync = require('./exec-sync');
+import execSync from './exec-sync.mjs';
 
 function concatAndFilter(a, b) {
-  return a.concat(b).filter(str => str.length);
+  return a.concat(b).filter((str) => str.length);
 }
 
 /**
@@ -50,7 +50,7 @@ function getFromLastTag(opts) {
 function getStringifiedFromLastTag(options) {
   const opts = options || {};
   const format = opts.format || '{ author:"%an", subject: "%s", hash: "%h" }';
-  const str = getFromLastTag(Object.assign({}, format, opts));
+  const str = getFromLastTag({ ...format, ...opts });
   return JSON.stringify(str);
 }
 
@@ -124,7 +124,7 @@ function matchCommitsBySubject(subject, opts = {}) {
   const arr = commits.split('\n');
 
   return arr
-    .map(line => {
+    .map((line) => {
       const [hash, subjectLine] = line.split(delimiter);
       return { hash, subjectLine };
     })
@@ -135,7 +135,7 @@ function getLastCommitBySubject(subject, opts) {
   return matchCommitsBySubject(subject, opts)[0];
 }
 
-module.exports = {
+export {
   add,
   addTag,
   checkout,

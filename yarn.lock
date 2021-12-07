@@ -3439,6 +3439,7 @@ __metadata:
   dependencies:
     camelize: ^1.0.0
     css-parse: ^2.0.0
+    documentation: ^13.2.5
   languageName: unknown
   linkType: soft
 
@@ -3813,9 +3814,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"documentation@git@github.com:documentationjs/documentation.git#head=master":
+"documentation@file:../documentation::locator=oss-projects%40workspace%3A.":
   version: 13.2.5
-  resolution: "documentation@git@github.com:documentationjs/documentation.git#commit=66ae8add50bd10669040307487707c71945999f9"
+  resolution: "documentation@file:../documentation#../documentation::hash=76f790&locator=oss-projects%40workspace%3A."
   dependencies:
     "@babel/core": ^7.16.0
     "@babel/generator": ^7.16.0
@@ -3863,7 +3864,7 @@ __metadata:
       optional: true
   bin:
     documentation: ./bin/documentation.js
-  checksum: 54d17e88a586ac1154eeb39df9e079da784d3ff0fab7db4b627319259f1c2e3119d66b29a92bded459fd3ac078451647b7ba1830c53e4c78cb2a872066bd5098
+  checksum: d96bf8d5278fb707926f51ea405d5338924007bd222720623e09d564dbe3a3db64233d53e80d5ea88bbb4320214efeb25e6c1fa6e9c57f0677029cc358b57f96
   languageName: node
   linkType: hard
 
@@ -4691,6 +4692,8 @@ __metadata:
 "get-all-dependencies@workspace:packages/get-all-dependencies":
   version: 0.0.0-use.local
   resolution: "get-all-dependencies@workspace:packages/get-all-dependencies"
+  dependencies:
+    documentation: ^13.2.5
   languageName: unknown
   linkType: soft
 
@@ -6644,6 +6647,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lerna-utils@workspace:packages/lerna-utils"
   dependencies:
+    documentation: ^13.2.5
     execa: ^0.8.0
   languageName: unknown
   linkType: soft
@@ -7841,6 +7845,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "node-git-utils@workspace:packages/node-git-utils"
   dependencies:
+    documentation: ^13.2.5
     execa: ^0.8.0
   languageName: unknown
   linkType: soft
@@ -8192,6 +8197,7 @@ __metadata:
     jest-junit: ^13.0.0
     lerna: ^2.11.0
     lodash.matches: ^4.6.0
+    node-git-utils: "workspace:packages/node-git-utils"
     npm-link-extra: ^4.0.0
     npm-run-all: ^4.1.5
     prettier: ^2.4.1
@@ -9295,6 +9301,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "safe-add-commit-changes@workspace:packages/safe-add-commit-changes"
   dependencies:
+    documentation: ^13.2.5
     execa: ^0.8.0
   bin:
     safeAddCommit: cli.js
@@ -9967,7 +9974,7 @@ __metadata:
     jest: ^27.3.1
     yargs: ^17.2.1
   bin:
-    tagDir: cli.js
+    tagDir: cli.mjs
   languageName: unknown
   linkType: soft
 

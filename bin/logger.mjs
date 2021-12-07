@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 const oss = ': OSS Projects :';
 
@@ -7,7 +7,7 @@ function formattedMsg(method, msg, logo = oss) {
   // eslint-disable-next-line no-console
   console[method](`${bolded} ${msg}`);
 }
-module.exports = {
+export default {
   info(msg) {
     formattedMsg('info', chalk.hex('#ff841f')(msg));
   },

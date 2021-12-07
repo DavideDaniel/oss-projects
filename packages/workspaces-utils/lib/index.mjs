@@ -1,18 +1,18 @@
-const {
+import {
   getWorkSpacePathTo,
   getPathsInWorkspace,
   getWorkspaceAbsPaths,
   getWorkspaceDirNames,
   getWorkspaces,
-} = require('./workspaces-paths');
+} from './workspaces-paths.mjs';
 
-const { getWorkSpaceDirPaths, getWorkSpacePackages } = require('./workspaces-packages');
+import { getWorkSpaceDirPaths, getWorkSpacePackages } from './workspaces-packages.mjs';
 
-const { copyFiles, copyFile } = require('./copy-files');
+import { copyFiles, copyFile } from './copy-files.mjs';
 
-const { deletePaths, deletePath } = require('./delete-paths');
+import { deletePaths, deletePath } from './delete-paths.mjs';
 
-module.exports = {
+export {
   getWorkSpacePathTo,
   getPathsInWorkspace,
   getWorkspaceAbsPaths,

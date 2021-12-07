@@ -1,9 +1,9 @@
-const execSync = require('./exec-sync');
-const ngu = require('./index');
+import execSync from './exec-sync.mjs';
+import ngu from './index.mjs';
 
 const git = 'git';
 
-jest.mock('./exec-sync', () =>
+jest.mock('./exec-sync.mjs', () =>
   jest.fn((command, args, opts) => ({
     command,
     args,

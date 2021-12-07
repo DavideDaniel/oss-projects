@@ -79,6 +79,18 @@ jobs:
       - run:
           name: Test
           command: yarn test
+  
+  lint:
+    <<: *defaults
+    steps:
+      - run:
+          name: Record SHA
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Lint
+          command: yarn lint
 
   # publish
   deploy:

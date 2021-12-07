@@ -1,4 +1,4 @@
-const cssModule = require('../index');
+import cssModule from '../index.js';
 
 describe('convert-css module', () => {
   it('should match its snapshot', () => {

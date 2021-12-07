@@ -1,0 +1,30 @@
+module.exports = {
+  rootDir: './',
+  testURL: 'http://localhost/',
+  cache: true,
+  clearMocks: true,
+  verbose: true,
+  coverageDirectory: '<rootDir>/reports/coverage',
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
+  },
+  collectCoverage: true,
+  coverageReporters: ['json-summary', 'lcov', 'text'],
+  testResultsProcessor: 'jest-junit',
+  collectCoverageFrom: [
+    '<rootDir>/packages/**/**/*.{js}',
+    '<rootDir>/packages/**/*.{js}',
+    '!**/node_modules/**',
+    '!<rootDir>/.yarn/unplugged/**',
+  ],
+  roots: ['<rootDir>/packages/'],
+  transform: {},
+  setupFiles: ['<rootDir>/.jest/setup.mjs'],
+  // projects: ['<rootDir>', '<rootDir>/packages/*'],
+  // extensionsToTreatAsEsm: ['.js'],
+  // testEnvironment: 'node',
+};

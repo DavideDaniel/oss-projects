@@ -1,5 +1,5 @@
-const execa = require('execa');
-const testForNoFilesMatched = require('./test-for-no-match');
+import execa from 'execa';
+import testForNoFilesMatched from './test-for-no-match.mjs';
 
 /**
  * safeAddCommitChanges
@@ -13,7 +13,7 @@ const testForNoFilesMatched = require('./test-for-no-match');
  * $ safeAddCommit src/*,js
  * @returns {Promise} resolves a success or failure to add changes
  */
-function safeAddCommitChanges(fileTypes, logger = console, patterns = {}) {
+export default function safeAddCommitChanges(fileTypes, logger = console, patterns = {}) {
   const map = {
     snapshots: '**/*.snap',
     tests: '**/*test.js',
@@ -36,20 +36,20 @@ function safeAddCommitChanges(fileTypes, logger = console, patterns = {}) {
         }
       }
       return execa('git', ['commit', '-m', `chore: auto update ${filePattern}`])
-        .then(res => {
+        .then((res) => {
           if (testForNoFilesMatched(res.stderr)) {
             return logger.info(`No files were matched for ${filePattern}.`);
           }
           return logger.info(res.stdout);
         })
-        .catch(err => {
+        .catch((err) => {
           if (testForNoFilesMatched(err.message)) {
             logger.warn(`Catching: No matches found for ${filePattern}.`);
           }
           return logger.error(`Error while attempting to commit ${filePattern}:\n${err}`);
         });
     })
-    .catch(err => {
+    .catch((err) => {
       const noChanges = /did not match/.test(err.message);
       if (noChanges) {
         return logger.error(`No matches found for ${filePattern}`);
@@ -57,5 +57,3 @@ function safeAddCommitChanges(fileTypes, logger = console, patterns = {}) {
       return logger.error(err);
     });
 }
-
-module.exports = safeAddCommitChanges;

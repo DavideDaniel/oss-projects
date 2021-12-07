@@ -1,5 +1,5 @@
-const getUpdatedPkgs = require('../2.0/get-updated-packages');
-const getUpdatedPackages = require('../3.0/get-updated-packages');
+import getUpdatedPkgs from '../2.0/get-updated-packages';
+import getUpdatedPackages from '../3.0/get-updated-packages';
 
 describe('2.0', () => {
   describe('getUpdatedPackages', () => {

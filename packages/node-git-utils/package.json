@@ -2,7 +2,8 @@
   "name": "node-git-utils",
   "version": "1.6.0",
   "description": "Handy git methods as js functions for usage in node tools/apps.",
-  "main": "index.js",
+  "type": "module",
+  "module": "index.mjs",
   "scripts": {
     "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
     "test:watch": "yarn jest --watchAll --no-watchman",
@@ -29,5 +30,8 @@
   "homepage": "https://github.com/DavideDaniel/node-git-utils#readme",
   "dependencies": {
     "execa": "^0.8.0"
+  },
+  "devDependencies": {
+    "documentation": "^13.2.5"
   }
 }

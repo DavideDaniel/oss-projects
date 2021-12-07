@@ -1,4 +1,4 @@
-const { getAllDependencies } = require('../lib/get-all-dependencies');
+import { getAllDependencies } from '../lib/get-all-dependencies.mjs';
 
 describe('get-all-dependencies', () => {
   it('will have tests', () => {

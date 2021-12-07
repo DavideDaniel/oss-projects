@@ -1,4 +1,4 @@
-const execa = require('execa');
+import execa from 'execa';
 
 /**
  * execSync
@@ -9,8 +9,6 @@ const execa = require('execa');
  * @param {Object} opts an object of options passed to execa
  * @returns {Process} returns a child process via execa.sync
  */
-function execSync(command, args, opts) {
+export default function execSync(command, args, opts) {
   return execa.sync(command, args, opts).stdout;
 }
-
-module.exports = execSync;

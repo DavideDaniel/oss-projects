@@ -6,7 +6,7 @@
  * @param {Object} logger - a logging object with info method to log results
  * @returns {Promise} an evaluated str from stderr
  */
-module.exports = function checkStdErr(str, regex, logger = console) {
+export default function checkStdErr(str, regex, logger = console) {
   try {
     const obj = JSON.stringify(str);
     const { stderr } = JSON.parse(obj);
@@ -20,4 +20,4 @@ module.exports = function checkStdErr(str, regex, logger = console) {
   } catch (e) {
     return Promise.reject(e);
   }
-};
+}

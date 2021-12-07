@@ -4,7 +4,8 @@
   "description": "npm or yarn link common modules between a project and a monorepo/multi-packages dir",
   "author": "David Daniel, <david.e.daniel@gmail.com>",
   "license": "MIT",
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "lib/index.mjs",
   "bin": {
     "nlx": "bin/cli.js"
   },

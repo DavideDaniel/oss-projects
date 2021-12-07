@@ -1,5 +1,5 @@
-const path = require('path');
-const invariant = require('invariant');
+import path from 'path';
+import invariant from 'invariant';
 
 /**
  * getWorkspaces
@@ -8,7 +8,7 @@ const invariant = require('invariant');
  * @param  {String} pathToRoot path to root dir with package.json
  * @return {Array} array of patterns (eg: packages/*)
  */
-function getWorkspaces(pathToRoot) {
+export function getWorkspaces(pathToRoot) {
   invariant(pathToRoot, `getWorkspaces from ${__filename} needs to know the root of your project`);
   const pathToPkgJson = path.resolve(pathToRoot, 'package.json');
   // eslint-disable-next-line import/no-dynamic-require
@@ -23,7 +23,7 @@ function getWorkspaces(pathToRoot) {
  * @param  {String} pathToRoot   path to root dir
  * @return {Array}               names of dirs in workspace
  */
-const getWorkspaceDirNames = pathToRoot => getWorkspaces(pathToRoot).map(path.dirname);
+export const getWorkspaceDirNames = (pathToRoot) => getWorkspaces(pathToRoot).map(path.dirname);
 
 /**
  * getWorkspaceAbsPaths
@@ -33,11 +33,11 @@ const getWorkspaceDirNames = pathToRoot => getWorkspaces(pathToRoot).map(path.di
  *
  * @return {Array}               array of paths
  */
-const getWorkspaceAbsPaths = pathToRoot => pathTo => {
+export const getWorkspaceAbsPaths = (pathToRoot) => (pathTo) => {
   const wsp = getWorkspaceDirNames(pathToRoot);
   return pathTo
-    ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
-    : wsp.map(p => path.resolve(pathToRoot, p));
+    ? wsp.map((p) => path.resolve(pathToRoot, p, pathTo))
+    : wsp.map((p) => path.resolve(pathToRoot, p));
 };
 
 /**
@@ -49,11 +49,11 @@ const getWorkspaceAbsPaths = pathToRoot => pathTo => {
  *
  * @return {Array}             array of paths
  */
-const getWorkSpacePathTo = pathToRoot => pathTo => {
+export const getWorkSpacePathTo = (pathToRoot) => (pathTo) => {
   const wsp = getWorkspaces(pathToRoot);
   return pathTo
-    ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
-    : wsp.map(p => path.resolve(pathToRoot, p));
+    ? wsp.map((p) => path.resolve(pathToRoot, p, pathTo))
+    : wsp.map((p) => path.resolve(pathToRoot, p));
 };
 
 /**
@@ -63,14 +63,6 @@ const getWorkSpacePathTo = pathToRoot => pathTo => {
  * @param  {String} appRoot root path to start from, usually application root
  * @return {Array}          array of paths mapped to workspace packages
  */
-function getPathsInWorkspace(paths, appRoot) {
+export function getPathsInWorkspace(paths, appRoot) {
   return paths.map(getWorkSpacePathTo(appRoot));
 }
-
-module.exports = {
-  getWorkSpacePathTo,
-  getPathsInWorkspace,
-  getWorkspaceAbsPaths,
-  getWorkspaceDirNames,
-  getWorkspaces,
-};

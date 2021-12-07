@@ -1,5 +1,7 @@
-const execa = require('execa');
-const logger = require('./logger');
+import { getWorkSpacePackages } from 'workspaces-utils/lib/workspaces-packages.mjs';
+import execa from 'execa';
+import logger from './logger.mjs';
+import appRoot from './app-root.mjs';
 
 const errString = 'No packages need updating';
 const noUpdates = new RegExp(errString);
@@ -32,8 +34,9 @@ function checkErr(str) {
 
 async function getUpdatedPkgs() {
   try {
-    const { stdout } = await execa
-      .shell('lerna updated --json');
+    const packages = await getWorkSpacePackages(appRoot);
+    console.log({ packages });
+    const { stdout } = await execa.shell('lerna updated --json');
 
     return Promise.resolve({
       pkgs: evalExpectedOnly(stdout),
@@ -45,8 +48,7 @@ async function getUpdatedPkgs() {
 
 async function getTouchedPkgs() {
   try {
-    const { stdout } = await execa
-      .shell('lerna ls --since --json');
+    const { stdout } = await execa.shell('lerna ls --since --json');
 
     return Promise.resolve({
       pkgs: evalExpectedOnly(stdout),
@@ -56,4 +58,4 @@ async function getTouchedPkgs() {
   }
 }
 
-module.exports = { getUpdatedPkgs, getTouchedPkgs };
+export { getUpdatedPkgs, getTouchedPkgs };

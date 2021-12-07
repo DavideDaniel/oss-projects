@@ -12,5 +12,8 @@
   "dependencies": {
     "camelize": "^1.0.0",
     "css-parse": "^2.0.0"
+  },
+  "devDependencies": {
+    "documentation": "^13.2.5"
   }
 }

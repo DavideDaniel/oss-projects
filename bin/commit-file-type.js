@@ -1,7 +1,7 @@
-const execa = require('execa');
-const logger = require('./logger');
+import execa from 'execa';
+import logger from './logger.mjs';
 
-const testForNoFilesMatched = msg => /ENOENT|no changes/.test(msg);
+const testForNoFilesMatched = (msg) => /ENOENT|no changes/.test(msg);
 const fileType = process.argv[2];
 const map = {
   snapshots: '**/*.snap',
@@ -22,20 +22,20 @@ execa('git', ['add', filePattern])
       }
     }
     return execa('git', ['commit', '-m', `chore: auto update ${fileType}`])
-      .then(res => {
+      .then((res) => {
         if (testForNoFilesMatched(res.stderr)) {
           return logger.success(`No files were matched for ${fileType}.`);
         }
         return logger.success(res.stdout);
       })
-      .catch(err => {
+      .catch((err) => {
         if (testForNoFilesMatched(err.message)) {
           logger.warn(`Catching: No files were matched for ${fileType}.`);
         }
         return logger.error(`Error while attempting to commit ${fileType}:\n${err}`);
       });
   })
-  .catch(err => {
+  .catch((err) => {
     const noChanges = /did not match/.test(err.message);
     if (noChanges) {
       return logger.error(`No matches found for ${filePattern}`);

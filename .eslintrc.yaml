@@ -16,6 +16,8 @@ rules:
   valid-jsdoc: warn
   func-names: error
   prettier/prettier: error
+  import/extensions:
+  - warn
   import/no-extraneous-dependencies:
   - "error"
   comma-dangle:

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Glob over directory and update all placeholders with name & version of package",
   "bin": {
-    "tagDir": "cli.js"
+    "tagDir": "cli.mjs"
   },
-  "main": "index.js",
+  "module": "index.mjs",
   "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
   "license": "MIT",
   "scripts": {

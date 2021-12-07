@@ -1,5 +1,5 @@
-const fs = require('fs');
-const glob = require('glob');
+import fs from 'fs';
+import glob from 'glob';
 
 function tagDirWithVersion({
   dir,
@@ -17,16 +17,16 @@ function tagDirWithVersion({
     .sync(`${dir}/**`, globOpts)
 
     .filter(
-      filePath =>
+      (filePath) =>
         fs.statSync(filePath).isFile() &&
-        !ignorePaths.some(ignorePath => filePath.indexOf(ignorePath) > -1),
+        !ignorePaths.some((ignorePath) => filePath.indexOf(ignorePath) > -1),
     );
 
   if (verbose) {
     console.log('Matched paths \n', filePaths);
   }
 
-  filePaths.forEach(filePath => {
+  filePaths.forEach((filePath) => {
     try {
       const fileContent = fs.readFileSync(filePath, 'utf8');
 
@@ -46,6 +46,4 @@ function tagDirWithVersion({
   });
 }
 
-module.exports = {
-  tagDirWithVersion,
-};
+export { tagDirWithVersion };
