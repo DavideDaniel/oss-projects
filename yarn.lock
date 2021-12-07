@@ -7736,9 +7736,12 @@ wordwrap@~1.0.0:
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
 
 "workspaces-utils@file:packages/workspaces-utils":
-  version "1.2.0"
+  version "1.2.1"
   dependencies:
+    execa "^0.8.0"
+    invariant "^2.2.4"
     npm-link-extra "^4.0.3"
+    rimraf "^2.6.2"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
