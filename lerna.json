@@ -1,14 +1,4 @@
 {
-  "lerna": "2.11.0",
   "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "command": {
-    "publish": {
-      "ignoreChanges": [
-        "*.test.js",
-        "*.md"
-      ]
-    }
-  }
+  "useWorkspaces": true
 }
