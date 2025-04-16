@@ -4,7 +4,7 @@ version: 2.1
 defaults: &defaults
   working_directory: ~/oss-proj
   docker:
-    - image: circleci/node:8.10-stretch
+    - image: cimg/node:20.19.0
 
 jobs:
   # checkout repo
@@ -42,16 +42,19 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "./oss-proj/yarn.lock" }}
           paths:
-            - ./oss-proj/node_modules
+            - ./oss-proj/.yarn/unplugged
+            - ./oss-proj/.yarn/install-state.gz
       - save_cache:
           name: Save Backup Package Cache
           key: yarn-packages
           paths:
-            - ./oss-proj/node_modules
+            - ./oss-proj/.yarn/unplugged
+            - ./oss-proj/.yarn/install-state.gz
       - persist_to_workspace:
           root: .
           paths:
-            - oss-proj/node_modules
+            - ./oss-proj/.yarn/unplugged
+            - ./oss-proj/.yarn/install-state.gz
 
   # circle needs a build step no matter what
   build:
@@ -118,4 +121,4 @@ workflows:
             tags:
               only: /.*/
             branches:
-              only: master
+              only: release.*
