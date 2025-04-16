@@ -26,6 +26,6 @@
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
   },
   "dependencies": {
-    "execa": "^0.8.0"
+    "execa": "^5.0.0"
   }
 }
