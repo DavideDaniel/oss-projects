@@ -70,5 +70,13 @@
     "rimraf": "^2.6.2",
     "workspaces-utils": "file:packages/workspaces-utils"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.9.1",
+  "dependenciesMeta": {
+    "eslint": {
+      "unplugged": true
+    },
+    "prettier": {
+      "unplugged": true
+    }
+  }
 }
