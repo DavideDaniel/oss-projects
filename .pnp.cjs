@@ -75,6 +75,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/config-conventional", "npm:6.1.3"],\
           ["babel-eslint", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.0"],\
+          ["chalk", "npm:4.1.2"],\
           ["conventional-changelog-angular-bitbucket", "npm:1.2.0"],\
           ["conventional-changelog-atom", "npm:0.2.8"],\
           ["documentation", "npm:12.1.1"],\
@@ -13162,6 +13163,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/config-conventional", "npm:6.1.3"],\
           ["babel-eslint", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.0"],\
+          ["chalk", "npm:4.1.2"],\
           ["conventional-changelog-angular-bitbucket", "npm:1.2.0"],\
           ["conventional-changelog-atom", "npm:0.2.8"],\
           ["documentation", "npm:12.1.1"],\
