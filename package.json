@@ -18,7 +18,7 @@
     "clean": "lerna clean --yes && rimraf dist es node_modules",
     "test": "lerna exec --since -- jest --colors --maxWorkers=2",
     "test:watch": "lerna exec --since -- jest --watch --no-watchman",
-    "lint": "lerna run lint --since --no-sort --stream",
+    "lint": "yarn lerna exec --since --no-sort --stream \"eslint . --fix\"",
     "lint:pkgs": "BABEL_ENV=test lerna exec --since --no-sort --stream --concurrency=1 \"eslint src lib __tests__ --fix\"",
     "publish:all": "lerna exec --bail=false \"npm publish --registry https://registry.npmjs.org/\"",
     "publish:since": "lerna exec --bail=false --since -- \"npm publish --registry https://registry.npmjs.org/\"",
