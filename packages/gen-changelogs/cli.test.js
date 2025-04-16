@@ -1,6 +1,4 @@
-/* eslint-disable global-require */
-
-jest.mock('import-lazy', () => jest.fn(m => () => Promise.resolve(m)));
+jest.mock('import-lazy', () => jest.fn((m) => () => Promise.resolve(m)));
 jest.mock('conventional-changelog-core');
 jest.mock('get-stream');
 jest.mock('dedent');

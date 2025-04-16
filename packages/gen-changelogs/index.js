@@ -37,7 +37,7 @@ const changelogHeader = dedent(`
   See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 `);
 
-const getContentOnly = content => {
+const getContentOnly = (content) => {
   const section = content.indexOf('<a name=');
   if (section !== -1) {
     return content.substring(section);
@@ -58,7 +58,7 @@ async function readChangelog(location) {
   return Promise.resolve()
     .catch(() => '') // instead of rejecting missing file return empty str
     .then(getContentOnly)
-    .then(content => [changelog, content]);
+    .then((content) => [changelog, content]);
 }
 
 function updateChangelog(location, opts) {

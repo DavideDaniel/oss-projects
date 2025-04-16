@@ -11,11 +11,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Important for lerna to determine versions
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -35,6 +37,6 @@ jobs:
 
     # `--prefer-offline` gives cache priority
     - name: Install dependencies
-      run: yarn install --prefer-offline --frozen-lockfile
+      run: yarn install --immutable
     - name: Test all 
       run: yarn lerna exec 'jest --colors --maxWorkers=2' --no-sort --stream --concurrency=1

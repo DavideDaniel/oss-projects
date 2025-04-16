@@ -1,10 +1,18 @@
 node_modules/
 .dev
 reports/
-.vscode
 
 DS_Store
 *.log
 
 packages/**/.npmrc
 packages/**/.npmignore
+
+# yarn zero installs
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

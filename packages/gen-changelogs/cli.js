@@ -30,10 +30,9 @@ function isString(val) {
 
 /**
  * extract the in-pre-release type in target version
- * @param {String} version
- * @return {string}
+ * @param {String} version - The version string to check
+ * @return {string} The release type (major, minor, patch) or undefined if not found
  */
-// eslint-disable-next-line consistent-return
 function getCurrentActiveType(version) {
   for (let i = 0; i < typeList.length; i += 1) {
     if (semver[typeList[i]](version)) {
@@ -51,9 +50,9 @@ function isInPrerelease(version) {
  * and if it current in-pre-release type is same as expect type,
  * it should continue the pre-release with the same type
  *
- * @param {String} version
- * @param {String} expectType
- * @return {boolean}
+ * @param {String} version - The current version string to check
+ * @param {String} expectType - The expected release type (major, minor, patch)
+ * @return {boolean} returns true if the current version is in pre-release state
  */
 function shouldContinuePrerelease(version, expectType) {
   return getCurrentActiveType(version) === expectType;
@@ -63,8 +62,8 @@ function shouldContinuePrerelease(version, expectType) {
  * calculate the priority of release type,
  * major - 2, minor - 1, patch - 0
  *
- * @param {String} type
- * @return {number}
+ * @param {String} type - The release type to check (major, minor, patch)
+ * @return {number} returns the index of the type in typeList
  */
 function getTypePriority(type) {
   return typeList.indexOf(type);
@@ -86,7 +85,7 @@ function getReleaseType(prerelease, expectedReleaseType, currentVersion) {
   return expectedReleaseType;
 }
 
-bumpVersion(argv.r, argv.p).then(async release => {
+bumpVersion(argv.r, argv.p).then(async (release) => {
   const pkg = {
     version: opts.version || process.env.npm_package_version,
   };
