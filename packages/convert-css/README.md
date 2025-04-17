@@ -41,70 +41,70 @@ fs.readFile('./my.css', 'utf-8', (err, data) => {
 
 ##### Table of Contents
 
--   [sequence](#sequence)
-    -   [Parameters](#parameters)
--   [replaceCssSyntax](#replacecsssyntax)
--   [convertKey](#convertkey)
-    -   [Parameters](#parameters-1)
--   [mungeRules](#mungerules)
-    -   [Parameters](#parameters-2)
--   [cssToJson](#csstojson)
-    -   [Parameters](#parameters-3)
--   [cssToCamelizedJson](#csstocamelizedjson)
-    -   [Parameters](#parameters-4)
+*   [sequence](#sequence)
+    *   [Parameters](#parameters)
+*   [replaceCssSyntax](#replacecsssyntax)
+*   [convertKey](#convertkey)
+    *   [Parameters](#parameters-1)
+*   [mungeRules](#mungerules)
+    *   [Parameters](#parameters-2)
+*   [cssToJson](#csstojson)
+    *   [Parameters](#parameters-3)
+*   [cssToCamelizedJson](#csstocamelizedjson)
+    *   [Parameters](#parameters-4)
 
 #### sequence
 
-[sequence takes in functions and calls them in sequence, same as pipe]
+\[sequence takes in functions and calls them in sequence, same as pipe]
 
 ##### Parameters
 
--   `args` **\[Functions]** [n number of functions]
+*   `args` **\[Functions]** \[n number of functions]
 
-Returns **Any** [result of last function in sequence]
+Returns **Any** \[result of last function in sequence]
 
 #### replaceCssSyntax
 
-replaceCssSyntax is a function will pipe a string [key] through more functions to replace and normalize css rule keys
+replaceCssSyntax is a function will pipe a string \[key] through more functions to replace and normalize css rule keys
 
 Type: [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 #### convertKey
 
-[convertKey replaces css selector syntax with underscores ]
+\[convertKey replaces css selector syntax with underscores ]
 
 ##### Parameters
 
--   `key` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** [css selector]
+*   `key` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** \[css selector]
 
-Returns **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** [reformatted selector key]
+Returns **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** \[reformatted selector key]
 
 #### mungeRules
 
-[mungeRules reformats rules array from css ast]
+\[mungeRules reformats rules array from css ast]
 
 ##### Parameters
 
--   `rules` **\[[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)]** [an array of css rules]
+*   `rules` **\[[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)]** \[an array of css rules]
 
-Returns **\[[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)]** [array of css rules with keys for JSON]
+Returns **\[[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)]** \[array of css rules with keys for JSON]
 
 #### cssToJson
 
-[cssToJson takes a string as a parameter and returns JSON]
+\[cssToJson takes a string as a parameter and returns JSON]
 
 ##### Parameters
 
--   `string` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** [css string]
+*   `string` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** \[css string]
 
-Returns **\[[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)]** [JSON derived from css ast]
+Returns **\[[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)]** \[JSON derived from css ast]
 
 #### cssToCamelizedJson
 
-[cssToCamelizedJson takes a string as a parameter and returns JSON]
+\[cssToCamelizedJson takes a string as a parameter and returns JSON]
 
 ##### Parameters
 
--   `string` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** [css string]
+*   `string` **\[[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)]** \[css string]
 
-Returns **\[[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)]** [camelized values in JSON object derviced from ast]
+Returns **\[[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)]** \[camelized values in JSON object derviced from ast]
