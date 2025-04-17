@@ -3221,16 +3221,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compare-func@npm:1.3.1":
-  version: 1.3.1
-  resolution: "compare-func@npm:1.3.1"
-  dependencies:
-    array-ify: "npm:^1.0.0"
-    dot-prop: "npm:^2.0.0"
-  checksum: 10/8c15565e5794119ccb0b31b2022120913160ba54a992bff6ea9fcf046f845abf55d911cf1a1de245aadf34ea5fe4091ffc49d01d384e34d4a5a96124635e9fd6
-  languageName: node
-  linkType: hard
-
 "compare-func@npm:^1.3.1":
   version: 1.3.2
   resolution: "compare-func@npm:1.3.2"
@@ -3287,27 +3277,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-angular-bitbucket@npm:^1.1.2":
-  version: 1.2.0
-  resolution: "conventional-changelog-angular-bitbucket@npm:1.2.0"
-  dependencies:
-    compare-func: "npm:1.3.1"
-    conventional-changelog-angular: "npm:5.0.1"
-    q: "npm:1.4.1"
-  checksum: 10/a2fca5a6087f7a8bd8f9234e25367a4e54a72bbaa3050293d932dcf42b11c2dc3e19e2ff14eb06e2bbda57210809ac492f08f151af98ebfc91e46d0b01cb4fe0
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-angular@npm:5.0.1":
-  version: 5.0.1
-  resolution: "conventional-changelog-angular@npm:5.0.1"
-  dependencies:
-    compare-func: "npm:^1.3.1"
-    q: "npm:^1.5.1"
-  checksum: 10/a19b078fd0367d3e9fb90fcbed34d67759095cded1d705fdd3e3d4c5532890d887bd6526c2c71f1b59a0fdca329c89e6b61e4c3a96bbb1b46fb45f2add6ad8b7
-  languageName: node
-  linkType: hard
-
 "conventional-changelog-angular@npm:^3.0.6":
   version: 3.0.7
   resolution: "conventional-changelog-angular@npm:3.0.7"
@@ -3325,15 +3294,6 @@ __metadata:
     compare-func: "npm:^2.0.0"
     q: "npm:^1.5.1"
   checksum: 10/e7ee31ac703bc139552a735185f330d1b2e53d7c1ff40a78bf43339e563d95c290a4f57e68b76bb223345524702d80bf18dc955417cd0852d9457595c04ad8ce
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-atom@npm:^0.2.4":
-  version: 0.2.8
-  resolution: "conventional-changelog-atom@npm:0.2.8"
-  dependencies:
-    q: "npm:^1.5.1"
-  checksum: 10/09869cec4be806abaa62be8e78a24ecb36dae02d5ee4dc49d395edb129300795c8218a17f7194412fc199d02e62f8a48247c074e11ab5ba6612b989567ff9195
   languageName: node
   linkType: hard
 
@@ -3982,15 +3942,6 @@ __metadata:
   bin:
     documentation: bin/documentation.js
   checksum: 10/13647acf5e82e3d310a4c50ecdfdfad503e3d846474c50fc02d91792f9f3d517c071bcca0da5f70463453a3f8d4d03d161d67b3944d8a2a34d719cbe4ecc8054
-  languageName: node
-  linkType: hard
-
-"dot-prop@npm:^2.0.0":
-  version: 2.4.0
-  resolution: "dot-prop@npm:2.4.0"
-  dependencies:
-    is-obj: "npm:^1.0.0"
-  checksum: 10/72d6fdeb6360ae8b0a626492825b5532f1bcbaf9e3d86e98ab450ef3d0ea6c668069721d49ae81f593b4826586f7e1da715746ff5e60de7697f09c7b160855c3
   languageName: node
   linkType: hard
 
@@ -7338,13 +7289,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.matches@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.matches@npm:4.6.0"
-  checksum: 10/21a37b030bb4701a87edcdb1c2e9a2616fd01e63987404a8adca1efa86edeee563828f846af4abbf4b5936eea3ed3649daaa4dcfac6fd2c735967cd9e6593bdc
-  languageName: node
-  linkType: hard
-
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -9001,7 +8945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-link-extra@npm:^4.0.0, npm-link-extra@npm:^4.0.3, npm-link-extra@workspace:packages/npm-link-extra":
+"npm-link-extra@npm:^4.0.3, npm-link-extra@workspace:packages/npm-link-extra":
   version: 0.0.0-use.local
   resolution: "npm-link-extra@workspace:packages/npm-link-extra"
   dependencies:
@@ -9284,22 +9228,15 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": "npm:6.1.3"
     babel-eslint: "npm:^10.1.0"
-    chalk: "npm:^4.1.0"
-    conventional-changelog-angular-bitbucket: "npm:^1.1.2"
-    conventional-changelog-atom: "npm:^0.2.4"
     eslint: "npm:^8.0.0"
     eslint-config-prettier: "npm:^10.1.2"
     eslint-import-resolver-node: "npm:~0.3.9"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-prettier: "npm:^5.2.6"
-    execa: "npm:^0.8.0"
-    fs-extra: "npm:^5.0.0"
     jest: "npm:^29.0.0"
     jest-cli: "npm:^29.0.0"
     jest-junit: "npm:^3.6.0"
     lerna: "npm:^4.0.0"
-    lodash.matches: "npm:^4.6.0"
-    npm-link-extra: "npm:^4.0.0"
     prettier: "npm:^3.5.3"
     safe-add-commit-changes: "workspace:packages/safe-add-commit-changes"
     workspaces-utils: "workspace:packages/workspaces-utils"
@@ -10019,13 +9956,6 @@ __metadata:
   version: 6.1.0
   resolution: "pure-rand@npm:6.1.0"
   checksum: 10/256aa4bcaf9297256f552914e03cbdb0039c8fe1db11fa1e6d3f80790e16e563eb0a859a1e61082a95e224fc0c608661839439f8ecc6a3db4e48d46d99216ee4
-  languageName: node
-  linkType: hard
-
-"q@npm:1.4.1":
-  version: 1.4.1
-  resolution: "q@npm:1.4.1"
-  checksum: 10/31ac481a91ccb6e9a1e4270194aac1c483eb6919ad54e93069d309f7e225a0a2ad5e8f667bc220c02d01f9225f73d6674f15386914cdc741b1c6ece274e9569d
   languageName: node
   linkType: hard
 

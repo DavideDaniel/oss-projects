@@ -75,22 +75,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/config-conventional", "npm:6.1.3"],\
           ["babel-eslint", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.0"],\
-          ["chalk", "npm:4.1.2"],\
-          ["conventional-changelog-angular-bitbucket", "npm:1.2.0"],\
-          ["conventional-changelog-atom", "npm:0.2.8"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.2"],\
           ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
-          ["execa", "npm:0.8.0"],\
-          ["fs-extra", "npm:5.0.0"],\
           ["jest", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-cli", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-junit", "npm:3.7.0"],\
           ["lerna", "npm:4.0.0"],\
-          ["lodash.matches", "npm:4.6.0"],\
-          ["npm-link-extra", "workspace:packages/npm-link-extra"],\
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["safe-add-commit-changes", "workspace:packages/safe-add-commit-changes"],\
@@ -4230,15 +4223,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["compare-func", [\
-      ["npm:1.3.1", {\
-        "packageLocation": "./.yarn/cache/compare-func-npm-1.3.1-b2b4f4e2fb-8c15565e57.zip/node_modules/compare-func/",\
-        "packageDependencies": [\
-          ["array-ify", "npm:1.0.0"],\
-          ["compare-func", "npm:1.3.1"],\
-          ["dot-prop", "npm:2.4.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:1.3.2", {\
         "packageLocation": "./.yarn/cache/compare-func-npm-1.3.2-3aa0ea6af2-f9b22fb3c8.zip/node_modules/compare-func/",\
         "packageDependencies": [\
@@ -4310,42 +4294,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:5.0.1", {\
-        "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-5.0.1-85e2fdb2f5-a19b078fd0.zip/node_modules/conventional-changelog-angular/",\
-        "packageDependencies": [\
-          ["compare-func", "npm:1.3.2"],\
-          ["conventional-changelog-angular", "npm:5.0.1"],\
-          ["q", "npm:1.5.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:5.0.13", {\
         "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-5.0.13-50e4a302c4-e7ee31ac70.zip/node_modules/conventional-changelog-angular/",\
         "packageDependencies": [\
           ["compare-func", "npm:2.0.0"],\
           ["conventional-changelog-angular", "npm:5.0.13"],\
-          ["q", "npm:1.5.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["conventional-changelog-angular-bitbucket", [\
-      ["npm:1.2.0", {\
-        "packageLocation": "./.yarn/cache/conventional-changelog-angular-bitbucket-npm-1.2.0-025ffc4ca3-a2fca5a608.zip/node_modules/conventional-changelog-angular-bitbucket/",\
-        "packageDependencies": [\
-          ["compare-func", "npm:1.3.1"],\
-          ["conventional-changelog-angular", "npm:5.0.1"],\
-          ["conventional-changelog-angular-bitbucket", "npm:1.2.0"],\
-          ["q", "npm:1.4.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["conventional-changelog-atom", [\
-      ["npm:0.2.8", {\
-        "packageLocation": "./.yarn/cache/conventional-changelog-atom-npm-0.2.8-00a8d24190-09869cec4b.zip/node_modules/conventional-changelog-atom/",\
-        "packageDependencies": [\
-          ["conventional-changelog-atom", "npm:0.2.8"],\
           ["q", "npm:1.5.1"]\
         ],\
         "linkType": "HARD"\
@@ -5073,14 +5026,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["dot-prop", [\
-      ["npm:2.4.0", {\
-        "packageLocation": "./.yarn/cache/dot-prop-npm-2.4.0-ae452a9af3-72d6fdeb63.zip/node_modules/dot-prop/",\
-        "packageDependencies": [\
-          ["dot-prop", "npm:2.4.0"],\
-          ["is-obj", "npm:1.0.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:3.0.0", {\
         "packageLocation": "./.yarn/cache/dot-prop-npm-3.0.0-f184efdeeb-7bc2735afc.zip/node_modules/dot-prop/",\
         "packageDependencies": [\
@@ -8842,15 +8787,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["lodash.matches", [\
-      ["npm:4.6.0", {\
-        "packageLocation": "./.yarn/cache/lodash.matches-npm-4.6.0-4ac5f4f696-21a37b030b.zip/node_modules/lodash.matches/",\
-        "packageDependencies": [\
-          ["lodash.matches", "npm:4.6.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["lodash.merge", [\
       ["npm:4.6.2", {\
         "packageLocation": "./.yarn/cache/lodash.merge-npm-4.6.2-77cb4416bf-d0ea2dd009.zip/node_modules/lodash.merge/",\
@@ -10887,22 +10823,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/config-conventional", "npm:6.1.3"],\
           ["babel-eslint", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.0"],\
-          ["chalk", "npm:4.1.2"],\
-          ["conventional-changelog-angular-bitbucket", "npm:1.2.0"],\
-          ["conventional-changelog-atom", "npm:0.2.8"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.2"],\
           ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
-          ["execa", "npm:0.8.0"],\
-          ["fs-extra", "npm:5.0.0"],\
           ["jest", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-cli", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-junit", "npm:3.7.0"],\
           ["lerna", "npm:4.0.0"],\
-          ["lodash.matches", "npm:4.6.0"],\
-          ["npm-link-extra", "workspace:packages/npm-link-extra"],\
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["safe-add-commit-changes", "workspace:packages/safe-add-commit-changes"],\
@@ -11712,13 +11641,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["q", [\
-      ["npm:1.4.1", {\
-        "packageLocation": "./.yarn/cache/q-npm-1.4.1-cc8d344fb7-31ac481a91.zip/node_modules/q/",\
-        "packageDependencies": [\
-          ["q", "npm:1.4.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:1.5.1", {\
         "packageLocation": "./.yarn/cache/q-npm-1.5.1-a28b3cfeaf-70c4a30b30.zip/node_modules/q/",\
         "packageDependencies": [\
