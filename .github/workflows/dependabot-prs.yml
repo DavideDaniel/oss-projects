@@ -19,7 +19,7 @@ jobs:
       with:
         fetch-depth: 0 # Important for lerna to determine versions
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -29,7 +29,7 @@ jobs:
       run: echo "::set-output name=dir::$(yarn cache dir)"
 
     - name: Use Yarn cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       id: yarn-cache
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -38,5 +38,7 @@ jobs:
     # `--prefer-offline` gives cache priority
     - name: Install dependencies
       run: yarn install --immutable
+    - name: Lint all
+      run: yarn lerna exec 'eslint .'
     - name: Test all 
       run: yarn lerna exec 'jest --colors --maxWorkers=2' --no-sort --stream --concurrency=1
