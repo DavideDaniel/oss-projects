@@ -14357,10 +14357,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["y18n", [\
-      ["npm:4.0.0", {\
-        "packageLocation": "./.yarn/cache/y18n-npm-4.0.0-55cd797cc5-c3fabe29b0.zip/node_modules/y18n/",\
+      ["npm:4.0.3", {\
+        "packageLocation": "./.yarn/cache/y18n-npm-4.0.3-ced95acdbc-392870b2a1.zip/node_modules/y18n/",\
         "packageDependencies": [\
-          ["y18n", "npm:4.0.0"]\
+          ["y18n", "npm:4.0.3"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -14425,7 +14425,7 @@ const RAW_RUNTIME_STATE =
           ["set-blocking", "npm:2.0.0"],\
           ["string-width", "npm:2.1.1"],\
           ["which-module", "npm:2.0.0"],\
-          ["y18n", "npm:4.0.0"],\
+          ["y18n", "npm:4.0.3"],\
           ["yargs", "npm:12.0.5"],\
           ["yargs-parser", "npm:11.1.1"]\
         ],\
