@@ -9,9 +9,7 @@
   "author": "David Daniel",
   "license": "MIT",
   "scripts": {
-    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
-    "test:watch": "yarn jest --watchAll --no-watchman",
-    "lint": "eslint . --fix"
+    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='index.js' --shallow ---section=Documentation"
   },
   "dependencies": {
     "conventional-changelog-angular": "^3.0.6",

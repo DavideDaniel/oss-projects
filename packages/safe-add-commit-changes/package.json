@@ -20,8 +20,7 @@
     "url": "git+https://github.com/DavideDaniel/oss-projects.git"
   },
   "scripts": {
-    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
-    "test:watch": "yarn jest --watchAll --no-watchman"
+    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='safe-add-commit-changes.js' --shallow ---section=Documentation"
   },
   "bugs": {
     "url": "https://github.com/DavideDaniel/oss-projects/issues"

@@ -9,8 +9,7 @@
     "nlx": "bin/cli.js"
   },
   "scripts": {
-    "test": "",
-    "lint": "eslint . --fix"
+    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='lib/index.js' --shallow ---section=Documentation"
   },
   "repository": {
     "type": "git",
