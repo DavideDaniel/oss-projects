@@ -15,12 +15,12 @@
     "stage:docs": "run-s update:docs commit:docs",
     "test": "lerna exec --since -- jest -u --colors --maxWorkers=2",
     "lint": "yarn lerna exec --since --no-sort --stream \"eslint . --fix\"",
-    "bump:prerelease": "yarn fetch:tags && lerna version --conventional-prerelease --include-merged-tags --no-git-tag-version --no-push --yes",
+    "bump:prerelease": "yarn fetch:tags && lerna version --conventional-commits --conventional-prerelease --include-merged-tags --no-git-tag-version --no-push --yes",
     "stage:prerelease": "run-s commit:changes update:yarn:files",
     "commit:changes": "git add packages && git commit -m 'chore: version bump'",
     "update:yarn:files": "yarn && yarn stage -c",
     "commit:snaps": "safeAddCommit snapshots",
-    "fetch:tags": "git fetch origin --tags --all --force"
+    "fetch:tags": "git fetch origin --tags --force"
   },
   "jest-junit": {
     "suiteName": "oss-projects",
