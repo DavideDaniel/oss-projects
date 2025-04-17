@@ -11,8 +11,8 @@ const invariant = require('invariant');
 function getWorkspaces(pathToRoot) {
   invariant(pathToRoot, `getWorkspaces from ${__filename} needs to know the root of your project`);
   const pathToPkgJson = path.resolve(pathToRoot, 'package.json');
-  // eslint-disable-next-line import/no-dynamic-require
-  const pkgJSON = require(pathToPkgJson); // eslint-disable-line global-require
+
+  const pkgJSON = require(pathToPkgJson);
   return pkgJSON.workspaces.packages || pkgJSON.workspaces;
 }
 
@@ -23,7 +23,7 @@ function getWorkspaces(pathToRoot) {
  * @param  {String} pathToRoot   path to root dir
  * @return {Array}               names of dirs in workspace
  */
-const getWorkspaceDirNames = pathToRoot => getWorkspaces(pathToRoot).map(path.dirname);
+const getWorkspaceDirNames = (pathToRoot) => getWorkspaces(pathToRoot).map(path.dirname);
 
 /**
  * getWorkspaceAbsPaths
@@ -33,11 +33,11 @@ const getWorkspaceDirNames = pathToRoot => getWorkspaces(pathToRoot).map(path.di
  *
  * @return {Array}               array of paths
  */
-const getWorkspaceAbsPaths = pathToRoot => pathTo => {
+const getWorkspaceAbsPaths = (pathToRoot) => (pathTo) => {
   const wsp = getWorkspaceDirNames(pathToRoot);
   return pathTo
-    ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
-    : wsp.map(p => path.resolve(pathToRoot, p));
+    ? wsp.map((p) => path.resolve(pathToRoot, p, pathTo))
+    : wsp.map((p) => path.resolve(pathToRoot, p));
 };
 
 /**
@@ -49,11 +49,11 @@ const getWorkspaceAbsPaths = pathToRoot => pathTo => {
  *
  * @return {Array}             array of paths
  */
-const getWorkSpacePathTo = pathToRoot => pathTo => {
+const getWorkSpacePathTo = (pathToRoot) => (pathTo) => {
   const wsp = getWorkspaces(pathToRoot);
   return pathTo
-    ? wsp.map(p => path.resolve(pathToRoot, p, pathTo))
-    : wsp.map(p => path.resolve(pathToRoot, p));
+    ? wsp.map((p) => path.resolve(pathToRoot, p, pathTo))
+    : wsp.map((p) => path.resolve(pathToRoot, p));
 };
 
 /**

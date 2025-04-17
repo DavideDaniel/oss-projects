@@ -21,7 +21,7 @@ ${pkgs.join('\n')}
 `);
 }
 const pathToCache = path.join(__dirname, '.cache-nlx.json');
-const isADir = p => fs.statSync(p).isDirectory();
+const isADir = (p) => fs.statSync(p).isDirectory();
 const cacheExists = fs.existsSync(pathToCache);
 
 function writeToCache(inc) {
@@ -38,8 +38,8 @@ function readAndParseJSON(pathToJSON, defaultToReturn) {
   }
   return defaultToReturn;
 }
-const filterOutNodeModules = arr =>
-  arr.filter(n => !/(node_modules|\.git|__|.DS_Store|reports|dist)/.test(n)); // NOTE - this needs to be configurable
+const filterOutNodeModules = (arr) =>
+  arr.filter((n) => !/(node_modules|\.git|__|.DS_Store|reports|dist)/.test(n)); // NOTE - this needs to be configurable
 
 function findInPath(name, base, fileName, f, r) {
   // console.log(`Checking if ${name} package exists within this repo.`);
@@ -51,8 +51,7 @@ function findInPath(name, base, fileName, f, r) {
     if (isADir(newbase)) {
       findInPath(name, newbase, fileName, fs.readdirSync(newbase), result);
     } else if (file.substr(-1 * (fileName.length + 1)) === fileName) {
-      // eslint-disable-next-line global-require
-      const pkgName = require(newbase).name; // eslint-disable-line import/no-dynamic-require
+      const pkgName = require(newbase).name;
       if (pkgName === name) {
         debugLogging(`Found ${name} at path ${newbase}`);
         result.push(newbase);
@@ -85,20 +84,16 @@ function cacheOwnModulePaths(hash) {
 }
 
 function existsInOwnPath(cwd, name) {
-  try {
-    if (cacheExists) {
-      const { cache } = readAndParseJSON(pathToCache, {});
-      if (typeof cache[name] === 'boolean') {
-        debugLogging(`READING FROM CACHE for ${name}`);
-        // return cached value
-        return cache[name];
-      }
+  if (cacheExists) {
+    const { cache } = readAndParseJSON(pathToCache, {});
+    if (typeof cache[name] === 'boolean') {
+      debugLogging(`READING FROM CACHE for ${name}`);
+      // return cached value
+      return cache[name];
     }
-    pkgHash.cache[name] = findInPath(name, cwd, 'package.json').length > 0;
-    cacheOwnModulePaths(pkgHash);
-  } catch (error) {
-    throw error;
   }
+  pkgHash.cache[name] = findInPath(name, cwd, 'package.json').length > 0;
+  cacheOwnModulePaths(pkgHash);
 
   return pkgHash.cache[name];
 }

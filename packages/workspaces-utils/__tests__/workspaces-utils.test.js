@@ -31,6 +31,6 @@ describe('workspaces-utils', () => {
       copyFiles,
       deletePaths,
       deletePath,
-    ].forEach(fn => expect(fn).toBeTruthy());
+    ].forEach((fn) => expect(fn).toBeTruthy());
   });
 });

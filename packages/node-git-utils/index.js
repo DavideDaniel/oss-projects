@@ -1,7 +1,7 @@
 const execSync = require('./exec-sync');
 
 function concatAndFilter(a, b) {
-  return a.concat(b).filter(str => str.length);
+  return a.concat(b).filter((str) => str.length);
 }
 
 /**
@@ -124,7 +124,7 @@ function matchCommitsBySubject(subject, opts = {}) {
   const arr = commits.split('\n');
 
   return arr
-    .map(line => {
+    .map((line) => {
       const [hash, subjectLine] = line.split(delimiter);
       return { hash, subjectLine };
     })

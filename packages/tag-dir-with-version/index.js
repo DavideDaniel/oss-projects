@@ -1,3 +1,28 @@
+/**
+ * Updates files in a directory by replacing a placeholder with a specified replacement string.
+ *
+ * @param {Object} options - The options for the function.
+ * @param {string} options.dir - The directory to search for files.
+ * @param {string[]} [options.ignorePatterns=[]] - Glob patterns to ignore when searching for files.
+ * @param {string[]} [options.ignorePaths=[]] - Specific file paths to ignore.
+ * @param {string} options.placeholder - The placeholder string to search for in the files.
+ * @param {string} options.replacement - The string to replace the placeholder with.
+ * @param {boolean} [options.verbose=false] - Whether to log detailed information about the process.
+ *
+ * @throws {Error} Throws an error if a file cannot be updated.
+ *
+ * @example
+ * const { tagDirWithVersion } = require('tag-dir-with-version');
+ *
+ * tagDirWithVersion({
+ *   dir: './src',
+ *   ignorePatterns: ['.yarn, node_modules'],
+ *   ignorePaths: ['./src/ignore-this-file.js'],
+ *   placeholder: '__VERSION__',
+ *   replacement: '1.0.0',
+ *   verbose: true,
+ * });
+ */
 const fs = require('fs');
 const glob = require('glob');
 
@@ -17,16 +42,16 @@ function tagDirWithVersion({
     .sync(`${dir}/**`, globOpts)
 
     .filter(
-      filePath =>
+      (filePath) =>
         fs.statSync(filePath).isFile() &&
-        !ignorePaths.some(ignorePath => filePath.indexOf(ignorePath) > -1),
+        !ignorePaths.some((ignorePath) => filePath.indexOf(ignorePath) > -1),
     );
 
   if (verbose) {
     console.log('Matched paths \n', filePaths);
   }
 
-  filePaths.forEach(filePath => {
+  filePaths.forEach((filePath) => {
     try {
       const fileContent = fs.readFileSync(filePath, 'utf8');
 

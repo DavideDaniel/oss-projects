@@ -1,1 +1,1 @@
-module.exports = msg => /ENOENT|no changes/.test(msg);
+module.exports = (msg) => /ENOENT|no changes/.test(msg);

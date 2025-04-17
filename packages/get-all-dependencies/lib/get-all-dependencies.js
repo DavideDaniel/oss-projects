@@ -3,7 +3,7 @@ const getNestedDependencies = (dep, hash, arr) => {
   if (!memo[dep]) {
     memo[dep] = 1;
     if (hash[dep]) {
-      hash[dep].forEach(d => {
+      hash[dep].forEach((d) => {
         arr.push(d);
         getNestedDependencies(d, hash, arr);
       });
@@ -54,12 +54,12 @@ function getAllDependencies(pkgNames, localPackages, { logger = console, verbose
       .concat(Object.keys(dependencies || {}))
       .concat(Object.keys(devDependencies || {}))
       .concat(Object.keys(peerDependencies || {}))
-      .filter(k => names.includes(k));
+      .filter((k) => names.includes(k));
   });
 
-  names.forEach(pkgName => {
+  names.forEach((pkgName) => {
     // Do a first order pass on who depends on me
-    builtBy[pkgName].forEach(dep => {
+    builtBy[pkgName].forEach((dep) => {
       dependedOnBy[dep] = dependedOnBy[dep] || [];
       dependedOnBy[dep].push(pkgName);
     });
