@@ -94,7 +94,6 @@ const RAW_RUNTIME_STATE =
           ["npm-run-all", "npm:4.1.5"],\
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
-          ["rimraf", "npm:2.6.3"],\
           ["safe-add-commit-changes", "workspace:packages/safe-add-commit-changes"],\
           ["workspaces-utils", "workspace:packages/workspaces-utils"]\
         ],\
@@ -11026,7 +11025,6 @@ const RAW_RUNTIME_STATE =
           ["npm-run-all", "npm:4.1.5"],\
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
-          ["rimraf", "npm:2.6.3"],\
           ["safe-add-commit-changes", "workspace:packages/safe-add-commit-changes"],\
           ["workspaces-utils", "workspace:packages/workspaces-utils"]\
         ],\

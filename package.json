@@ -51,7 +51,6 @@
     "npm-link-extra": "^4.0.0",
     "npm-run-all": "^4.1.3",
     "prettier": "^3.5.3",
-    "rimraf": "^2.6.2",
     "safe-add-commit-changes": "workspace:packages/safe-add-commit-changes",
     "workspaces-utils": "workspace:packages/workspaces-utils"
   },
