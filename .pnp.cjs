@@ -11658,10 +11658,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:6.5.2", {\
-        "packageLocation": "./.yarn/cache/qs-npm-6.5.2-dbf9d8386b-ef17caa6e1.zip/node_modules/qs/",\
+      ["npm:6.5.3", {\
+        "packageLocation": "./.yarn/cache/qs-npm-6.5.3-90b2635484-485c990fba.zip/node_modules/qs/",\
         "packageDependencies": [\
-          ["qs", "npm:6.5.2"]\
+          ["qs", "npm:6.5.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12101,7 +12101,7 @@ const RAW_RUNTIME_STATE =
           ["mime-types", "npm:2.1.24"],\
           ["oauth-sign", "npm:0.9.0"],\
           ["performance-now", "npm:2.1.0"],\
-          ["qs", "npm:6.5.2"],\
+          ["qs", "npm:6.5.3"],\
           ["request", "npm:2.88.2"],\
           ["safe-buffer", "npm:5.2.1"],\
           ["tough-cookie", "npm:2.5.0"],\
