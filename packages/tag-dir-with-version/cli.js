@@ -3,7 +3,7 @@ const { argv } = require('yargs')
   .usage(
     '$0 [dir] [replacement]',
     'Update matched files in a directory with name and version of package',
-    yargs => {
+    (yargs) => {
       yargs
         .positional('dir', {
           describe: 'A directory to glob over',

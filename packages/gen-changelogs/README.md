@@ -1,6 +1,6 @@
 # gen-changelogs
 
-* * *
+***
 
 [![CircleCI](https://circleci.com/gh/DavideDaniel/oss-projects/tree/master.svg?style=svg)](https://circleci.com/gh/DavideDaniel/oss-projects/tree/master)
 
@@ -18,14 +18,25 @@ $ yarn add gen-changelogs -D
 
 #### Table of Contents
 
--   [getCurrentActiveType](#getcurrentactivetype)
-    -   [Parameters](#parameters)
--   [shouldContinuePrerelease](#shouldcontinueprerelease)
-    -   [Parameters](#parameters-1)
--   [getTypePriority](#gettypepriority)
-    -   [Parameters](#parameters-2)
--   [bumpVersion](#bumpversion)
-    -   [Parameters](#parameters-3)
+*   [bumpVersion](#bumpversion)
+    *   [Parameters](#parameters)
+*   [getCurrentActiveType](#getcurrentactivetype)
+    *   [Parameters](#parameters-1)
+*   [shouldContinuePrerelease](#shouldcontinueprerelease)
+    *   [Parameters](#parameters-2)
+*   [getTypePriority](#gettypepriority)
+    *   [Parameters](#parameters-3)
+
+### bumpVersion
+
+determine the recommended version bump
+
+#### Parameters
+
+*   `releaseAs` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a semver release type \[major|minor|patch]
+*   `preset` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** conventional-changelog preset to use (optional, default `'angular'`)
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** resolves the determined version bump
 
 ### getCurrentActiveType
 
@@ -33,9 +44,9 @@ extract the in-pre-release type in target version
 
 #### Parameters
 
--   `version` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `version` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The version string to check
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The release type (major, minor, patch) or undefined if not found
 
 ### shouldContinuePrerelease
 
@@ -45,10 +56,10 @@ it should continue the pre-release with the same type
 
 #### Parameters
 
--   `version` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `expectType` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `version` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The current version string to check
+*   `expectType` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The expected release type (major, minor, patch)
 
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** returns true if the current version is in pre-release state
 
 ### getTypePriority
 
@@ -57,17 +68,6 @@ major - 2, minor - 1, patch - 0
 
 #### Parameters
 
--   `type` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `type` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The release type to check (major, minor, patch)
 
-Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
-
-### bumpVersion
-
-determine the recommended version bump
-
-#### Parameters
-
--   `releaseAs` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** a semver release type [major|minor|patch]
--   `preset` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** conventional-changelog preset to use (optional, default `'angular'`)
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** resolves the determined version bump
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** returns the index of the type in typeList

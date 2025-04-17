@@ -16,9 +16,9 @@ npm i safe-add-commit-changes --save-dev
 
 #### Table of Contents
 
--   [safeAddCommitChanges](#safeaddcommitchanges)
-    -   [Parameters](#parameters)
-    -   [Examples](#examples)
+*   [safeAddCommitChanges](#safeaddcommitchanges)
+    *   [Parameters](#parameters)
+    *   [Examples](#examples)
 
 ### safeAddCommitChanges
 
@@ -26,9 +26,9 @@ safeAddCommitChanges
 
 #### Parameters
 
--   `fileTypes` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** what to git add - can be glob or type of files {snapshots|docs|tests|js} + more if custom patterns provided
--   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logger object with error and info methods (optional, default `console`)
--   `patterns` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a js object with key value pairs of  pattern for additional fileType to path definitions (optional, default `{}`)
+*   `fileTypes` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** what to git add - can be glob or type of files {snapshots|docs|tests|js} + more if custom patterns provided
+*   `logger` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a logger object with error and info methods (optional, default `console`)
+*   `patterns` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a js object with key value pairs of  pattern for additional fileType to path definitions (optional, default `{}`)
 
 #### Examples
 

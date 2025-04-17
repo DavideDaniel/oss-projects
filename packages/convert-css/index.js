@@ -17,16 +17,16 @@ function sequence(...args) {
   };
 }
 
-const isString = str => typeof str === 'string';
+const isString = (str) => typeof str === 'string';
 
 // const SYMBOL = /!-!/ig
-const removeFirst = str => str.replace(/^_/gi, '');
-const replaceDots = str => str.replace(/\./gi, '_');
-const replaceSpace = str => str.replace(/\s/gi, '_');
+const removeFirst = (str) => str.replace(/^_/gi, '');
+const replaceDots = (str) => str.replace(/\./gi, '_');
+const replaceSpace = (str) => str.replace(/\s/gi, '_');
 // const replaceDashes = str => str.replace(/\-/gi, '!-!');
 // // const replaceSymbol = str => str.replace(SYMBOL, '-');
-// eslint-disable-next-line no-underscore-dangle
-const replace___ = str => str.replace('___', '__');
+
+const replace___ = (str) => str.replace('___', '__');
 
 // const normalizeToStr = key => (isString(key) ? key : key[0]);
 
@@ -48,7 +48,7 @@ const replaceCssSyntax = sequence(
  * @param  {[String]} key [css selector]
  * @return {[String]}     [reformatted selector key]
  */
-const convertKey = key => (isString(key) ? replaceCssSyntax(key) : key.map(replaceCssSyntax)[0]);
+const convertKey = (key) => (isString(key) ? replaceCssSyntax(key) : key.map(replaceCssSyntax)[0]);
 
 function convertKeyNames(obj) {
   const newObj = {};
@@ -59,7 +59,7 @@ function convertKeyNames(obj) {
   return newObj;
 }
 
-const propExists = prop => prop.length;
+const propExists = (prop) => prop.length;
 
 /**
  * [mungeRules reformats rules array from css ast]
@@ -74,18 +74,17 @@ function mungeRules(rules) {
     const { type } = rule;
 
     switch (type) {
-      case 'rule':
-        const { declarations } = rule;
-        const { selectors } = rule;
+      case 'rule': {
+        const { declarations, selectors } = rule;
         const ruleObj = {};
         if (propExists(declarations) && propExists(selectors)) {
           declarations.forEach(({ property, value }) => {
             ruleObj[property] = value;
           });
-          selectors.map(s => ({ [s]: ruleObj })).forEach(r => rulesArr.push(r));
+          selectors.map((s) => ({ [s]: ruleObj })).forEach((r) => rulesArr.push(r));
         }
         break;
-
+      }
       case 'media':
         rulesArr.concat(mungeRules(rule.rules));
         break;
@@ -93,7 +92,7 @@ function mungeRules(rules) {
       case 'font-face':
         // Don't need to alert on this type.
         break;
-      
+
       default:
         console.error(`Type of ${type} did not conform to media or rule \n`, rule);
     }
@@ -130,7 +129,7 @@ function cssToCamelizedJson(string) {
     throw new Error('cssToCamelizedJson needs a valid css string to convert');
   }
   const json = cssToJson(string);
-  return json.map(obj => {
+  return json.map((obj) => {
     const key = Object.keys(obj)[0];
     return {
       [key]: camelize(obj[key]),

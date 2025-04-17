@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const own = require('../package.json');
 const minimist = require('minimist');
+const own = require('../package.json');
 const {
   linkIfExists,
   unlinkIfLinked,
@@ -47,7 +47,7 @@ const helpText = `
 
 const options = { ignorePackages: [] };
 
-const normalizeMatcher = ignoreMatcher => {
+const normalizeMatcher = (ignoreMatcher) => {
   switch (typeof ignoreMatcher) {
     case 'string':
       return ignoreMatcher.split(',');

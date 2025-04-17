@@ -1,6 +1,6 @@
 ### node-git-utils
 
-* * *
+***
 
 [![CircleCI](https://circleci.com/gh/DavideDaniel/node-git-utils/tree/master.svg?style=svg)](https://circleci.com/gh/DavideDaniel/node-git-utils/tree/master)
 
@@ -20,10 +20,10 @@ $ yarn add node-git-utils -D
 
 #### Table of Contents
 
--   [getCurrentSHA](#getcurrentsha)
-    -   [Parameters](#parameters)
--   [hasTags](#hastags)
-    -   [Parameters](#parameters-1)
+*   [getCurrentSHA](#getcurrentsha)
+    *   [Parameters](#parameters)
+*   [hasTags](#hastags)
+    *   [Parameters](#parameters-1)
 
 ### getCurrentSHA
 
@@ -31,7 +31,7 @@ getCurrentSHA
 
 #### Parameters
 
--   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an object of options passed to execa
+*   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an object of options passed to execa
 
 Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the sha at HEAD
 
@@ -41,6 +41,6 @@ hasTags
 
 #### Parameters
 
--   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an object of options passed to execa
+*   `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an object of options passed to execa
 
 Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** returns whether there are any git tags at all

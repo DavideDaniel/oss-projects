@@ -5,7 +5,7 @@ const shapeLernaUpdatedCommand = require('./shape-lerna-updated-command');
 const errString = 'No packages need updating';
 const noUpdates = new RegExp(errString);
 
-function evalExpectedOnly(str, foo) {
+function evalExpectedOnly(str) {
   // only eval a possible array
   if (str && (str.startsWith('[') || str.startsWith('{'))) {
     return eval(str);

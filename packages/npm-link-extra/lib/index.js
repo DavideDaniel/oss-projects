@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-const execa = require('execa');
 const fs = require('fs');
 const path = require('path');
+const execa = require('execa');
 const { readPkgJson, logPkgsMsg, checkForLink, debugLogging } = require('./utils');
 
 const cwd = process.cwd();
-// eslint-disable-next-line import/no-dynamic-require
+
 const { dependencies, devDependencies } = require(path.resolve(`${cwd}/package.json`));
 
 const allDeps = Object.assign({}, devDependencies, dependencies);
@@ -51,17 +51,17 @@ const getDirectories = (pathTo, opts) => {
   }
   return fs
     .readdirSync(pathTo)
-    .filter(item => {
+    .filter((item) => {
       if (ignorePackages && ignorePackages.includes(item)) {
         return false;
       }
       // we want to make sure we don't pick up any . or .DS_Store etc
       return item[0] !== '.';
     })
-    .map(item => {
+    .map((item) => {
       return `${pathTo}/${item}`;
     })
-    .filter(item => {
+    .filter((item) => {
       // make sure to return only dirs
       return fs.statSync(item).isDirectory();
     });
@@ -72,14 +72,14 @@ const getDirectories = (pathTo, opts) => {
  * @param  {Array} dirs   array of directories
  * @return {Array}        array of packages & the relative path to them
  */
-const getPackages = dirs =>
+const getPackages = (dirs) =>
   dirs
-    .map(dir => {
+    .map((dir) => {
       const pkg = readPkgJson(dir) || {};
       pkg.dir = dir;
       return pkg;
     })
-    .filter(pkg => {
+    .filter((pkg) => {
       return pkg.name;
     });
 
@@ -118,7 +118,7 @@ function getSharedDepDirs(pkgs, hash) {
  */
 function getSharedLinked(pkgs, hash) {
   return pkgs
-    .map(name => {
+    .map((name) => {
       const module = hash[name];
       if (module && module.isLinked) {
         return name;
@@ -152,7 +152,7 @@ function getSharedDeps(pkgs, hash) {
  */
 function getLinkedDeps(pkgs) {
   return pkgs
-    .map(name => {
+    .map((name) => {
       const isLinked = checkForLink(name);
       return isLinked ? name : false;
     })
@@ -179,7 +179,7 @@ function createLinks(pkgs, opts) {
   }
   const toLink = [];
   const ignore = pkgs
-    .map(pkg => {
+    .map((pkg) => {
       const { name } = pkg;
       if (checkForLink(name)) {
         debugLogging(`${name} is already linked.`);

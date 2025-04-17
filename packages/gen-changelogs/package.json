@@ -9,13 +9,12 @@
   "author": "David Daniel",
   "license": "MIT",
   "scripts": {
-    "test": "yarn jest --colors --verbose --maxWorkers=2 --testResultsProcessor=\"../../node_modules/jest-junit\"",
-    "test:watch": "yarn jest --watchAll --no-watchman",
-    "lint": "eslint . --fix"
+    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='.' --shallow ---section=Documentation"
   },
   "dependencies": {
     "conventional-changelog-angular": "^3.0.6",
     "conventional-changelog-core": "^2.0.10",
+    "conventional-recommended-bump": "^6.0.0",
     "dedent": "^0.7.0",
     "fs-extra": "^5.0.0",
     "get-stream": "^3.0.0",
@@ -23,5 +22,8 @@
     "require-then": "^1.0.0",
     "semver": "^7.7.1",
     "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "documentation": "^14.0.3"
   }
 }

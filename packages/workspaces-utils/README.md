@@ -14,20 +14,20 @@
 
 #### Table of Contents
 
--   [getWorkSpaceDirPaths](#getworkspacedirpaths)
-    -   [Parameters](#parameters)
--   [getWorkSpacePackages](#getworkspacepackages)
-    -   [Parameters](#parameters-1)
--   [getWorkspaces](#getworkspaces)
-    -   [Parameters](#parameters-2)
--   [getWorkspaceDirNames](#getworkspacedirnames)
-    -   [Parameters](#parameters-3)
--   [getWorkspaceAbsPaths](#getworkspaceabspaths)
-    -   [Parameters](#parameters-4)
--   [getWorkSpacePathTo](#getworkspacepathto)
-    -   [Parameters](#parameters-5)
--   [getPathsInWorkspace](#getpathsinworkspace)
-    -   [Parameters](#parameters-6)
+*   [getWorkSpaceDirPaths](#getworkspacedirpaths)
+    *   [Parameters](#parameters)
+*   [getWorkspaces](#getworkspaces)
+    *   [Parameters](#parameters-1)
+*   [getWorkSpacePackages](#getworkspacepackages)
+    *   [Parameters](#parameters-2)
+*   [getWorkspaceDirNames](#getworkspacedirnames)
+    *   [Parameters](#parameters-3)
+*   [getWorkspaceAbsPaths](#getworkspaceabspaths)
+    *   [Parameters](#parameters-4)
+*   [getWorkSpacePathTo](#getworkspacepathto)
+    *   [Parameters](#parameters-5)
+*   [getPathsInWorkspace](#getpathsinworkspace)
+    *   [Parameters](#parameters-6)
 
 ### getWorkSpaceDirPaths
 
@@ -35,19 +35,9 @@ getWorkspaceDirPaths gets you concatenated list of dir paths in workspace
 
 #### Parameters
 
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths in workspace using npm-link-extras getDirectories
-
-### getWorkSpacePackages
-
-getWorkSpacePackages gets you concatenated list of package.jsons in workspace
-
-#### Parameters
-
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
-
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths in workspace using npm-link-extras getPackages
 
 ### getWorkspaces
 
@@ -56,9 +46,19 @@ when workspaces became an object or array.
 
 #### Parameters
 
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with package.json
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with package.json
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of patterns (eg: packages/\*)
+
+### getWorkSpacePackages
+
+getWorkSpacePackages gets you concatenated list of package.jsons in workspace
+
+#### Parameters
+
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths in workspace using npm-link-extras getPackages
 
 ### getWorkspaceDirNames
 
@@ -67,7 +67,7 @@ It can optionally take a path to root with default as appRoot inside a node proj
 
 #### Parameters
 
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** names of dirs in workspace
 
@@ -77,8 +77,8 @@ can get you absolute paths to directories or files in workspace
 
 #### Parameters
 
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
--   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to file or dir in workspace
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to root dir with default as app root in node project
+*   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to file or dir in workspace
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths
 
@@ -89,8 +89,8 @@ path as the second fn arg to return workspace relative paths
 
 #### Parameters
 
--   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** relative path to root
--   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to file or dir in workspace
+*   `pathToRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** relative path to root
+*   `pathTo` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** path to file or dir in workspace
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths
 
@@ -100,7 +100,7 @@ takes an array of paths/filenames and returns workspace relative paths to them
 
 #### Parameters
 
--   `paths` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of file names or paths
--   `appRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** root path to start from, usually application root
+*   `paths` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of file names or paths
+*   `appRoot` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** root path to start from, usually application root
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** array of paths mapped to workspace packages
