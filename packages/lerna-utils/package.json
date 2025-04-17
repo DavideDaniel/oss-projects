@@ -18,12 +18,15 @@
     "url": "git+https://github.com/DavideDaniel/oss-projects.git"
   },
   "scripts": {
-    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='check-stderr.js' --shallow ---section=Documentation"
+    "update:docs": "BABEL_ENV=docs yarn documentation readme --input='.' --shallow ---section=Documentation"
   },
   "bugs": {
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
   },
   "dependencies": {
     "execa": "^5.0.0"
+  },
+  "devDependencies": {
+    "documentation": "^14.0.3"
   }
 }

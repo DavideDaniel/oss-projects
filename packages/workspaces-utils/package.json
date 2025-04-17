@@ -36,5 +36,8 @@
     "invariant": "^2.2.4",
     "npm-link-extra": "^4.0.3",
     "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "documentation": "^14.0.3"
   }
 }

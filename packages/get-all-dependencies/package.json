@@ -31,5 +31,8 @@
   },
   "bugs": {
     "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  },
+  "devDependencies": {
+    "documentation": "^14.0.3"
   }
 }
