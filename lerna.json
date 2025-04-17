@@ -1,4 +1,12 @@
 {
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s"
+    }
+  },
   "version": "independent",
   "useWorkspaces": true
 }
