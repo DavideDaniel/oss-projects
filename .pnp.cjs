@@ -80,9 +80,8 @@ const RAW_RUNTIME_STATE =
           ["conventional-changelog-atom", "npm:0.2.8"],\
           ["documentation", "npm:12.1.1"],\
           ["eslint", "npm:8.57.1"],\
-          ["eslint-config-airbnb-base", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:15.0.0"],\
           ["eslint-config-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.2"],\
-          ["eslint-json", "npm:2.0.0"],\
+          ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
           ["execa", "npm:0.8.0"],\
@@ -97,7 +96,7 @@ const RAW_RUNTIME_STATE =
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["rimraf", "npm:2.6.3"],\
-          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=b4a374&locator=oss-projects%40workspace%3A."]\
+          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=d2eb7f&locator=oss-projects%40workspace%3A."]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6472,15 +6471,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["confusing-browser-globals", [\
-      ["npm:1.0.11", {\
-        "packageLocation": "./.yarn/cache/confusing-browser-globals-npm-1.0.11-b3ff8e9483-3afc635abd.zip/node_modules/confusing-browser-globals/",\
-        "packageDependencies": [\
-          ["confusing-browser-globals", "npm:1.0.11"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["console-control-strings", [\
       ["npm:1.1.0", {\
         "packageLocation": "./.yarn/cache/console-control-strings-npm-1.1.0-e3160e5275-27b5fa302b.zip/node_modules/console-control-strings/",\
@@ -7809,36 +7799,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["eslint-config-airbnb-base", [\
-      ["npm:15.0.0", {\
-        "packageLocation": "./.yarn/cache/eslint-config-airbnb-base-npm-15.0.0-802837dd26-daa68a1dcb.zip/node_modules/eslint-config-airbnb-base/",\
-        "packageDependencies": [\
-          ["eslint-config-airbnb-base", "npm:15.0.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:15.0.0", {\
-        "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-base-virtual-242d30c8d4/0/cache/eslint-config-airbnb-base-npm-15.0.0-802837dd26-daa68a1dcb.zip/node_modules/eslint-config-airbnb-base/",\
-        "packageDependencies": [\
-          ["@types/eslint", null],\
-          ["@types/eslint-plugin-import", null],\
-          ["confusing-browser-globals", "npm:1.0.11"],\
-          ["eslint", "npm:8.57.1"],\
-          ["eslint-config-airbnb-base", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:15.0.0"],\
-          ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
-          ["object.assign", "npm:4.1.7"],\
-          ["object.entries", "npm:1.1.9"],\
-          ["semver", "npm:6.3.1"]\
-        ],\
-        "packagePeers": [\
-          "@types/eslint-plugin-import",\
-          "@types/eslint",\
-          "eslint-plugin-import",\
-          "eslint"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["eslint-config-prettier", [\
       ["npm:10.1.2", {\
         "packageLocation": "./.yarn/cache/eslint-config-prettier-npm-10.1.2-f2e2dd1288-7b096cbb75.zip/node_modules/eslint-config-prettier/",\
@@ -7869,15 +7829,6 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["is-core-module", "npm:2.16.1"],\
           ["resolve", "patch:resolve@npm%3A1.22.10#optional!builtin<compat/resolve>::version=1.22.10&hash=c3c19d"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["eslint-json", [\
-      ["npm:2.0.0", {\
-        "packageLocation": "./.yarn/cache/eslint-json-npm-2.0.0-c9b1de9f2d-64001ad267.zip/node_modules/eslint-json/",\
-        "packageDependencies": [\
-          ["eslint-json", "npm:2.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8694,6 +8645,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["conventional-changelog-angular", "npm:3.0.7"],\
           ["conventional-changelog-core", "npm:2.0.11"],\
+          ["conventional-recommended-bump", "npm:6.1.0"],\
           ["dedent", "npm:0.7.0"],\
           ["fs-extra", "npm:5.0.0"],\
           ["gen-changelogs", "workspace:packages/gen-changelogs"],\
@@ -12999,19 +12951,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["object.entries", [\
-      ["npm:1.1.9", {\
-        "packageLocation": "./.yarn/cache/object.entries-npm-1.1.9-32f1b371e0-24163ab1e1.zip/node_modules/object.entries/",\
-        "packageDependencies": [\
-          ["call-bind", "npm:1.0.8"],\
-          ["call-bound", "npm:1.0.4"],\
-          ["define-properties", "npm:1.2.1"],\
-          ["es-object-atoms", "npm:1.1.1"],\
-          ["object.entries", "npm:1.1.9"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["object.fromentries", [\
       ["npm:2.0.8", {\
         "packageLocation": "./.yarn/cache/object.fromentries-npm-2.0.8-8f6e2db04a-5b2e80f7af.zip/node_modules/object.fromentries/",\
@@ -13168,9 +13107,8 @@ const RAW_RUNTIME_STATE =
           ["conventional-changelog-atom", "npm:0.2.8"],\
           ["documentation", "npm:12.1.1"],\
           ["eslint", "npm:8.57.1"],\
-          ["eslint-config-airbnb-base", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:15.0.0"],\
           ["eslint-config-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:10.1.2"],\
-          ["eslint-json", "npm:2.0.0"],\
+          ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
           ["execa", "npm:0.8.0"],\
@@ -13185,7 +13123,7 @@ const RAW_RUNTIME_STATE =
           ["oss-projects", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["rimraf", "npm:2.6.3"],\
-          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=b4a374&locator=oss-projects%40workspace%3A."]\
+          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=d2eb7f&locator=oss-projects%40workspace%3A."]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -17338,14 +17276,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["workspaces-utils", [\
-      ["file:packages/workspaces-utils#packages/workspaces-utils::hash=b4a374&locator=oss-projects%40workspace%3A.", {\
-        "packageLocation": "./.yarn/cache/workspaces-utils-file-4afda386c3-75b981ef94.zip/node_modules/workspaces-utils/",\
+      ["file:packages/workspaces-utils#packages/workspaces-utils::hash=d2eb7f&locator=oss-projects%40workspace%3A.", {\
+        "packageLocation": "./.yarn/cache/workspaces-utils-file-44c437c2b2-2ce9ae09ab.zip/node_modules/workspaces-utils/",\
         "packageDependencies": [\
           ["execa", "npm:0.8.0"],\
           ["invariant", "npm:2.2.4"],\
           ["npm-link-extra", "workspace:packages/npm-link-extra"],\
           ["rimraf", "npm:2.6.3"],\
-          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=b4a374&locator=oss-projects%40workspace%3A."]\
+          ["workspaces-utils", "file:packages/workspaces-utils#packages/workspaces-utils::hash=d2eb7f&locator=oss-projects%40workspace%3A."]\
         ],\
         "linkType": "HARD"\
       }],\

@@ -16,6 +16,7 @@
   "dependencies": {
     "conventional-changelog-angular": "^3.0.6",
     "conventional-changelog-core": "^2.0.10",
+    "conventional-recommended-bump": "^6.0.0",
     "dedent": "^0.7.0",
     "fs-extra": "^5.0.0",
     "get-stream": "^3.0.0",

@@ -4580,13 +4580,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"confusing-browser-globals@npm:^1.0.10":
-  version: 1.0.11
-  resolution: "confusing-browser-globals@npm:1.0.11"
-  checksum: 10/3afc635abd37e566477f610e7978b15753f0e84025c25d49236f1f14d480117185516bdd40d2a2167e6bed8048641a9854964b9c067e3dcdfa6b5d0ad3c3a5ef
-  languageName: node
-  linkType: hard
-
 "console-control-strings@npm:^1.0.0, console-control-strings@npm:~1.1.0":
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
@@ -4793,7 +4786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-recommended-bump@npm:^6.1.0":
+"conventional-recommended-bump@npm:^6.0.0, conventional-recommended-bump@npm:^6.1.0":
   version: 6.1.0
   resolution: "conventional-recommended-bump@npm:6.1.0"
   dependencies:
@@ -5736,21 +5729,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-base@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "eslint-config-airbnb-base@npm:15.0.0"
-  dependencies:
-    confusing-browser-globals: "npm:^1.0.10"
-    object.assign: "npm:^4.1.2"
-    object.entries: "npm:^1.1.5"
-    semver: "npm:^6.3.0"
-  peerDependencies:
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.2
-  checksum: 10/daa68a1dcb7bff338747a952723b5fa9d159980ec3554c395a4b52a7f7d4f00a45e7b465420eb6d4d87a82cef6361e4cfd6dbb38c2f3f52f2140b6cf13654803
-  languageName: node
-  linkType: hard
-
 "eslint-config-prettier@npm:^10.1.2":
   version: 10.1.2
   resolution: "eslint-config-prettier@npm:10.1.2"
@@ -5762,7 +5740,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:^0.3.9":
+"eslint-import-resolver-node@npm:^0.3.9, eslint-import-resolver-node@npm:~0.3.9":
   version: 0.3.9
   resolution: "eslint-import-resolver-node@npm:0.3.9"
   dependencies:
@@ -5770,13 +5748,6 @@ __metadata:
     is-core-module: "npm:^2.13.0"
     resolve: "npm:^1.22.4"
   checksum: 10/d52e08e1d96cf630957272e4f2644dcfb531e49dcfd1edd2e07e43369eb2ec7a7d4423d417beee613201206ff2efa4eb9a582b5825ee28802fc7c71fcd53ca83
-  languageName: node
-  linkType: hard
-
-"eslint-json@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "eslint-json@npm:2.0.0"
-  checksum: 10/64001ad267bcbc4a1bacfcb01377af0a8697141920c36678314ba76744ec874f210d5dd5e6d3a6995ea52763a4c84aad51e771169f8d3a8de501fe4625f3f490
   languageName: node
   linkType: hard
 
@@ -6541,6 +6512,7 @@ __metadata:
   dependencies:
     conventional-changelog-angular: "npm:^3.0.6"
     conventional-changelog-core: "npm:^2.0.10"
+    conventional-recommended-bump: "npm:^6.0.0"
     dedent: "npm:^0.7.0"
     fs-extra: "npm:^5.0.0"
     get-stream: "npm:^3.0.0"
@@ -10479,7 +10451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.0.4, object.assign@npm:^4.1.0, object.assign@npm:^4.1.2, object.assign@npm:^4.1.7":
+"object.assign@npm:^4.0.4, object.assign@npm:^4.1.0, object.assign@npm:^4.1.7":
   version: 4.1.7
   resolution: "object.assign@npm:4.1.7"
   dependencies:
@@ -10490,18 +10462,6 @@ __metadata:
     has-symbols: "npm:^1.1.0"
     object-keys: "npm:^1.1.1"
   checksum: 10/3fe28cdd779f2a728a9a66bd688679ba231a2b16646cd1e46b528fe7c947494387dda4bc189eff3417f3717ef4f0a8f2439347cf9a9aa3cef722fbfd9f615587
-  languageName: node
-  linkType: hard
-
-"object.entries@npm:^1.1.5":
-  version: 1.1.9
-  resolution: "object.entries@npm:1.1.9"
-  dependencies:
-    call-bind: "npm:^1.0.8"
-    call-bound: "npm:^1.0.4"
-    define-properties: "npm:^1.2.1"
-    es-object-atoms: "npm:^1.1.1"
-  checksum: 10/24163ab1e1e013796693fc5f5d349e8b3ac0b6a34a7edb6c17d3dd45c6a8854145780c57d302a82512c1582f63720f4b4779d6c1cfba12cbb1420b978802d8a3
   languageName: node
   linkType: hard
 
@@ -10646,9 +10606,8 @@ __metadata:
     conventional-changelog-atom: "npm:^0.2.4"
     documentation: "npm:^12.1.1"
     eslint: "npm:^8.0.0"
-    eslint-config-airbnb-base: "npm:^15.0.0"
     eslint-config-prettier: "npm:^10.1.2"
-    eslint-json: "npm:^2.0.0"
+    eslint-import-resolver-node: "npm:~0.3.9"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-prettier: "npm:^5.2.6"
     execa: "npm:^0.8.0"
@@ -14479,13 +14438,13 @@ __metadata:
 
 "workspaces-utils@file:packages/workspaces-utils::locator=oss-projects%40workspace%3A.":
   version: 1.2.1
-  resolution: "workspaces-utils@file:packages/workspaces-utils#packages/workspaces-utils::hash=b4a374&locator=oss-projects%40workspace%3A."
+  resolution: "workspaces-utils@file:packages/workspaces-utils#packages/workspaces-utils::hash=d2eb7f&locator=oss-projects%40workspace%3A."
   dependencies:
     execa: "npm:^0.8.0"
     invariant: "npm:^2.2.4"
     npm-link-extra: "npm:^4.0.3"
     rimraf: "npm:^2.6.2"
-  checksum: 10/75b981ef9413be053b875d4717e14388d76b398527f790a33ab5cf96bc431b74c5544c877f85f8a77afa63770a8319190ea2bc401b92cabdd6946e890191574b
+  checksum: 10/2ce9ae09ab3d96f361f45aea5ab8e34c85ee0299eb67fba9704f84551eb6b2a4a5a2bbcfa869eda58aff82a0566fd0b67f63935c5619c4262d5e079255f09a27
   languageName: node
   linkType: hard
 
