@@ -5,7 +5,7 @@ const { getWorkspaces } = require('./workspaces-paths');
 
 function copyFile(src, dest, { cwd = process.cwd(), logger = console }) {
   logger.info(`Copying ${src} to all ${dest}`);
-  return execa.shell(`${__dirname}/copy.sh ${src} ${dest}`, { stdio: 'inherit', cwd });
+  return execa(path.join(__dirname, 'copy.sh'), [src, dest], { stdio: 'inherit', cwd });
 }
 
 function copyFiles(fromPath, files, projectRoot, logger = console) {
