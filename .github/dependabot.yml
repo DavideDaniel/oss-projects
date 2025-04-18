@@ -1,3 +1,7 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
+# We use the above to validate the yaml properly
+
+
 # To get started with Dependabot version updates, you'll need to specify which
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
@@ -5,10 +9,10 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-request-limit: 5
     versioning-strategy: increase
     ignore:
