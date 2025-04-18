@@ -13,7 +13,6 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
-    open-pull-request-limit: 5
     versioning-strategy: increase
     ignore:
       - dependency-name: '*'
