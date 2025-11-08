@@ -1,0 +1,94 @@
+name: Test Coverage Report
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests with coverage
+        run: yarn test:all --coverage --coverageReporters=json-summary
+        continue-on-error: true
+
+      - name: Parse coverage
+        id: coverage
+        run: |
+          if [ -f "coverage/coverage-summary.json" ]; then
+            BRANCHES=$(jq -r '.total.branches.pct' coverage/coverage-summary.json)
+            FUNCTIONS=$(jq -r '.total.functions.pct' coverage/coverage-summary.json)
+            LINES=$(jq -r '.total.lines.pct' coverage/coverage-summary.json)
+            STATEMENTS=$(jq -r '.total.statements.pct' coverage/coverage-summary.json)
+
+            echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
+            echo "functions=$FUNCTIONS" >> $GITHUB_OUTPUT
+            echo "lines=$LINES" >> $GITHUB_OUTPUT
+            echo "statements=$STATEMENTS" >> $GITHUB_OUTPUT
+          else
+            echo "branches=0" >> $GITHUB_OUTPUT
+            echo "functions=0" >> $GITHUB_OUTPUT
+            echo "lines=0" >> $GITHUB_OUTPUT
+            echo "statements=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment coverage
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branches = parseFloat(`${{ steps.coverage.outputs.branches }}`);
+            const functions = parseFloat(`${{ steps.coverage.outputs.functions }}`);
+            const lines = parseFloat(`${{ steps.coverage.outputs.lines }}`);
+            const statements = parseFloat(`${{ steps.coverage.outputs.statements }}`);
+
+            const threshold = 80;
+            const emoji = (val) => val >= threshold ? '✅' : '❌';
+            const badge = (val) => val >= 90 ? '🟢' : val >= threshold ? '🟡' : '🔴';
+
+            let body = `## 📊 Test Coverage Report\n\n`;
+            body += `| Metric | Coverage | Status |\n`;
+            body += `|--------|----------|--------|\n`;
+            body += `| Branches | ${branches.toFixed(2)}% | ${badge(branches)} ${emoji(branches)} |\n`;
+            body += `| Functions | ${functions.toFixed(2)}% | ${badge(functions)} ${emoji(functions)} |\n`;
+            body += `| Lines | ${lines.toFixed(2)}% | ${badge(lines)} ${emoji(lines)} |\n`;
+            body += `| Statements | ${statements.toFixed(2)}% | ${badge(statements)} ${emoji(statements)} |\n\n`;
+
+            const allPass = branches >= threshold && functions >= threshold &&
+                           lines >= threshold && statements >= threshold;
+
+            if (allPass) {
+              body += `### ✅ All coverage thresholds met!\n\n`;
+            } else {
+              body += `### ⚠️ Coverage below 80% threshold\n\n`;
+              body += `Please add tests to improve coverage. Use \`/improve-coverage\` for AI assistance.\n\n`;
+            }
+
+            body += `**Minimum required:** 80% for all metrics\n`;
+            body += `- 🟢 Excellent (90%+)\n`;
+            body += `- 🟡 Good (80-89%)\n`;
+            body += `- 🔴 Needs improvement (<80%)\n`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });

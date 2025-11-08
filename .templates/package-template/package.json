@@ -1,0 +1,35 @@
+{
+  "name": "{{PACKAGE_NAME}}",
+  "version": "0.1.0",
+  "description": "{{PACKAGE_DESCRIPTION}}",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "docs": "documentation build index.js -f md -o API.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavideDaniel/oss-projects.git",
+    "directory": "packages/{{PACKAGE_NAME}}"
+  },
+  "bugs": {
+    "url": "https://github.com/DavideDaniel/oss-projects/issues"
+  },
+  "homepage": "https://github.com/DavideDaniel/oss-projects/tree/main/packages/{{PACKAGE_NAME}}#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
