@@ -120,7 +120,18 @@ Any special considerations for deployment?
 // Code examples showing new functionality
 ```
 
-## Checklist
+## Pre-Submission Checklist
+
+**CRITICAL - Verify ALL before creating PR:**
+
+- [ ] If package.json modified: Ran `yarn install` and committed lockfiles
+- [ ] `yarn test:all` passes with no failures
+- [ ] `yarn lint:all` passes with no errors/warnings
+- [ ] All changes are committed (git status clean)
+- [ ] Pushed to branch and **ALL CI checks are GREEN ✅**
+- [ ] Ran `/validate-pr` if using Claude Code
+
+**Code Quality:**
 
 - [ ] My code follows the project's style guidelines
 - [ ] I have performed a self-review of my code

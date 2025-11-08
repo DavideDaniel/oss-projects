@@ -263,6 +263,7 @@ This project is optimized for AI pair programming. Use these features:
 - `/analyze-deps` - Analyze dependencies and identify issues
 - `/improve-coverage` - Identify and improve test coverage
 - `/update-docs` - Generate and update documentation
+- `/validate-pr` - **Validate PR is ready (ALWAYS use before creating PR!)**
 
 ### Session Start Hook
 
@@ -282,35 +283,62 @@ The `.claude/project_context.md` file provides AI assistants with:
 
 ## Pull Request Process
 
+### CRITICAL: All PRs Must Be Green ✅
+
+**Never create a PR with failing CI checks.** Follow this process:
+
 1. **Update your branch** with latest main:
    ```bash
    git fetch origin
    git rebase origin/main
    ```
 
-2. **Run full test suite**:
+2. **If you modified package.json, update lockfiles**:
+   ```bash
+   yarn install
+   git add .yarn/cache/ yarn.lock .pnp.cjs
+   git commit -m "chore: update lockfiles"
+   ```
+
+3. **Run full test suite**:
    ```bash
    yarn test:all
    yarn lint:all
    ```
+   **All tests and linting must pass before proceeding.**
 
-3. **Update documentation**:
+4. **Validate PR readiness** (if using Claude Code):
+   ```bash
+   /validate-pr
+   ```
+   Fix any issues found and re-validate until green.
+
+5. **Update documentation**:
    - Update package README if API changed
    - Add/update JSDoc comments
    - Run `yarn update:docs`
 
-4. **Create descriptive PR**:
+6. **Push and verify CI**:
+   ```bash
+   git push -u origin your-branch-name
+   ```
+   - Wait for all GitHub Actions workflows to complete
+   - **Verify ALL checks are green ✅**
+   - If any checks fail, fix issues and push again
+
+7. **Create descriptive PR** (only when CI is green):
    - Title: `<type>(<scope>): <description>`
    - Description: What changed and why
    - Link related issues
    - Include test results if relevant
+   - **Screenshot of green CI checks (optional but recommended)**
 
-5. **Respond to reviews**:
+8. **Respond to reviews**:
    - Address feedback promptly
    - Push new commits (don't force-push during review)
    - Request re-review when ready
 
-6. **After merge**:
+9. **After merge**:
    - Delete your branch
    - Pull latest main
    - Celebrate! 🎉

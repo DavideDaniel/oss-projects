@@ -90,7 +90,10 @@ In Claude Code, you can use these commands:
 /analyze-deps         # Analyze dependencies
 /improve-coverage     # Improve test coverage
 /update-docs          # Update documentation
+/validate-pr          # Validate PR is ready (ALWAYS use before creating PR!)
 ```
+
+**⚠️ IMPORTANT**: Always run `/validate-pr` before creating or updating any PR!
 
 ### Session Start Hook
 

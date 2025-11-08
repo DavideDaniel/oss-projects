@@ -63,18 +63,20 @@ This monorepo is optimized for AI pair programming with Claude Code:
 
 ### Features
 
-- 🎯 **Custom Slash Commands**: `/new-package`, `/test-package`, `/improve-coverage`, etc.
+- 🎯 **Custom Slash Commands**: `/new-package`, `/test-package`, `/validate-pr`, etc.
 - 🔄 **Session Start Hook**: Auto-initializes environment
 - 📋 **Project Context**: AI understands the architecture
 - 🤖 **Automated Workflows**: PR summaries, coverage reports
 - 📝 **Issue Templates**: Bug reports, features, improvements
+- ✅ **Green PR Enforcement**: All PRs must pass CI before review
 
 ### Getting Started with AI
 
 1. Open in Claude Code
 2. Session hook runs automatically
-3. Use slash commands: `/new-package`, `/test-package`, etc.
-4. See [AI_SETUP.md](AI_SETUP.md) for full guide
+3. Use slash commands: `/new-package`, `/test-package`, `/validate-pr`
+4. **Always run `/validate-pr` before creating PRs**
+5. See [AI_SETUP.md](AI_SETUP.md) for full guide
 
 ## Development
 

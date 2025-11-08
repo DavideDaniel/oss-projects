@@ -70,6 +70,18 @@ lerna add <dep>                      # Add dependency to all packages
 lerna bootstrap                      # Install all dependencies and link packages
 ```
 
+## CRITICAL: PR Requirements
+
+**BEFORE creating or pushing ANY PR:**
+1. ✅ Run `yarn install` if package.json was modified (updates lockfiles)
+2. ✅ Run `yarn test:all` - ALL tests must pass
+3. ✅ Run `yarn lint:all` - NO linting errors allowed
+4. ✅ Verify all changes are committed
+5. ✅ Push changes and wait for CI to be GREEN
+6. ✅ Only request review when ALL CI checks pass
+
+**Never create a PR that isn't green. This is non-negotiable.**
+
 ## AI Development Guidelines
 
 ### When Creating New Packages
@@ -91,6 +103,8 @@ lerna bootstrap                      # Install all dependencies and link package
 - Check if dependency already exists in another package
 - Consider if it should be a shared dependency
 - Use exact versions for published packages
+- **ALWAYS run `yarn install` after modifying package.json**
+- **ALWAYS commit lockfile changes (.yarn/cache/, yarn.lock, .pnp.cjs)**
 
 ### Continuous Improvement Priorities
 1. Increase test coverage (current: 80% minimum, aim for 90%+)
