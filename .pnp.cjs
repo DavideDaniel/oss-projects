@@ -80,6 +80,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
+          ["husky", "npm:9.1.7"],\
           ["jest", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-cli", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-junit", "npm:3.7.0"],\
@@ -6945,6 +6946,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["husky", [\
+      ["npm:9.1.7", {\
+        "packageLocation": "./.yarn/cache/husky-npm-9.1.7-5b02eaabc4-c2412753f1.zip/node_modules/husky/",\
+        "packageDependencies": [\
+          ["husky", "npm:9.1.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["iconv-lite", [\
       ["npm:0.4.24", {\
         "packageLocation": "./.yarn/cache/iconv-lite-npm-0.4.24-c5c4ac6695-6d3a2dac6e.zip/node_modules/iconv-lite/",\
@@ -10828,6 +10838,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-node", "npm:0.3.9"],\
           ["eslint-plugin-import", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:5.2.6"],\
+          ["husky", "npm:9.1.7"],\
           ["jest", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-cli", "virtual:e2ead50342ab501fb3f008beccdf28c469d0268a7664e6c10643a3213e516184b1030e187f9c6b0e2ae1eace0b14b31568bb346083eeda934ca91a7a3216a07c#npm:29.7.0"],\
           ["jest-junit", "npm:3.7.0"],\
