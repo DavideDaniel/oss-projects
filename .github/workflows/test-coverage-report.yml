@@ -27,23 +27,26 @@ jobs:
         run: yarn install --immutable
 
       - name: Run tests with coverage
-        run: yarn test:all --coverage --coverageReporters=json-summary
+        run: jest --coverage
         continue-on-error: true
 
       - name: Parse coverage
         id: coverage
         run: |
-          if [ -f "coverage/coverage-summary.json" ]; then
-            BRANCHES=$(jq -r '.total.branches.pct' coverage/coverage-summary.json)
-            FUNCTIONS=$(jq -r '.total.functions.pct' coverage/coverage-summary.json)
-            LINES=$(jq -r '.total.lines.pct' coverage/coverage-summary.json)
-            STATEMENTS=$(jq -r '.total.statements.pct' coverage/coverage-summary.json)
+          if [ -f "reports/coverage/coverage-summary.json" ]; then
+            BRANCHES=$(jq -r '.total.branches.pct' reports/coverage/coverage-summary.json)
+            FUNCTIONS=$(jq -r '.total.functions.pct' reports/coverage/coverage-summary.json)
+            LINES=$(jq -r '.total.lines.pct' reports/coverage/coverage-summary.json)
+            STATEMENTS=$(jq -r '.total.statements.pct' reports/coverage/coverage-summary.json)
 
             echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
             echo "functions=$FUNCTIONS" >> $GITHUB_OUTPUT
             echo "lines=$LINES" >> $GITHUB_OUTPUT
             echo "statements=$STATEMENTS" >> $GITHUB_OUTPUT
           else
+            echo "Coverage file not found at reports/coverage/coverage-summary.json"
+            ls -la reports/ || echo "reports/ directory not found"
+            ls -la reports/coverage/ || echo "reports/coverage/ directory not found"
             echo "branches=0" >> $GITHUB_OUTPUT
             echo "functions=0" >> $GITHUB_OUTPUT
             echo "lines=0" >> $GITHUB_OUTPUT
