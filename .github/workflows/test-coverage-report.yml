@@ -39,6 +39,12 @@ jobs:
             LINES=$(jq -r '.total.lines.pct' reports/coverage/coverage-summary.json)
             STATEMENTS=$(jq -r '.total.statements.pct' reports/coverage/coverage-summary.json)
 
+            # Handle "Unknown" values from empty coverage
+            [ "$BRANCHES" = "Unknown" ] && BRANCHES="0"
+            [ "$FUNCTIONS" = "Unknown" ] && FUNCTIONS="0"
+            [ "$LINES" = "Unknown" ] && LINES="0"
+            [ "$STATEMENTS" = "Unknown" ] && STATEMENTS="0"
+
             echo "branches=$BRANCHES" >> $GITHUB_OUTPUT
             echo "functions=$FUNCTIONS" >> $GITHUB_OUTPUT
             echo "lines=$LINES" >> $GITHUB_OUTPUT
