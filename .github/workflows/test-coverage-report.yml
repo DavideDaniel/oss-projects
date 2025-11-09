@@ -27,7 +27,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Run tests with coverage
-        run: jest --coverage
+        run: yarn jest --coverage
         continue-on-error: true
 
       - name: Parse coverage
