@@ -14,7 +14,12 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ['json-summary', 'lcov', 'text'],
   testResultsProcessor: 'jest-junit',
-  collectCoverageFrom: ['packages/**/**/*.{js}', '!**/node_modules/**'],
+  collectCoverageFrom: [
+    'packages/**/*.js',
+    '!packages/**/__tests__/**',
+    '!packages/**/*.test.js',
+    '!**/node_modules/**',
+  ],
   roots: ['packages/'],
   testEnvironment: 'node',
 };

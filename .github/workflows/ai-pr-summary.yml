@@ -1,0 +1,81 @@
+name: AI PR Summary
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          git diff --name-only origin/${{ github.base_ref }}...HEAD >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Get diff stats
+        id: diff-stats
+        run: |
+          echo "stats<<EOF" >> $GITHUB_OUTPUT
+          git diff --stat origin/${{ github.base_ref }}...HEAD >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Count test files
+        id: test-count
+        run: |
+          TOTAL_TESTS=$(git diff origin/${{ github.base_ref }}...HEAD -- '**/__tests__/**/*.js' '**/*.test.js' | grep -c "^+.*it(" || echo "0")
+          echo "count=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const changedFiles = `${{ steps.changed-files.outputs.files }}`.trim();
+            const diffStats = `${{ steps.diff-stats.outputs.stats }}`.trim();
+            const testCount = `${{ steps.test-count.outputs.count }}`;
+
+            const fileList = changedFiles.split('\n').filter(f => f.length > 0);
+            const packageChanges = fileList.filter(f => f.startsWith('packages/'));
+            const packages = [...new Set(packageChanges.map(f => f.split('/')[1]))];
+
+            let body = `## 🤖 AI PR Summary\n\n`;
+            body += `**Changed packages:** ${packages.length > 0 ? packages.join(', ') : 'None'}\n\n`;
+            body += `**Files changed:** ${fileList.length}\n`;
+            body += `**New tests added:** ~${testCount}\n\n`;
+            body += `### Diff Stats\n\`\`\`\n${diffStats}\n\`\`\`\n\n`;
+            body += `### Changed Files\n`;
+
+            const grouped = {};
+            for (const file of fileList) {
+              const dir = file.includes('/') ? file.split('/')[0] : 'root';
+              if (!grouped[dir]) grouped[dir] = [];
+              grouped[dir].push(file);
+            }
+
+            for (const [dir, files] of Object.entries(grouped)) {
+              body += `\n**${dir}/**\n`;
+              for (const file of files.slice(0, 10)) {
+                body += `- ${file}\n`;
+              }
+              if (files.length > 10) {
+                body += `- ... and ${files.length - 10} more files\n`;
+              }
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
