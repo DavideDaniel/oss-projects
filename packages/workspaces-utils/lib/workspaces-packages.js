@@ -3,7 +3,7 @@ const nle = require('npm-link-extra');
 const { getWorkspaces } = require('./workspaces-paths');
 
 /**
- * Resolves a workspace pattern (e.g. packages/* or packages-modules/*/*)
+ * Resolves a workspace pattern (e.g. packages/* or nested globs like packages-modules/<name>/<name>)
  * to concrete directory paths.
  * @param {String} pathToRoot root dir with package.json
  * @param {String} pattern workspace pattern
