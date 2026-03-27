@@ -6224,7 +6224,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/get-pkg-repo-npm-1.4.0-2e8b78f4cf-c81dd33b33.zip/node_modules/get-pkg-repo/",\
         "packageDependencies": [\
           ["get-pkg-repo", "npm:1.4.0"],\
-          ["hosted-git-info", "npm:2.8.2"],\
+          ["hosted-git-info", "npm:2.8.9"],\
           ["meow", "npm:3.7.0"],\
           ["normalize-package-data", "npm:2.5.0"],\
           ["parse-github-repo-url", "npm:1.4.1"],\
@@ -6829,11 +6829,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["hosted-git-info", [\
-      ["npm:2.8.2", {\
-        "packageLocation": "./.yarn/cache/hosted-git-info-npm-2.8.2-995f850535-039394202d.zip/node_modules/hosted-git-info/",\
+      ["npm:2.8.9", {\
+        "packageLocation": "./.yarn/cache/hosted-git-info-npm-2.8.9-62c44fa93f-96da7d4123.zip/node_modules/hosted-git-info/",\
         "packageDependencies": [\
-          ["hosted-git-info", "npm:2.8.2"],\
-          ["lru-cache", "npm:5.1.1"]\
+          ["hosted-git-info", "npm:2.8.9"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -10437,7 +10436,7 @@ const RAW_RUNTIME_STATE =
       ["npm:2.5.0", {\
         "packageLocation": "./.yarn/cache/normalize-package-data-npm-2.5.0-af0345deed-644f830a8b.zip/node_modules/normalize-package-data/",\
         "packageDependencies": [\
-          ["hosted-git-info", "npm:2.8.2"],\
+          ["hosted-git-info", "npm:2.8.9"],\
           ["normalize-package-data", "npm:2.5.0"],\
           ["resolve", "patch:resolve@npm%3A1.22.10#optional!builtin<compat/resolve>::version=1.22.10&hash=c3c19d"],\
           ["semver", "npm:5.7.2"],\

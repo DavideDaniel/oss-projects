@@ -5559,11 +5559,9 @@ __metadata:
   linkType: hard
 
 "hosted-git-info@npm:^2.1.4":
-  version: 2.8.2
-  resolution: "hosted-git-info@npm:2.8.2"
-  dependencies:
-    lru-cache: "npm:^5.1.1"
-  checksum: 10/039394202df21c6271a795e2bdc4ef1dce1003830530b38397a2305515ecbb844fdfdca0b3ca1c1e1d445dde19ed9db8787b590f91c5b7cbe8d3f9e1ef24f0ba
+  version: 2.8.9
+  resolution: "hosted-git-info@npm:2.8.9"
+  checksum: 10/96da7d412303704af41c3819207a09ea2cab2de97951db4cf336bb8bce8d8e36b9a6821036ad2e55e67d3be0af8f967a7b57981203fbfb88bc05cd803407b8c3
   languageName: node
   linkType: hard
 
