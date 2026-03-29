@@ -2927,10 +2927,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelize@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "camelize@npm:1.0.0"
-  checksum: 10/ad285ffc909e43fc0e973bebd269c063657c5b69344def478896b0d4a6d64643af1908b0455f50d1fe8ef0ea7591a8a649086f20eae0de4c7e1f8e1cdf5c552f
+"camelize@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "camelize@npm:1.0.1"
+  checksum: 10/0e147b4299ac6363c50050716aadfae42831257ec56ce54773ffd2a94a88abb2e2540c5ccc38345e8a39963105b76d86cb24477165a36b78c9958fb304513db3
   languageName: node
   linkType: hard
 
@@ -3461,7 +3461,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "convert-css@workspace:packages/convert-css"
   dependencies:
-    camelize: "npm:^1.0.0"
+    camelize: "npm:^1.0.1"
     css-parse: "npm:^2.0.0"
     documentation: "npm:^14.0.3"
   languageName: unknown

@@ -3883,10 +3883,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["camelize", [\
-      ["npm:1.0.0", {\
-        "packageLocation": "./.yarn/cache/camelize-npm-1.0.0-5eda108776-ad285ffc90.zip/node_modules/camelize/",\
+      ["npm:1.0.1", {\
+        "packageLocation": "./.yarn/cache/camelize-npm-1.0.1-d86ebe085a-0e147b4299.zip/node_modules/camelize/",\
         "packageDependencies": [\
-          ["camelize", "npm:1.0.0"]\
+          ["camelize", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4461,7 +4461,7 @@ const RAW_RUNTIME_STATE =
       ["workspace:packages/convert-css", {\
         "packageLocation": "./packages/convert-css/",\
         "packageDependencies": [\
-          ["camelize", "npm:1.0.0"],\
+          ["camelize", "npm:1.0.1"],\
           ["convert-css", "workspace:packages/convert-css"],\
           ["css-parse", "npm:2.0.0"],\
           ["documentation", "npm:14.0.3"]\

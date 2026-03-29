@@ -9,7 +9,7 @@
     "update:docs": "BABEL_ENV=docs yarn documentation readme --input='index.js' --shallow ---section=Documentation"
   },
   "dependencies": {
-    "camelize": "^1.0.0",
+    "camelize": "^1.0.1",
     "css-parse": "^2.0.0"
   },
   "devDependencies": {
