@@ -4518,16 +4518,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["cross-spawn", [\
-      ["npm:5.1.0", {\
-        "packageLocation": "./.yarn/cache/cross-spawn-npm-5.1.0-a3e220603e-726939c995.zip/node_modules/cross-spawn/",\
-        "packageDependencies": [\
-          ["cross-spawn", "npm:5.1.0"],\
-          ["lru-cache", "npm:4.1.5"],\
-          ["shebang-command", "npm:1.2.0"],\
-          ["which", "npm:1.3.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:6.0.5", {\
         "packageLocation": "./.yarn/cache/cross-spawn-npm-6.0.5-2deab6c280-f07e643b48.zip/node_modules/cross-spawn/",\
         "packageDependencies": [\
@@ -5656,12 +5646,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["execa", [\
-      ["npm:0.8.0", {\
-        "packageLocation": "./.yarn/cache/execa-npm-0.8.0-7ca41c58fb-1e255f4381.zip/node_modules/execa/",\
+      ["npm:0.11.0", {\
+        "packageLocation": "./.yarn/cache/execa-npm-0.11.0-32ae149bb1-6a4c113e02.zip/node_modules/execa/",\
         "packageDependencies": [\
-          ["cross-spawn", "npm:5.1.0"],\
-          ["execa", "npm:0.8.0"],\
-          ["get-stream", "npm:3.0.0"],\
+          ["cross-spawn", "npm:6.0.5"],\
+          ["execa", "npm:0.11.0"],\
+          ["get-stream", "npm:4.1.0"],\
           ["is-stream", "npm:1.1.0"],\
           ["npm-run-path", "npm:2.0.2"],\
           ["p-finally", "npm:1.0.0"],\
@@ -8618,7 +8608,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/lerna-utils/",\
         "packageDependencies": [\
           ["documentation", "npm:14.0.3"],\
-          ["execa", "npm:5.1.1"],\
+          ["execa", "npm:0.11.0"],\
           ["lerna-utils", "workspace:packages/lerna-utils"]\
         ],\
         "linkType": "SOFT"\
@@ -8852,15 +8842,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/lru-cache-npm-10.4.3-30c10b861a-e6e9026736.zip/node_modules/lru-cache/",\
         "packageDependencies": [\
           ["lru-cache", "npm:10.4.3"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:4.1.5", {\
-        "packageLocation": "./.yarn/cache/lru-cache-npm-4.1.5-ede304cc43-9ec7d73f11.zip/node_modules/lru-cache/",\
-        "packageDependencies": [\
-          ["lru-cache", "npm:4.1.5"],\
-          ["pseudomap", "npm:1.0.2"],\
-          ["yallist", "npm:2.1.2"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -10328,7 +10309,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/node-git-utils/",\
         "packageDependencies": [\
           ["documentation", "npm:14.0.3"],\
-          ["execa", "npm:0.8.0"],\
+          ["execa", "npm:0.11.0"],\
           ["node-git-utils", "workspace:packages/node-git-utils"]\
         ],\
         "linkType": "SOFT"\
@@ -10517,7 +10498,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/npm-link-extra/",\
         "packageDependencies": [\
           ["documentation", "npm:14.0.3"],\
-          ["execa", "npm:0.8.0"],\
+          ["execa", "npm:0.11.0"],\
           ["minimist", "npm:1.2.8"],\
           ["npm-link-extra", "workspace:packages/npm-link-extra"]\
         ],\
@@ -11593,15 +11574,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["pseudomap", [\
-      ["npm:1.0.2", {\
-        "packageLocation": "./.yarn/cache/pseudomap-npm-1.0.2-0d0e40fee0-856c0aae0f.zip/node_modules/pseudomap/",\
-        "packageDependencies": [\
-          ["pseudomap", "npm:1.0.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["psl", [\
       ["npm:1.3.0", {\
         "packageLocation": "./.yarn/cache/psl-npm-1.3.0-6529a96d18-ea51a8518f.zip/node_modules/psl/",\
@@ -12285,7 +12257,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/safe-add-commit-changes/",\
         "packageDependencies": [\
           ["documentation", "npm:14.0.3"],\
-          ["execa", "npm:0.8.0"],\
+          ["execa", "npm:0.11.0"],\
           ["safe-add-commit-changes", "workspace:packages/safe-add-commit-changes"]\
         ],\
         "linkType": "SOFT"\
@@ -14217,7 +14189,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/workspaces-utils/",\
         "packageDependencies": [\
           ["documentation", "npm:14.0.3"],\
-          ["execa", "npm:0.8.0"],\
+          ["execa", "npm:0.11.0"],\
           ["invariant", "npm:2.2.4"],\
           ["npm-link-extra", "workspace:packages/npm-link-extra"],\
           ["rimraf", "npm:2.6.3"],\
@@ -14373,13 +14345,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["yallist", [\
-      ["npm:2.1.2", {\
-        "packageLocation": "./.yarn/cache/yallist-npm-2.1.2-2e38c366a3-75fc7bee48.zip/node_modules/yallist/",\
-        "packageDependencies": [\
-          ["yallist", "npm:2.1.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:3.1.1", {\
         "packageLocation": "./.yarn/cache/yallist-npm-3.1.1-a568a556b4-9af0a4329c.zip/node_modules/yallist/",\
         "packageDependencies": [\
